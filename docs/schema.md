@@ -24,8 +24,7 @@ session_token   | string    | not null, indexed, unique
 | timestart         | time       | not null
 | description       | text       |
 | image             | string     | not null
-| ticket_price      | integer    | not null
-| ticket_quantity   | integer    | not null
+
 
 ## tickets
 | column name     | data type  | details  
@@ -33,7 +32,8 @@ session_token   | string    | not null, indexed, unique
 | id              | integer    | not null, primary key
 | event_id        | integer    | not null, foreign key (references events), indexed
 | ticket_type     | string     |
-
+| ticket_price    | integer    | not null
+| ticket_quantity | integer    | not null
 
 ## ticketOrder
 | column name     | data type  | details  
