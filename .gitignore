@@ -15,3 +15,14 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore webpackified js and node modules
+/node_modules/
+/app/assets/javascripts/bundle.js
+/app/assets/javascripts/bundle.map.js
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+npm-debug.log

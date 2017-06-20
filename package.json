@@ -1,0 +1,24 @@
+{
+  "name": "EventDoneSimple",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "webpack.config.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcevens/EventDoneSimple.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcevens/EventDoneSimple/issues"
+  },
+  "homepage": "https://github.com/mcevens/EventDoneSimple#readme"
+}
