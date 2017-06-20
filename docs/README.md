@@ -5,19 +5,20 @@
 [Trello link][trello]
 
 [heroku]: http://www.herokuapp.com
+[trello]: https://trello.com/b/emWOxUy7/eventdonesimple
 
 ## Minimum Viable Product
 
 EventDoneSimple is a web-app inspired by EventBrite designed with Ruby on Rails, React/Redux and postgresql. It will have the following features.
 
-- [] Hosting in Heroku
-- [] New account creation, login
-- [] Events
-- [] Registration / Tickets
-- [] Categories
-- [] Bookmark events
-- [] Google Maps integration
-- [] Search
+- [ ] Hosting in Heroku
+- [ ] New account creation, login
+- [ ] Events
+- [ ] Registration / Tickets
+- [ ] Categories
+- [ ] Bookmark events
+- [ ] Google Maps integration
+- [ ] Search
 
 ## Design Docs
 * [View Wireframes][wireframes]
@@ -38,19 +39,18 @@ EventDoneSimple is a web-app inspired by EventBrite designed with Ruby on Rails,
 
 **Objective**: Functionning rails project with front-end Authentication.
 
-### Phase 2: Models,DB,  API Implementation  (1 day)
+### Phase 2:  Implementation of filter by categories (1 day)
 
-**Objective**: Create critical and dependent model, initial seed of database.
+**Objective**: User should be able to see a list of categories on the left side of the page of events
 
-### Phase 3: Events(3 days)
+### Phase 3: Events(2 days)
 
- **Objective**: Create a full cycle of event, events can be viewed in a list, can be created, can be edited.
-
+**Objective**: Create a full cycle of event, events can be viewed in a list, can be created, can be edited.
 
 ### Phase 4 : Registration / Tickets(2 days)
 
-**Objective**: Create a full cycle of registration.
+**Objective**: User should be able to buy tickets from an event and register if they don't have an account.
 
-### Phase 5 : Testing and adjustement(1 day)
+### Phase 5 : Bookmark event (1 days)
 
-**Objective**: Create relevant test for the application and making necessary adjustment.
+**Objective**: Event can be bookmarked to user's save list
