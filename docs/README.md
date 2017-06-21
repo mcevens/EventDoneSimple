@@ -4,7 +4,7 @@
 
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: http://eventdonesimple.herokuapp.com
 [trello]: https://trello.com/b/emWOxUy7/eventdonesimple
 
 ## Minimum Viable Product
