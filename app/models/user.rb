@@ -21,13 +21,11 @@ class User < ActiveRecord::Base
 
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)
-    password == password_digest
   end
 
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
-    self.password_digest = password
   end
 
   def reset_session_token!
