@@ -20,12 +20,14 @@ class User < ActiveRecord::Base
   end
 
   def is_password?(password)
-    BCrypt::Password.new(self.password_digest).is_password?(password)
+    # BCrypt::Password.new(self.password_digest).is_password?(password)
+    password == password_digest
   end
 
   def password=(password)
     @password = password
-    self.password_digest = BCrypt::Password.create(password)
+    # self.password_digest = BCrypt::Password.create(password)
+    self.password_digest = password
   end
 
   def reset_session_token!
@@ -37,12 +39,13 @@ class User < ActiveRecord::Base
   def self.find_by_email_clean(email)
     user = User.new
     findUser  = User.find_by(email: email)
+    
     if findUser
       return findUser
     else
       user.id = 0
       user.email = ''
-      return user 
+      return user
     end
   end
 
