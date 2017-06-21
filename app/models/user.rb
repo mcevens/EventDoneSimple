@@ -34,6 +34,18 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
+  def self.find_by_email_clean(email)
+    user = User.new
+    findUser  = User.find_by(email: email)
+    if findUser
+      return findUser
+    else
+      user.id = 0
+      user.email = ''
+      return user 
+    end
+  end
+
   private
 
   def ensure_session_token

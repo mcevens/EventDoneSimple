@@ -11,6 +11,11 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(email: params[:email]);
+    render @user
+  end
+
   private
 
   def user_params

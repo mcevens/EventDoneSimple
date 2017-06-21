@@ -28,23 +28,48 @@ class SessionForm extends React.Component {
   render() {
     const buttonText = this.props.formType === 'login' ? 'Log In' : 'Sign Up';
     return (
-      <section >
+    <div className="login-wrapper">
+      <section className="login" >
+
+            <h2>{buttonText}</h2>
+            <h6>Please enter your password to log in</h6>
+           <ul>
+             {}
+           </ul>
 
         <form onSubmit={this.handleSubmit}>
-          <label>
-            Email:
-            <input onChange={this.update("email")} value={this.state.email}/>
-          </label>
-          <label>
-            Password:
-            <input onChange={this.update("password")}
-              value={this.state.password}
-              type="password"
-              />
-          </label>
-          <button>{buttonText}</button>
+          <fieldset>
+            <ul>
+              <li>
+                <label>
+                  Email address
+                </label>
+                <input type="text" onChange={this.update("email")} value={this.state.email}/>
+              </li>
+              <li>
+                <label>
+                  Password:
+                  </label>
+                  <input onChange={this.update("password")}
+                    value={this.state.password}
+                    type="password"
+                    />
+              </li>
+              <li id="rememberMe">
+                <input id="rememberMe" type="checkbox"></input>
+                <label for="rememberMe">Remember me</label>
+              </li>
+              <li>
+                  <button>{buttonText}</button>
+              </li>
+              <li>
+                  <a id="forgot_password" >Forgot password</a>
+              </li>
+            </ul>
+          </fieldset>
         </form>
       </section>
+      </div>
     );
   }
 }

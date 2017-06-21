@@ -7,6 +7,12 @@ export const receiveCurrentUser = currentUser => ({
   currentUser
 });
 
+export const checkuser = user => dispatch => (
+  APIUtil.checkuser(user).then(userResp => (
+    dispatch(receiveCurrentUser(userResp))
+  ))
+);
+
 export const signup = user => dispatch => (
   APIUtil.signup(user).then(userResp => (
     dispatch(receiveCurrentUser(userResp))
