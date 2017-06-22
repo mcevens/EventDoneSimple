@@ -3,61 +3,103 @@ import { connect }  from 'react-redux';
 import { Link }  from 'react-router-dom';
 import { logout } from '../actions/session_actions';
 
-const GlobalHeader = function({currentUser, logout}) {
+const GlobalHeader = function(props) {
+  const currentUser = props.currentUser;
+  const logout = props.logout;
 
-  const signUpOrLogin = () => {
+  const panelUser = () => {
     if (currentUser) {
       return (
-        <section >
-          <div>
-            <div className="currentUser">
-               { currentUser.email }
-            </div>
-            <div>
-              <ul>
-                <li>
-                  Tickets
-                </li>
-                <li>
-                  Saved
-                </li>
-                <li>
-                  Manage Events
-                </li>
-                <li>
-                  Organizer Profile
-                </li>
-                <li>
-                  Contacts
-                </li>
-                <li>
-                  Account Settings
-                </li>
-                <li>
-                  <button onClick={logout}>
-                    Log Out
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
+        <li>
+          <ul className="user-menu-dropdown">
+            <li>
+              Tickets
+            </li>
+            <li>
+              Saved
+            </li>
+            <li>
+              Manage Events
+            </li>
+            <li>
+              Organizer Profile
+            </li>
+            <li>
+              Contacts
+            </li>
+            <li>
+              Account Settings
+            </li>
+            <li>
+              <button onClick={logout}>
+                Log Out
+              </button>
+            </li>
+          </ul>
+        </li>
       );
-    } else {
-      return (
-        <section >
+    }
+  };
+
+  const login = () => {
+    if (!currentUser){
+      return (<li>
           <Link to="/login">LOG IN</Link>
+        </li>);
+    }
+  };
+
+  const signUp = () => {
+    if (!currentUser){
+      return (<li>
           <Link to="/signup">SIGN UP</Link>
-        </section>
+        </li>);
+    }
+  };
+
+  const userInfo = () => {
+    if (currentUser){
+      return(<li>
+        <a href="#">{currentUser.email}</a>
+      </li>);
+    }
+  };
+
+  const createEvent = () => {
+    if (currentUser) {
+      return (
+        <li>
+          <Link to="/create">CREATE EVENT</Link>
+        </li>
       );
     }
   };
 
   return (
     <header>
-      {signUpOrLogin()}
-      <Link to="/create">CREATE EVENT</Link>
-    </header>
+      <div className="global-header">
+        <nav>
+          <a className="logo">Eventdonesimple</a>
+          <ul>
+            <li>
+              <a href="#">BROWSE EVENT</a>
+            </li>
+            <li>
+              <a href="#">LEARN MORE</a>
+            </li>
+            <li>
+              <a href="#">HELP</a>
+            </li>
+
+            { panelUser() }
+            { login() }
+            { signUp() }
+            { userInfo() }
+            { createEvent() }
+          </ul>
+        </nav>
+      </div>
+     </header>
   );
 };
 

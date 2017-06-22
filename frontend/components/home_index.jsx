@@ -12,11 +12,7 @@ class HomeForm  extends React.Component {
     return(
       <section>
         <GlobalHeader />
-        <h1>
-          Here we go
-        </h1>
       </section>
-
     );
   }
 

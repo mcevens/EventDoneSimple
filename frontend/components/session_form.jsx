@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {login, signup} from '../actions/session_actions';
+import { Link, withRouter } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -9,9 +10,15 @@ class SessionForm extends React.Component {
       email: '',
       password: ''
     };
-
+    this.renderErrors = this.renderErrors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+//   componentWillReceiveProps(nextProps) {
+//   if (nextProps.loggedIn) {
+//     this.props.history.push('/');
+//   }
+// }
 
   update(field) {
     return e => {
@@ -25,7 +32,26 @@ class SessionForm extends React.Component {
     this.props.processForm({user});
   }
 
+  renderErrors() {
+
+
+    let a = 0;
+    if (this.props.errors) {
+
+      return(
+        <ul>
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+}
+
   render() {
+
     const buttonText = this.props.formType === 'login' ? 'Log In' : 'Sign Up';
     return (
     <div className="login-wrapper">
@@ -36,7 +62,6 @@ class SessionForm extends React.Component {
            <ul>
              {}
            </ul>
-
         <form onSubmit={this.handleSubmit}>
           <fieldset>
             <ul>
@@ -55,9 +80,12 @@ class SessionForm extends React.Component {
                     type="password"
                     />
               </li>
+              <li>
+                    {this.renderErrors()}
+              </li>
               <li id="rememberMe">
                 <input id="rememberMe" type="checkbox"></input>
-                <label for="rememberMe">Remember me</label>
+                <label >Remember me</label>
               </li>
               <li>
                   <button>{buttonText}</button>
@@ -73,17 +101,4 @@ class SessionForm extends React.Component {
     );
   }
 }
-
-
-const mapDispatchToProps = function(dispatch, ownProps) {
-  const formType = ownProps.location.pathname.slice(1);
-    const processForm = (formType === 'login') ? login : signup;
-    return {
-      processForm: user => {
-        return dispatch(processForm(user));
-      },
-      formType
-    };
-};
-
-export default connect(null, mapDispatchToProps)(SessionForm);
+export default withRouter(SessionForm);

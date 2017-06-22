@@ -13,15 +13,16 @@ import {
 import SessionForm from './session_form.jsx';
 import EventForm from './event_form.jsx';
 import HomeIndex from './home_index';
+import SessionFormContainer from './session_form_container';
 
 
 const App = () => (
     <div>
       <Switch>
         <Route exact path="/" component={HomeIndex}/>
-          <ProtectedRoute path="/create" component={EventForm }/>
-        <AuthRoute path="/login" component={SessionForm}/>
-        <AuthRoute path="/signup" component={SessionForm}/>
+        <ProtectedRoute path="/create" component={EventForm }/>
+        <AuthRoute path="/login" component={SessionFormContainer}/>
+        <AuthRoute path="/signup" component={SessionFormContainer}/>
       </Switch>
     </div>
 );
