@@ -13,6 +13,8 @@ class SessionForm extends React.Component {
     };
     this.renderErrors = this.renderErrors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLoginClick = this.demoLoginClick.bind(this);
+    this.loginClick = this.loginClick.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -28,15 +30,39 @@ class SessionForm extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger
+    e.preventDefault();
+
+    // const user = this.state;
+    // this.props.processForm({user});
+  }
+
+  demoLoginClick(e){
+    e.preventDefault();
+    this.setState ({email: 'guest'});
+    this.setState({ password: 'passpass'});
+    const user = this.state;
+    this.props.processForm({user});
+
+  }
+
+
+  loginClick(e){
     e.preventDefault();
     const user = this.state;
     this.props.processForm({user});
   }
 
+  renderDemologin(){
+    if (this.props.formType === 'login' ){
+      return(<li>
+          <button onClick={this.demoLoginClick} id="demoLogin" >Demo Login</button>
+      </li>);
+    }
+  }
+
   renderErrors() {
 
-
-    let a = 0;
     if (this.props.errors) {
 
       return(
@@ -89,8 +115,9 @@ class SessionForm extends React.Component {
                 <label >Remember me</label>
               </li>
               <li>
-                  <button>{buttonText}</button>
+                  <button onClick={this.loginClick} id="login" >{buttonText}</button>
               </li>
+                    {this.renderDemologin()}
 
             </ul>
           </fieldset>
