@@ -2,11 +2,12 @@ import React from 'react';
 import { connect }  from 'react-redux';
 import { Link }  from 'react-router-dom';
 import { logout } from '../actions/session_actions';
+import {Input, TextArea, GenericInput} from 'react-text-input';
 
 const GlobalHeader = function(props) {
   const currentUser = props.currentUser;
   const logout = props.logout;
-
+  const headerOrigin = props.headerOrigin; 
   const panelUser = () => {
     if (currentUser) {
       return (
@@ -75,14 +76,30 @@ const GlobalHeader = function(props) {
     }
   };
 
+  const searchForEvent = () =>{
+    debugger
+
+    if (headerOrigin !== 'home_index') {
+      return (
+        <div>
+           <img></img>
+           <Input type="search" defaultValue="Search for events"/>
+        </div>
+      );
+    }
+  };
+
   return (
     <header>
       <div className="global-header">
         <nav>
-          <a className="logo">Eventdonesimple</a>
+          <div>
+              <a className="logo">Eventdonesimple</a>
+              { searchForEvent() }
+          </div>
           <ul>
             <li>
-              <a href="#">BROWSE EVENT</a>
+              <Link to="/events">BROWSE EVENTS</Link>
             </li>
             <li>
               <a href="#">LEARN MORE</a>
@@ -103,8 +120,10 @@ const GlobalHeader = function(props) {
   );
 };
 
-const mapStateToProps = state => {
-  return {currentUser: state.session.currentUser};
+const mapStateToProps = (state, ownProps) => {
+  return {
+    currentUser: state.session.currentUser
+  };
 };
 
 const mapDispatchToProps = dispatch => {

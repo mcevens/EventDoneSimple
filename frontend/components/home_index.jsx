@@ -11,7 +11,8 @@ class HomeForm  extends React.Component {
   render(){
     return(
       <section>
-        <GlobalHeader />
+        <GlobalHeader headerOrigin="home_index" />
+
       </section>
     );
   }

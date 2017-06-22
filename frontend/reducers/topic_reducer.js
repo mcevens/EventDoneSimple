@@ -1,4 +1,4 @@
-import RECEIVE_TOPICS from '../actions/topic_actions';
+import RECEIVE_TOPICS from '../actions/topic_action';
 const defaultState = {};
 
 const TopicReducer = (state = defaultState, action ) => {
