@@ -7,15 +7,16 @@ class EventIndex  extends React.Component {
 
   constructor(props){
     super(props);
-
-
   }
 
   render(){
     return(
-      <section  className="event-index">
+      <section className="event-index">
         <GlobalHeader headerOrigin="event_index" />
-          <div className="event-index">
+          <div className="event-index-side-bar">
+            <h1>It's working</h1>
+          </div>
+          <div className="event-index-content">
             <h1>It's working</h1>
           </div>
       </section>
@@ -25,7 +26,7 @@ class EventIndex  extends React.Component {
 }
 const mapStateToProps = (state, ownProps) => {
   const InfoParams = ownProps.match.params;
-
+  //debugger
   return ({
     InfoParams: InfoParams
   });

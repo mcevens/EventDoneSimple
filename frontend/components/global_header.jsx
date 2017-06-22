@@ -2,37 +2,41 @@ import React from 'react';
 import { connect }  from 'react-redux';
 import { Link }  from 'react-router-dom';
 import { logout } from '../actions/session_actions';
-import {Input, TextArea, GenericInput} from 'react-text-input';
+import TopicHeaderListContainer from './topic/topic_header_list_container';
 
-const GlobalHeader = function(props) {
+
+  const GlobalHeader = function(props) {
+
   const currentUser = props.currentUser;
   const logout = props.logout;
-  const headerOrigin = props.headerOrigin; 
+  const headerOrigin = props.headerOrigin;
   const panelUser = () => {
     if (currentUser) {
       return (
-        <li>
-          <ul className="user-menu-dropdown">
+        <li id="gear-dropdown" className="user-menu-dropdown">
+          <ul className="items">
             <li>
-              Tickets
+              <Link to="/signup">Tickets</Link>
             </li>
             <li>
-              Saved
+              <Link to="/signup">Saved</Link>
             </li>
             <li>
-              Manage Events
+              <Link to="/signup">Manage Events</Link>
             </li>
             <li>
-              Organizer Profile
+              <Link to="/signup">Organizer Profile</Link>
             </li>
             <li>
-              Contacts
+            <Link to="/signup">Contacts</Link>
+
             </li>
             <li>
-              Account Settings
+              <Link to="/signup">Account Settings</Link>
+
             </li>
             <li>
-              <button onClick={logout}>
+              <button id="logout-button" onClick={logout}>
                 Log Out
               </button>
             </li>
@@ -61,7 +65,7 @@ const GlobalHeader = function(props) {
   const userInfo = () => {
     if (currentUser){
       return(<li>
-        <a href="#">{currentUser.email}</a>
+        <a id="gear-dropdown-btn" href="#">{currentUser.email}</a>
       </li>);
     }
   };
@@ -77,13 +81,13 @@ const GlobalHeader = function(props) {
   };
 
   const searchForEvent = () =>{
-    debugger
 
     if (headerOrigin !== 'home_index') {
       return (
-        <div>
+        <div className="search_bar" >
            <img></img>
-           <Input type="search" defaultValue="Search for events"/>
+           <input placeholder="Search for events" type="text"></input>
+
         </div>
       );
     }
@@ -121,6 +125,7 @@ const GlobalHeader = function(props) {
 };
 
 const mapStateToProps = (state, ownProps) => {
+
   return {
     currentUser: state.session.currentUser
   };

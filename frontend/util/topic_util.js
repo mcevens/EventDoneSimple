@@ -1,7 +1,6 @@
-export const fetchTopics = success => {
-  $.ajax({
+export const fetchAllTopic = () => {
+  return $.ajax({
     method: 'GET',
-    url: 'api/topics',
-    success
+    url: 'api/topics'
   });
 };

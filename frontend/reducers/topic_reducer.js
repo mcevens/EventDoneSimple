@@ -1,15 +1,18 @@
-import RECEIVE_TOPICS from '../actions/topic_action';
+import {RECEIVE_TOPICS} from '../actions/topic_action.js';
+
+import { merge } from 'lodash';
 const defaultState = {};
 
 const TopicReducer = (state = defaultState, action ) => {
   Object.freeze(state);
-  let newState = {};
+  console.log(RECEIVE_TOPICS);
+
+  let newState;
   switch (action.type) {
     case RECEIVE_TOPICS:
-        action.topics.forEach(topic =>{
-          newState[topic.id] = topic;
-        });
-      return Object.assign({}, state, newState);
+        newState = {};
+        merge(newState, state, action.topics);
+        return action.topics;
     default:
       return state;
   }
