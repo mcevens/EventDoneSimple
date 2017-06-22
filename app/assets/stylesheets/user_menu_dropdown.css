@@ -1,4 +1,4 @@
-.user-menu-dropdown {
+/*.user-menu-dropdown {
 	position: absolute;
 	top: 60px;
 	right: 0;
@@ -13,8 +13,8 @@
 	text-align: left;
 	box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
 	font-weight: initial;
-}
-
+}*/
+/*
 .user-menu-dropdown .editions  {
 	border-bottom: 1px solid $light-gray;
 }
@@ -57,4 +57,4 @@
 .editions li:first-of-type {
 	color: #000;
 	background-color: $light-gray;
-}
+}*/
