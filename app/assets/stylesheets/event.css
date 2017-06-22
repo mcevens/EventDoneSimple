@@ -1,3 +1,18 @@
 .event-index-content {
   background-color: #B5AF8F
 }
+
+
+.search_bar {
+  float:left;
+  height: 30px;
+  margin: 10px;
+}
+
+.search_bar input{
+  border: none;
+}
+
+.topic-list-nav{
+  
+}

@@ -72,6 +72,7 @@ input[type="text"], input[type="password"]{
   font-size: 18px;
   font-family: sans-serif;
   border-color: #C3C6CF;
+  padding-left: 10px;
 }
 
 input[type="text"]:focus, input[type="password"]:focus {

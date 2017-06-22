@@ -11,7 +11,7 @@ nav a {
   color:#45494E;
 }
 
-nav a:hover{
+nav a:hover, #logout-button:hover{
   background-color: #F8F8FA
 }
 
@@ -26,10 +26,12 @@ nav ul li {
 nav ul li a {
   padding: 20px;
   display: block;
+  font-size: 16px;
 }
 
 .logo {
-  display: block;
+  display: inline;
+  float: left;
   color:#F26832;
   font-family: "Benton Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 25px;
@@ -42,5 +44,57 @@ nav ul li a {
 }
 
 .global-header{
-  border-bottom: 1px solid #EFF2F5
+  border-bottom: 1px solid #EFF2F5;
+}
+
+
+.user-menu-dropdown .items  {
+	border-bottom: 1px solid grey;
+
+}
+
+.user-menu-dropdown .items li {
+	margin: 0px 0;
+	cursor: pointer;
+	border-radius: 3px;
+	font-size: 12px;
+	display:block;
+  font-family: Helvetica, Tahoma, Arial, sans-serif
+}
+
+.hidden{
+  display:none;
+}
+.user-menu-dropdown {
+	position: absolute;
+	top: 60px;
+	right: 120px;
+	background-color: #fff;
+	border: 1px solid light-gray;
+	border-radius: 3px;
+	padding: 0px;
+	margin-right: 40px;
+	width: 250px;
+	z-index: 1;
+	color: dark-gray;
+	font-family: sans-serif;
+	text-align: left;
+	font-weight: initial;
+  border-left:1px solid #EFF2F5;
+  border-right:1px solid #EFF2F5;
+  border-bottom:1px solid #EFF2F5;
+  text-transform: uppercase;
+}
+
+#logout-button{
+  font-size: 16px;
+  padding: 20px;
+  background-color: white;
+  cursor: pointer;
+  border:none;
+  width:100%;
+  text-align: left;
+  font-weight: 200;
+  color: #45494E;
+  font-family:"Helvetica", "Tahoma", "Arial", "sans-serif"
 }
