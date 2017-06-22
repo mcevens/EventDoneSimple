@@ -14,7 +14,7 @@ session_token   | string    | not null, indexed, unique
 | column name       | data type  | details  
 |-------------------|------------|------------------------
 | id                | integer    | not null, primary key
-| organizer_id      | integer    | not null, foreign key (references users), indexed
+| creater_id        | integer    | not null, foreign key (references users), indexed
 | title             | string     | not null, indexed
 | longitude         | decimal    |
 | onlineEvent       | boolean    |
@@ -47,3 +47,4 @@ session_token   | string    | not null, indexed, unique
 
 | id                   | integer       | not null, primary key
 | name                 | string        | not null
+| parent_id            | integer       | not null
