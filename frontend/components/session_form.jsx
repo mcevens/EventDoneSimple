@@ -5,6 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
+
     super(props);
     this.state =  {
       email: '',
@@ -14,11 +15,11 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-//   componentWillReceiveProps(nextProps) {
-//   if (nextProps.loggedIn) {
-//     this.props.history.push('/');
-//   }
-// }
+  componentWillReceiveProps(nextProps) {
+  if (nextProps.loggedIn) {
+    this.props.history.push('/');
+  }
+}
 
   update(field) {
     return e => {
@@ -39,7 +40,7 @@ class SessionForm extends React.Component {
     if (this.props.errors) {
 
       return(
-        <ul>
+        <ul className="errors">
           {this.props.errors.map((error, i) => (
             <li key={`error-${i}`}>
               {error}
@@ -90,9 +91,7 @@ class SessionForm extends React.Component {
               <li>
                   <button>{buttonText}</button>
               </li>
-              <li>
-                  <a id="forgot_password" >Forgot password</a>
-              </li>
+
             </ul>
           </fieldset>
         </form>

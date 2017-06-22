@@ -98,3 +98,7 @@ nav ul li a {
   color: #45494E;
   font-family:"Helvetica", "Tahoma", "Arial", "sans-serif"
 }
+
+.errors{
+  color:red;
+}
