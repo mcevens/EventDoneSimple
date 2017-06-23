@@ -12,20 +12,20 @@ export const fetchSingleEvent = (id) =>{
   });
 };
 
-export const createEvent = (post) => {
+export const createEvent = (event) => {
   return $.ajax({
     method: 'POST',
     url: 'api/events/',
-    data : { post }
+    data : { event }
   });
 };
 
-export const editEvent = (post) => {
-  const id = post["id"];
+export const editEvent = (event) => {
+  const id = event["id"];
   return $.ajax({
     method: 'PATCH',
     url: `api/events/${id}`,
-    data : { post }
+    data : { event }
   });
 };
 

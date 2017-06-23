@@ -51,14 +51,4 @@ class EventIndex  extends React.Component {
   }
 
 }
-const mapStateToProps = (state, ownProps) => {
-  const InfoParams = ownProps.match.params;
-  //debugger
-  return ({
-    InfoParams: InfoParams
-  });
-};
-
-export default connect(
-  mapStateToProps
-)(EventIndex);
+export default EventIndex;

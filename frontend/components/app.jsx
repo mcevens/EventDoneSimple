@@ -15,13 +15,14 @@ import EventForm from './event_form.jsx';
 import HomeIndex from './home_index';
 import SessionFormContainer from './session_form_container';
 import EventIndex from './event/event_index';
+import EventIndexContainer from './event/event_index_container';
 
 
 const App = () => (
     <div>
       <Switch>
         <Route exact path="/" component={HomeIndex}/>
-        <Route exact path="/events" component={EventIndex}/>
+        <Route exact path="/events" component={EventIndexContainer}/>
         <ProtectedRoute path="/create" component={EventForm }/>
         <AuthRoute path="/login" component={SessionFormContainer}/>
         <AuthRoute path="/signup" component={SessionFormContainer}/>
