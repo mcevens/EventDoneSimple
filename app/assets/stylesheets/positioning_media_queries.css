@@ -81,12 +81,12 @@ nav li ul {
   position: absolute;
   top: 1em;
   width: 250px;
-  margin-right: 40px;ul {
+  margin-right: 40px;ul
         padding: 0;
         margin: 0;
         list-style: none;
-        }
-  background-color: #fff;
+
+  background-color: #ffffff;
 	border: 1px solid #EFF2F5;
   color: dark-gray;
 }
@@ -179,28 +179,87 @@ ul {
 }
 
 .event-index-item{
+  display:block;
+  margin:10px;
+  width: 700px;
+  height:200px;
+  background-color:white;
+}
+
+.event-index-item button {
+  background-color: #FFFFFF;
+  border:none;
+  cursor:pointer;
+  color:#0093D7;
+}
+
+.event-index-item span{
   display:flex;
 }
 
-.event-index-item-image-group{
-  display:block;
+.event-index-item-header{
+  height: 80%
 }
-.event-index-item-image-group:last-child{
+.event-index-item-header a{
+  height:100%;
+}
+.event-index-item-header span{
+  display:flex;
+  height: inherit;
+}
+
+.event-index-item-header-image{
+  width:20%;
+  background-color: blue;
+}
+
+.event-index-item-footer-image{
+  width: 20%;
+}
+
+/*.event-index-item-image-group:last-child{
   background-color: gray;
+  border-bottom: 1px solid #EFF2F5;
+  height:20%;
+}*/
+
+/*.event-index-item-text-group{
+  background-color: white;
+  width:80%;
+}*/
+
+.event-index-item-text-header{
+  background-color: white;
+  width:80%;
+  height: 80%;
 }
 
-.event-index-item-text-group{
-
+.event-index-item-header-text{
+  padding-top:20px;
 }
 
-.event-index-item-text-group-footer{
-  display:block;
+.event-index-item-header-text > *{
+  padding-left: 20px;
 }
 
-.event-index-item-text-group-footer-text{
-
+.event-index-item-footer{
+  display:flex;
+  justify-content:flex-start;
+  border:1px solid #EFF2F5;
+  height:20%;
 }
 
-.event-index-item-text-group-footer-actions{
+.event-index-item-footer-text{
+  display:flex;
+  justify-content:space-between;
+  border:1px solid #EFF2F5;
+  width: 80%;
+}
 
+.event-index-item-footer-actions{
+  display: flex;
+  justify-content: right;
+}
+.event-index-item-footer-actions *{
+  border-left:1px solid #EFF2F5;
 }

@@ -48,7 +48,9 @@ class SessionForm extends React.Component {
   renderDemologin(){
     if (this.props.formType === 'login' ){
       return(<li>
-          <button onClick={this.demoLoginClick} id="demoLogin" >Demo Login</button>
+          <button onClick={this.demoLoginClick} id="demoLogin" >
+            Demo Login
+          </button>
       </li>);
     }
   }
@@ -88,7 +90,9 @@ class SessionForm extends React.Component {
                 <label>
                   Email address
                 </label>
-                <input type="text" onChange={this.update("email")} value={this.state.email}/>
+                <input type="text"
+                  onChange={this.update("email")}
+                  value={this.state.email}/>
               </li>
               <li>
                 <label>
@@ -107,7 +111,9 @@ class SessionForm extends React.Component {
                 <label >Remember me</label>
               </li>
               <li>
-                  <button onClick={this.loginClick} id="login" >{buttonText}</button>
+                  <button
+                    onClick={this.loginClick}
+                    id="login" >{buttonText}</button>
               </li>
                     {this.renderDemologin()}
             </ul>

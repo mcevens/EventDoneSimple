@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import GlobalHeader from '../global_header';
 import { connect } from 'react-redux';
-import TopicHeaderListContainer from '../topic_filter/topic_header_list_container';
-
+import TopicHeaderListContainer
+from '../topic_filter/topic_header_list_container';
+import EventIndexItem from './event_index_item';
 
 class EventIndex  extends React.Component {
 
@@ -18,6 +19,7 @@ class EventIndex  extends React.Component {
 
   render(){
     const eventsData = this.props.events;
+
 
     return(
       <div className="event-index">
@@ -50,7 +52,12 @@ class EventIndex  extends React.Component {
             </section>
             <section className="event-index-content">
               <h1>Events are coming :)</h1>
+                <div >
 
+                  {eventsData.map(
+                    event => <EventIndexItem key={event.id} event={event}/>
+                  )}
+              </div>
             </section>
           </div>
         </section>

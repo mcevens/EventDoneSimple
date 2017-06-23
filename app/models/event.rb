@@ -43,4 +43,9 @@ class Event < ActiveRecord::Base
     foreign_key: :subtopic_id,
     primary_key: :id
   )
+
+  def topic_name
+    return topic.name
+  end
+
 end

@@ -19,40 +19,48 @@ class EventIndexItem extends React.Component{
 
     return(
       <div className="event-index-item">
-         <div className="event-index-item-image-group">
-           <div>
-             <img></img>
-           </div>
-           <div>
-             <label>FREE</label>
-           </div>
+         <div className="event-index-item-header">
+            <a>
+              <span>
+                 <div className="event-index-item-header-image">
+                   <img></img>
+                 </div>
+                 <div className="event-index-item-header-text">
+                   <div>
+                     {  event.start_date }
+                   </div>
+                   <div>
+                     {  event.title }
+                   </div>
+                 </div>
+               </span>
+             </a>
          </div>
-         <div className="event-index-item-text-group">
-            <div>
-              <div>
-                {  event.start_date }
-              </div>
-              <div>
-                {  event.title }
-              </div>
-            </div>
-            <div className="event-index-item-text-group-footer">
-              <div className="event-index-item-text-group-footer-text">
-
-              </div>
-              <div className="event-index-item-text-group-footer-actions">
-                <Link to={`/events/${event.id}/edit`}>
-                  {"Edit"}
-                </Link>
-                <div>
-                  <form onSubmit={this.handleSubmit}>
-                  <button>
-                     Delete
-                  </button>
-                </form>
-                </div>
-              </div>
-            </div>
+         <div className="event-index-item-footer">
+           <div className="event-index-item-footer-image">
+               <label>FREE</label>
+           </div>
+           <div className="event-index-item-footer-text">
+             <div className="event-index-item-footer-text-label">
+               <label>{ `#${event.topic_name}` } </label>
+             </div>
+             <div className="event-index-item-footer-actions">
+               <div>
+                 <form onSubmit={this.handleSubmit}>
+                 <button>
+                    Share
+                 </button>
+               </form>
+               </div>
+               <div>
+                 <form onSubmit={this.handleSubmit}>
+                 <button>
+                    Bookmark
+                 </button>
+               </form>
+               </div>
+             </div>
+           </div>
          </div>
       </div>
     );

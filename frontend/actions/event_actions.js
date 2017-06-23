@@ -12,7 +12,8 @@ export const receiveAllEvent = (events) => ({
 });
 
 export const requestAllEvent = () => (dispatch) => {
-  return APIUtil.fetchAllEvent().then(events => dispatch(receiveAllEvent(events)));
+  return APIUtil.fetchAllEvent()
+  .then(events => dispatch(receiveAllEvent(events)));
 };
 
 export const receiveSingleEvent = (event) => ({
