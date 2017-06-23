@@ -1,3 +1,15 @@
+ul {
+padding: 0;
+margin: 0;
+list-style: none;
+}
+
+a{
+  text-decoration: none;
+  cursor: pointer;
+  color: #0093D7;
+}
+
 nav {
   display: flex;
    justify-content: space-between;
@@ -5,22 +17,20 @@ nav {
 
 nav a {
   text-transform: capitalize;
-  text-decoration: none;
-  cursor: pointer;
   color:#45494E;
 }
 
 nav a:hover, #logout-button:hover{
-  background-color: #F8F8FA
+  background-color: #F8F8FA;
 }
 
 /*nav ul li a:last-child{
   color:#0278b8;
 }*/
 
-nav ul li {
+/*{
   display: inline-block;
-}
+}*/
 
 nav ul li a {
   padding: 20px;
@@ -39,7 +49,7 @@ nav ul li a {
   border-right: 1px solid #EFF2F5;
 }
 .logo:hover{
-  background-color: #FFFFFF
+  background-color: #FFFFFF;
 }
 
 .global-header{
@@ -49,6 +59,7 @@ nav ul li a {
 
 .user-menu-dropdown  {
 	border-bottom: 1px solid #EFF2F5;
+  background-color: #FFFFFF;
 }
 
 .user-menu-dropdown li {
@@ -59,30 +70,39 @@ nav ul li a {
   font-family: Helvetica, Tahoma, Arial, sans-serif
 }
 
- li{
+ nav ul li{
+  display: inline-block;
   position:relative;
   border-left: 1px solid #EFF2F5;
 }
 
-li ul {
+nav li ul {
   display: none;
   position: absolute;
   top: 1em;
   width: 250px;
-  margin-right: 40px;
+  margin-right: 40px;ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        }
   background-color: #fff;
 	border: 1px solid #EFF2F5;
   color: dark-gray;
 }
 
 
-li > ul {
+nav li > ul {
   top: auto;
   left: -168px;
 }
 
-li:hover ul { display: block; }
-
+ nav li:hover ul { display: block; }
+ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        }
 #logout-button{
   font-size: 16px;
   padding: 20px;
@@ -117,4 +137,43 @@ li:hover ul { display: block; }
 
 .search_bar input:focus + div {
   display:block;
+}
+
+.event-index-body{
+  background-color: #F8F8FA;
+}
+
+.event-index-wrapper {
+  display:flex;
+  margin:auto;
+  max-width: 1080px;
+  padding-top: 20px;
+}
+
+.event-index-wrapper section {
+  margin: 5px;
+}
+
+.map-placeholder{
+
+}
+
+.filter-placeholder{
+  background-color: white;
+  font-size:15px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+.filter-location-search{
+  margin: 15px;
+  display:block;
+}
+
+.filter-list{
+   margin-left:20px;
+}
+
+.filter-list ul li {
+  margin:10px;
 }
