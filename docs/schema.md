@@ -16,15 +16,15 @@ session_token   | string    | not null, indexed, unique
 | id                | integer    | not null, primary key
 | creater_id        | integer    | not null, foreign key (references users), indexed
 | title             | string     | not null, indexed
-| longitude         | decimal    |
+| picture_url       | string     | not null
+| longitude         | float      |
+| latitude          | float      |
 | onlineEvent       | boolean    |
-| latitude          | decimal    |
-| precision         | decimal    |
-| Adresseline1      | decimal    |
+| Adresseline1      | string     |
 | datestart         | date       | not null, indexed
 | timestart         | time       | not null
 | description       | text       |
-| image             | string     | not null
+
 
 
 ## tickets
@@ -44,7 +44,7 @@ session_token   | string    | not null, indexed, unique
 | user_id         | string     |
 
 ## categories  
-
+| column name          | data type     | details
 | id                   | integer       | not null, primary key
 | name                 | string        | not null
 | parent_id            | integer       | not null
