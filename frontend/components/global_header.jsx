@@ -13,8 +13,7 @@ import TopicHeaderListContainer from './topic/topic_header_list_container';
   const panelUser = () => {
     if (currentUser) {
       return (
-        <li id="gear-dropdown" className="user-menu-dropdown">
-          <ul className="items">
+          <ul className="user-menu-dropdown">
             <li>
               <Link to="/signup">Tickets</Link>
             </li>
@@ -41,7 +40,6 @@ import TopicHeaderListContainer from './topic/topic_header_list_container';
               </button>
             </li>
           </ul>
-        </li>
       );
     }
   };
@@ -49,7 +47,7 @@ import TopicHeaderListContainer from './topic/topic_header_list_container';
   const login = () => {
     if (!currentUser){
       return (<li>
-          <Link to="/login">LOG IN</Link>
+          <Link  to="/login">LOG IN</Link>
         </li>);
     }
   };
@@ -64,8 +62,9 @@ import TopicHeaderListContainer from './topic/topic_header_list_container';
 
   const userInfo = () => {
     if (currentUser){
-      return(<li>
+      return(<li className="login-menu">
         <a id="gear-dropdown-btn" href="#">{currentUser.email}</a>
+        { panelUser() }
       </li>);
     }
   };
@@ -112,7 +111,7 @@ import TopicHeaderListContainer from './topic/topic_header_list_container';
               <a href="#">HELP</a>
             </li>
 
-            { panelUser() }
+
             { login() }
             { signUp() }
             { userInfo() }

@@ -9,7 +9,6 @@ class TopicHeaderList extends React.Component {
   }
 
   componentDidMount(){
-    debugger
     this.props.requestAllTopic();
   }
 

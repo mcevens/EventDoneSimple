@@ -7,7 +7,6 @@ nav a {
   text-transform: capitalize;
   text-decoration: none;
   cursor: pointer;
-  border-left: 1px solid #EFF2F5;
   color:#45494E;
 }
 
@@ -48,43 +47,41 @@ nav ul li a {
 }
 
 
-.user-menu-dropdown .items  {
-	border-bottom: 1px solid grey;
-
+.user-menu-dropdown  {
+	border-bottom: 1px solid #EFF2F5;
 }
 
-.user-menu-dropdown .items li {
+.user-menu-dropdown li {
 	margin: 0px 0;
 	cursor: pointer;
-	border-radius: 3px;
 	font-size: 12px;
 	display:block;
   font-family: Helvetica, Tahoma, Arial, sans-serif
 }
 
-.hidden{
-  display:none;
+ li{
+  position:relative;
+  border-left: 1px solid #EFF2F5;
 }
-.user-menu-dropdown {
-	position: absolute;
-	top: 60px;
-	right: 120px;
-	background-color: #fff;
-	border: 1px solid light-gray;
-	border-radius: 3px;
-	padding: 0px;
-	margin-right: 40px;
-	width: 250px;
-	z-index: 1;
-	color: dark-gray;
-	font-family: sans-serif;
-	text-align: left;
-	font-weight: initial;
-  border-left:1px solid #EFF2F5;
-  border-right:1px solid #EFF2F5;
-  border-bottom:1px solid #EFF2F5;
-  text-transform: uppercase;
+
+li ul {
+  display: none;
+  position: absolute;
+  top: 1em;
+  width: 250px;
+  margin-right: 40px;
+  background-color: #fff;
+	border: 1px solid #EFF2F5;
+  color: dark-gray;
 }
+
+
+li > ul {
+  top: auto;
+  left: -168px;
+}
+
+li:hover ul { display: block; }
 
 #logout-button{
   font-size: 16px;
@@ -103,7 +100,6 @@ nav ul li a {
   color:red;
 }
 
-
 .topic-list-nav{
   background-color: white;
   border: 1px solid #EFF2F5;
@@ -112,8 +108,13 @@ nav ul li a {
   position:absolute;
   left: 237px;
   top : 60px;
+  display: none;
 }
 
 .topic-list-nav ul li{
+  display:block;
+}
+
+.search_bar input:focus + div {
   display:block;
 }
