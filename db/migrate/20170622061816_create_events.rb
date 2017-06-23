@@ -6,13 +6,15 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.string :longitude
       t.string :latitude
       t.boolean :online
-      t.string :adresseline1
-      t.date :startdate
-      t.time :starttime
-      t.date :enddate
-      t.time :endtime
+      t.string :adresse_line1
+      t.string :start_date
+      t.string :start_time
+      t.string :end_date
+      t.string :end_time
       t.string :description
-      t.string :image
+      t.string :image_url
+      t.integer :topic_id
+      t.integer :subtopic_id
 
       t.timestamps
     end
