@@ -11,7 +11,14 @@ class EventIndex  extends React.Component {
     super(props);
   }
 
+  componentDidMount(){
+    this.props.requestAllEvent();
+  }
+
+
   render(){
+    const eventsData = this.props.events;
+
     return(
       <div className="event-index">
         <GlobalHeader headerOrigin="event_index" />
@@ -42,7 +49,8 @@ class EventIndex  extends React.Component {
               </div>
             </section>
             <section className="event-index-content">
-              <h1>It's working</h1>
+              <h1>Events are coming :)</h1>
+
             </section>
           </div>
         </section>
