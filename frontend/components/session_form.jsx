@@ -30,20 +30,13 @@ class SessionForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger
     e.preventDefault();
-
-    // const user = this.state;
-    // this.props.processForm({user});
   }
 
   demoLoginClick(e){
     e.preventDefault();
-    this.setState ({email: 'guest'});
-    this.setState({ password: 'passpass'});
-    const user = this.state;
+    const user = {email:'guest', password:'passpass'};
     this.props.processForm({user});
-
   }
 
   loginClick(e){
@@ -117,7 +110,6 @@ class SessionForm extends React.Component {
                   <button onClick={this.loginClick} id="login" >{buttonText}</button>
               </li>
                     {this.renderDemologin()}
-
             </ul>
           </fieldset>
         </form>
