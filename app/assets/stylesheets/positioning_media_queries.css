@@ -166,7 +166,7 @@ ul {
 }
 
 .filter-location-search{
-  margin: 15px;
+  padding: 10px;
   display:block;
 }
 
@@ -176,4 +176,31 @@ ul {
 
 .filter-list ul li {
   margin:10px;
+}
+
+.event-index-item{
+  display:flex;
+}
+
+.event-index-item-image-group{
+  display:block;
+}
+.event-index-item-image-group:last-child{
+  background-color: gray;
+}
+
+.event-index-item-text-group{
+
+}
+
+.event-index-item-text-group-footer{
+  display:block;
+}
+
+.event-index-item-text-group-footer-text{
+
+}
+
+.event-index-item-text-group-footer-actions{
+
 }
