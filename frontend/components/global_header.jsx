@@ -87,7 +87,7 @@ import TopicHeaderListContainer from './topic/topic_header_list_container';
         <div className="search_bar" >
            <img></img>
            <input placeholder="Search for events" type="text"></input>
-
+          <TopicHeaderListContainer />
         </div>
       );
     }

@@ -9,15 +9,12 @@ class HomeForm  extends React.Component {
   }
 
   render(){
-    
     return(
       <section>
         <GlobalHeader headerOrigin="home_index" />
-
       </section>
     );
   }
-
 }
 
 export default HomeForm;

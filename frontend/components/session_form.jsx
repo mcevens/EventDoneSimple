@@ -46,7 +46,6 @@ class SessionForm extends React.Component {
 
   }
 
-
   loginClick(e){
     e.preventDefault();
     const user = this.state;

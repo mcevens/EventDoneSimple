@@ -102,3 +102,18 @@ nav ul li a {
 .errors{
   color:red;
 }
+
+
+.topic-list-nav{
+  background-color: white;
+  border: 1px solid #EFF2F5;
+  border-top: none;
+  width: 450px;
+  position:absolute;
+  left: 237px;
+  top : 60px;
+}
+
+.topic-list-nav ul li{
+  display:block;
+}

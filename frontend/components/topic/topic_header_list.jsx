@@ -9,16 +9,22 @@ class TopicHeaderList extends React.Component {
   }
 
   componentDidMount(){
+    debugger
     this.props.requestAllTopic();
   }
 
   render(){
 
     const topicsData = this.props.topics;
+    const topicsToShow = [];
+    // let i = 0 ;
+    // while (i < 6){
+    //
+    // }
 
     return(
           <div className="topic-list-nav">
-            <ul>
+            <ul >
             {topicsData.map(
               topic => <TopicListItem key={topic.id} topic={topic}/>
             )}
