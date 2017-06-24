@@ -1,3 +1,8 @@
+.app{
+  background-color: #F8F8FA;
+  padding:20px;
+}
+
 ul {
 padding: 0;
 margin: 0;
@@ -262,4 +267,103 @@ ul {
 }
 .event-index-item-footer-actions *{
   border-left:1px solid #EFF2F5;
+}
+
+
+.event-show{
+  width: 700px;
+  margin-left: auto;
+  margin-right:auto;
+  margin-top: 10px;
+  min-width: 1080px;
+  background-color: #ffffff;
+  border-radius:3px;
+
+}
+.event-show-header{
+  padding:20px;
+  display:flex;
+}
+
+.event-show-header-left-pane > div{
+  margin-bottom: 100px;
+  margin-left: 100px;
+}
+
+.event-show-header-left-pane{
+  width: 50%;
+}
+
+.event-show-header-right-pane{
+  position:relative;
+  display:flex;
+  justify-content: flex-end;
+  width: 50%;
+}
+
+.event-show-header-type-ticket{
+  position: absolute;
+    top: 90%;
+    left: 50%;
+    height: 30%;
+    width: 50%;
+    right:10%;
+}
+.event-show-header-date{
+
+}
+.event-show-header-title{
+
+}
+.event-show-header-organizer{
+
+}
+
+.event-show-action{
+  display:flex;
+  justify-content: space-between;
+  border-top: 1px solid  #EFF2F5;
+  border-bottom: 1px solid  #EFF2F5;
+  padding:20px;
+}
+.event-show-action-share-bookmark{
+  display:flex;
+
+}
+.event-show-action-share-bookmark button{
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor:pointer;
+
+}
+
+
+.event-show-action-share-register button{
+  background-color: #00ab44;
+  height:40px;
+  cursor:pointer;
+  width: 200px;
+  font-weight: 400;
+  color: white;
+}
+
+.event-show-action-share-register button:hover{
+  background-color: #01451B;
+}
+
+.event-show-detail{
+  display:flex;
+  justify-content: space-between;
+}
+.event-show-detail-description{
+
+}
+.event-show-detail-other-info{
+
+}
+.event-show-organizer-wrapper{
+
+}
+.event-show-organizer-content{
+
 }
