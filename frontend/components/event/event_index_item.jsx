@@ -20,7 +20,7 @@ class EventIndexItem extends React.Component{
     return(
       <div className="event-index-item">
          <div className="event-index-item-header">
-            <a>
+            <Link to={`/events/${event.id}`}>
               <span>
                  <div className="event-index-item-header-image">
                    <img></img>
@@ -34,7 +34,7 @@ class EventIndexItem extends React.Component{
                    </div>
                  </div>
                </span>
-             </a>
+             </Link>
          </div>
          <div className="event-index-item-footer">
            <div className="event-index-item-footer-image">

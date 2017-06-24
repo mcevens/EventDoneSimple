@@ -290,7 +290,16 @@ ul {
   margin-left: 100px;
 }
 
-.event-show-header-left-pane{
+.event-show-header-right-pane > div{
+  margin-bottom: 100px;
+  margin-left: 100px;
+}
+
+.event-show-header-left-pane ,
+.event-show-header-right-pane,
+.event-show-detail-description,
+.event-show-detail-other-info,
+ {
   width: 50%;
 }
 
@@ -298,7 +307,7 @@ ul {
   position:relative;
   display:flex;
   justify-content: flex-end;
-  width: 50%;
+
 }
 
 .event-show-header-type-ticket{
@@ -353,13 +362,16 @@ ul {
 
 .event-show-detail{
   display:flex;
-  justify-content: space-between;
+  padding:20px;
 }
-.event-show-detail-description{
 
+.event-show-detail-description > div{
+  margin-bottom: 100px;
+  margin-left: 100px;
 }
-.event-show-detail-other-info{
-
+.event-show-detail-other-info > div{
+  margin-bottom: 100px;
+  margin-left: 100px;
 }
 .event-show-organizer-wrapper{
 

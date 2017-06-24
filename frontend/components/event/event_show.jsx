@@ -70,19 +70,32 @@ class EventShow extends React.Component{
              </div>
              <div className="event-show-detail">
                  <div className="event-show-detail-description">
-                   <h3>DESCRIPTION</h3>
                    <div>
-                     <p>{event.description}</p>
+                     <h3>DESCRIPTION</h3>
+                     <div>
+                       <p>{event.description}</p>
+                     </div>
                    </div>
                  </div>
                  <div className="event-show-detail-other-info">
-                   <h3>DATE AND TIME</h3>
-                     <div>
-                       <p>{event.start_date}</p>
-                     </div>
-                     <div>
-                       <p>{event.start_time}</p>
-                     </div>
+                   <div>
+                     <h3>DATE AND TIME</h3>
+                       <div>
+                         <p>{event.start_date}</p>
+                       </div>
+                       <div>
+                         <p>{event.start_time}</p>
+                       </div>
+                   </div>
+                   <div>
+                        <h3>Location</h3>
+                          <div>
+                            <p>{event.addresse_line1}</p>
+                          </div>
+                          <div>
+                            <p>{event.start_time}</p>
+                          </div>
+                   </div>
                  </div>
              </div>
              <div className="event-show-organizer-wrapper">

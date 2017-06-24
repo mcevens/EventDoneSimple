@@ -4,7 +4,6 @@ import { Link }  from 'react-router-dom';
 import { logout } from '../actions/session_actions';
 import TopicHeaderListContainer from './topic/topic_header_list_container';
 
-
   const GlobalHeader = function(props) {
 
   const currentUser = props.currentUser;
