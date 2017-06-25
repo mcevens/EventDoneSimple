@@ -18,6 +18,7 @@ const eventReducer  = (state = _defaultState, action) => {
        merge(nextState, state, action.events);
        return nextState;
     case RECEIVE_NEW_EVENT:
+       debugger
        nextState = {};
        merge(nextState, state, {[action.event.id]: action.event});
        return nextState;

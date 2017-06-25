@@ -37,6 +37,7 @@ export const deleteEvent = id => dispatch => {
 };
 
 export const createEvent = event => dispatch => {
+  debugger
  return APIUtil.createEvent(event).then(eventCreated => {
     dispatch(receiveNewEvent(eventCreated));
     return event;

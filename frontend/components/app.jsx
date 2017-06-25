@@ -11,7 +11,7 @@ import {
 } from 'react-router-dom';
 
 import SessionForm from './session_form.jsx';
-import EventForm from './event/event_form.jsx';
+import EventFormContainer from './event/event_form_container';
 import HomeIndex from './home_index';
 import SessionFormContainer from './session_form_container';
 import EventIndex from './event/event_index';
@@ -25,7 +25,7 @@ const App = () => (
         <Route exact path="/" component={HomeIndex}/>
         <Route exact path="/events" component={EventIndexContainer}/>
         <Route exact path="/events/:eventId" component={EventShowContainer}/>
-        <ProtectedRoute path="/create" component={EventForm }/>
+        <ProtectedRoute path="/create" component={EventFormContainer }/>
         <AuthRoute path="/login" component={SessionFormContainer}/>
         <AuthRoute path="/signup" component={SessionFormContainer}/>
       </Switch>

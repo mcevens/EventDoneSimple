@@ -341,7 +341,8 @@ ul {
 }
 .event-show-action-share-bookmark button{
   margin-left: 10px;
-  margin-right: 10px;
+  margin-rEvent Details
+Event Titleight: 10px;
   cursor:pointer;
 
 }
@@ -378,4 +379,134 @@ ul {
 }
 .event-show-organizer-content{
 
+}
+
+
+.event-form{
+  width: 700px;
+  margin-left: auto;
+  margin-right:auto;
+  margin-top: 10px;
+  min-width: 1080px;
+  border-radius:3px;
+}
+
+.event-form h2{
+  display: inline-block;
+  font-size: 30px;
+  padding-left: 20px
+}
+.event-form h1{
+   font-size: 40px;
+   font-weight:bold;
+}
+
+.event-form label{
+  vertical-align: middle;
+  font-size: 16px;
+  color:#282c35;
+  line-height: 22px;
+  text-transform: uppercase;
+  font-weight: bold
+}
+
+.event-form textarea{
+   padding-left:15px;
+   padding-top:7px;
+   font-size: 18px;
+}
+
+.event-form button{
+  margin-left:10px;
+  margin-right:10px;
+  background-color: transparent;
+  color:#0278b8;
+  padding:9px 18px;
+  border:2px solid #0278b8;
+  cursor:pointer;
+}
+
+.event-form button:hover{
+  background-color:#013653;
+  color: #ffffff;
+}
+.event-form .live-event {
+  color: #ffffff;
+  border:none;
+  background-color:#00ab44;
+}
+.event-form .live-event:hover {
+  background-color: : #00451B  ;
+
+}
+
+.event-form .date-picker {
+  width:130px;
+  display: inline;
+}
+
+.event-form .header .title{
+  display: flex;
+  justify-content: space-between;
+  padding-top:20px;
+  padding-bottom: 20px;
+}
+
+
+
+
+
+.event-form .header .action {
+  background-color: #282C35;
+  color:white;
+}
+
+.event-form .header .action ul{
+  display: flex;
+  justify-content: flex-start;
+}
+.event-form .header .action li{
+  border-right:1px solid black;
+}
+.event-form .header .action ul li a{
+  display:block;
+  cursor:pointer;
+  padding:30px;
+  color:white;
+}
+
+.event-form fieldset {
+  margin-top:20px;
+}
+
+
+.event-form fieldset header {
+  border-bottom: 1px solid #D2D6DF
+}
+
+.event-form fieldset header h2:first-child {
+  background-color:  #0093d7;
+  padding:10px;
+  color:white;
+}
+
+.event-form fieldset section > div {
+  margin-top: 15px;
+}
+
+.event-form fieldset .details-attr > * {
+  display:block;
+  margin-top:7px;
+}
+
+.event-form fieldset .details-attr input {
+  width: 80%
+}
+
+.event-form fieldset .details-g-attr > * {
+  display: inline-block;
+}
+
+.event-form .content .actions {
+  background-color: white;
 }
