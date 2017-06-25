@@ -43,8 +43,15 @@ session_token   | string    | not null, indexed, unique
 | ticket_id       | integer    | not null, foreign key (references events), indexed
 | user_id         | string     |
 
+## ticket_type
+| column name          | data type     | details
+|----------------------|---------------|----------------------
+| id                   | integer       | not null, primary key
+| type                 | string        | not null
+
 ## categories  
 | column name          | data type     | details
+|----------------------|---------------|----------------------
 | id                   | integer       | not null, primary key
 | name                 | string        | not null
 | parent_id            | integer       | not null
