@@ -510,3 +510,58 @@ Event Titleight: 10px;
 .event-form .content .actions {
   background-color: white;
 }
+
+.event-form .initial-type-ticket{
+  width: 100%;
+  margin-left:auto;
+  margin-right:auto;
+  padding-top: 30px;
+  padding-bottom:30px;
+  text-align: center;
+}
+
+.event-form .initial-type-ticket > *{
+  margin-top: 30px;
+  margin-bottom:30px;
+}
+
+.table-ticket{
+  border-radius:10%;
+  border-color: 1px solid #D2D6df;
+  width: 100%;
+}
+
+.table-ticket ul{
+  display:flex;
+  align-content: space-around;
+}
+
+.table-ticket ul > li{
+  padding: 10px 15px;
+}
+
+.event-registration .wrapper{
+  width: 900px;
+  margin :auto 0;
+  display: flex;
+}
+
+.event .order-container {
+  border-radius:3px;
+  border: 1px solid #D5D5D3;
+  background-color: #EFEFEF;
+}
+
+.event .order-container h3{
+  border-bottom: 1px solid #D5D5D3;
+  color: #00580;
+  font-weight: bold;
+  font-size:16px;
+}
+
+.event .order-container button{
+  background-color: #01AB45;
+  border:0;
+  font-size:20px;
+  padding:9px 26px;
+}

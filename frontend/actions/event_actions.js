@@ -2,6 +2,7 @@ import * as APIUtil from '../util/event_util.js';
 export const RECEIVE_ALL_EVENT = 'RECEIVE_ALL_EVENT';
 export const RECEIVE_SINGLE_EVENT = 'RECEIVE_SINGLE_EVENT';
 export const RECEIVE_NEW_EVENT = 'RECEIVE_NEW_EVENT';
+export const RECEIVE_NEW_TICKET = 'RECEIVE_NEW_TICKET';
 export const RECEIVE_EDITED_EVENT = 'RECEIVE_NEW_EVENT';
 export const RECEIVE_EVENT_ERRORS = 'RECEIVE_EVENT_ERRORS';
 export const DELETE_EVENT = 'DELETE_EVENT';
@@ -55,6 +56,13 @@ export const receiveNewEvent = event => ({
   type: RECEIVE_NEW_EVENT,
   event
 });
+
+export const receiveNewTicket = (event, ticket) => ({
+  type: RECEIVE_NEW_TICKET,
+  event,
+  ticket
+});
+
 
 export const receiveEditedEvent = event => ({
   type: RECEIVE_EDITED_EVENT,

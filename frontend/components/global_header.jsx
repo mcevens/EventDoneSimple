@@ -5,7 +5,6 @@ import { logout } from '../actions/session_actions';
 import TopicHeaderListContainer from './topic/topic_header_list_container';
 
   const GlobalHeader = function(props) {
-  debugger
   const currentUser = props.currentUser;
   const logout = props.logout;
   const headerOrigin = props.headerOrigin;

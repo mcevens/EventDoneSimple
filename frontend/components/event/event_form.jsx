@@ -4,6 +4,7 @@ import GlobalHeader from '../global_header';
 import { DateField, Calendar } from 'react-date-picker';
 import TimePicker from 'rc-time-picker';
 import moment from 'moment';
+import TitcketTableContainer from './ticket_table_container';
 
 class EventForm extends React.Component{
   constructor(props){
@@ -20,7 +21,9 @@ class EventForm extends React.Component{
       description: '',
       image_url: '',
       topic_id: 20,
-      subtopic_id: 20
+      subtopic_id: 20,
+      ticket_initial:"block",
+      table_ticket:"block"
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.startDateChange = this.startDateChange.bind(this);
@@ -29,11 +32,19 @@ class EventForm extends React.Component{
     this.endTimeChange = this.endTimeChange.bind(this);
     this.update = this.update.bind(this);
     this.save = this.save.bind(this);
+    this.initialFreeTicketClick = this.initialFreeTicketClick.bind(this);
+    this.initialPaidTicketClick = this.initialPaidTicketClick.bind(this);
+    this.initialDonationTicketClick = this.initialDonationTicketClick.bind(this);
+
+    this.tableFreeTicketClick = this.tableFreeTicketClick.bind(this);
+    this.tablePaidTicketClick = this.tablePaidTicketClick.bind(this);
+    this.tableDonationTicketClick = this.tableDonationTicketClick.bind(this);
+
   }
 
   save(e){
     e.preventDefault();
-    debugger
+
     const event = this.state;
     if (this.props.eventId) {
     this.props.editEvent(this.state)
@@ -104,6 +115,49 @@ class EventForm extends React.Component{
         })
       );
     }
+  }
+  initialFreeTicketClick(){
+
+    // this.props.createEvent(this.state);
+    this.setState({
+      ticket_initial:"none",
+      table_ticket: "block"
+    });
+
+  }
+
+  initialPaidTicketClick(){
+    this.setState({
+      ticket_initial:"none"
+    });
+  }
+
+  initialDonationTicketClick(){
+    this.setState({
+      ticket_initial:"none"
+    });
+  }
+
+  tableFreeTicketClick(){
+
+    this.props.createEvent(this.state);
+    this.setState({
+      ticket_initial:"none",
+      table_ticket: "block"
+    });
+
+  }
+
+  tablePaidTicketClick(){
+    this.setState({
+      ticket_initial:"none"
+    });
+  }
+
+  tableDonationTicketClick(){
+    this.setState({
+      ticket_initial:"none"
+    });
   }
 
   render (){
@@ -216,6 +270,57 @@ class EventForm extends React.Component{
                     </h2>
                     <h2>Create Tickets</h2>
                   </header>
+                  <section>
+                    <div style={{display:this.state.ticket_initial}} className="initial-type-ticket">
+                        <h5>What type of ticket would you like to start with?</h5>
+                        <div id="div_ticket_type">
+                          <button onClick={this.initialFreeTicketClick}>
+                            FREE TICKET
+                          </button>
+                          <button onClick={this.initialPaidTicketClick}>
+                            PAID TICKET
+                          </button>
+                          <button onClick={this.initialDonationTicketClick}>
+                            DONATION
+                          </button>
+                        </div>
+                      </div>
+                    <div style={{display:this.state.table_ticket}}>
+                        <section className="table-ticket">
+                          <header>
+                            <ul>
+                              <li>
+                                Ticket name
+                              </li>
+                              <li>
+                                Quantity available
+                              </li>
+                              <li>
+                                Price
+                              </li>
+                              <li>
+                                Actions
+                              </li>
+                            </ul>
+                          </header>
+
+                          <footer>
+                            <div id="div_ticket_type">
+                              <button onClick={this.tableFreeTicketClick}>
+                                FREE TICKET
+                              </button>
+                              <button onClick={this.tablePaidTicketClick}>
+                                PAID TICKET
+                              </button>
+                              <button onClick={this.tableDonationTicketClick}>
+                                DONATION
+                              </button>
+                            </div>
+                          </footer>
+
+                        </section>
+                    </div>
+                  </section>
                 </fieldset>
                 <fieldset className="additional">
                   <header>

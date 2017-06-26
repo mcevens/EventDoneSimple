@@ -17,6 +17,23 @@ test_user = User.create!(
  password: "passpass"
 )
 
+if TicketType.all.count === 0
+  free_ticket = TicketType.create(
+   id:1,
+   name:"FREE"
+  )
+
+  paid_ticket = TicketType.create(
+   id:2,
+   name:"PAID"
+  )
+
+  donation_ticket = TicketType.create(
+   id:3,
+   name:"DONATION"
+  )
+end
+
 Topic.delete_all
 
 music = Topic.create(name:'Music')

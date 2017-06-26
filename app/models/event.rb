@@ -48,4 +48,15 @@ class Event < ActiveRecord::Base
     return topic.name
   end
 
+  def subtopic_name
+    return subtopic.name
+  end
+
+  has_many(
+    :tickets,
+    class_name: "Ticket",
+    foreign_key: :ticket_id,
+    primary_key: :id
+  )
+
 end
