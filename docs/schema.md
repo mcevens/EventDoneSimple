@@ -26,7 +26,6 @@ session_token   | string    | not null, indexed, unique
 | description       | text       |
 
 
-
 ## tickets
 | column name     | data type  | details  
 |-----------------|------------|------------------------

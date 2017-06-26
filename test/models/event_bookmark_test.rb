@@ -1,16 +1,17 @@
 # == Schema Information
 #
-# Table name: ticket_types
+# Table name: event_bookmarks
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  event_id   :integer
+#  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class TicketTypeTest < ActiveSupport::TestCase
+class EventBookmarkTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -2,7 +2,7 @@ class Api::TicketsController < ApplicationController
 
   def update
     @ticket = Ticket.find(params[:id])
-    if @ticket.update(ticket_params))
+    if @ticket.update(ticket_params)
       event = @ticket.event
       render json: event, include: [:tickets]
     else
