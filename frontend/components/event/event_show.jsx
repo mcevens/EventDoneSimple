@@ -1,9 +1,18 @@
 import React from 'react';
 import { connect} from 'react-redux';
 import GlobalHeader from '../global_header';
+import {
+  Route,
+  Redirect,
+  Switch,
+  Link,
+} from 'react-router-dom';
 class EventShow extends React.Component{
   constructor(props){
     super(props);
+    debugger;
+
+
   }
 
   componentDidMount(){
@@ -61,11 +70,7 @@ class EventShow extends React.Component{
                  </div>
                </div>
                <div className="event-show-action-share-register">
-                 <form onSubmit={this.handleSubmit}>
-                 <button>
-                    Register
-                 </button>
-               </form>
+                   <Link to="/register">Register</Link>
                </div>
              </div>
              <div className="event-show-detail">
