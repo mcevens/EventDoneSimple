@@ -55,3 +55,10 @@ session_token   | string    | not null, indexed, unique
 | id                   | integer       | not null, primary key
 | name                 | string        | not null
 | parent_id            | integer       | not null
+
+## eventBookMarks
+| column name          | data type     | details
+|----------------------|---------------|----------------------
+| id                   | integer       | not null, primary key
+| event_id             | integer       | not null
+| user_id              | integer       | not null
