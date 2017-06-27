@@ -23,6 +23,8 @@
 
 class Event < ActiveRecord::Base
 
+  attr_accessor  :bookmarked
+
   belongs_to(
     :creater,
     class_name: "User",
@@ -58,5 +60,28 @@ class Event < ActiveRecord::Base
     foreign_key: :ticket_id,
     primary_key: :id
   )
+
+
+
+  def self.find_all_bookmarked_by_current_user(current_user)
+    all_events = Event.all
+    user_events = nil
+
+    if current_user
+      debugger
+      all_events.each do |event|
+        # if current_user.bookmarked_event_ids.include(event.id)
+        #   event.bookmarked = true
+        # end
+      end
+      return all_events
+    else
+      return all_events
+    end
+  end
+
+  def bookmarked
+    return false
+  end
 
 end

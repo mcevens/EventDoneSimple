@@ -24,6 +24,19 @@ class User < ActiveRecord::Base
   validates :session_token, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
 
+  has_many(
+    :event_bookmarks,
+    class_name: "EventBookmark",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :bookmarked_events,
+    through: :event_bookmarks,
+    source: :event
+  )
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
 

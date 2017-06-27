@@ -5,17 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.delete_all
 
-guest = User.create!(
- email: "guest",
- password: "passpass"
-)
+test_user = User.find_by(email:"guest")
 
-test_user = User.create!(
- email: "UserTest",
- password: "passpass"
-)
+unless test_user
+  test_user = User.create!(
+  email: "guest",
+  password: "passpass"
+ )
+end
 
 if TicketType.all.count === 0
   free_ticket = TicketType.create(
@@ -34,29 +32,54 @@ if TicketType.all.count === 0
   )
 end
 
-Topic.delete_all
+if Topic.all.count === 0
 
-music = Topic.create(name:'Music')
-other = Topic.create(name:'Other')
-business = Topic.create(name:'Business')
-food = Topic.create(name:'Food & Drink')
-arts = Topic.create(name:'Arts')
-community = Topic.create(name:'Community')
-health = Topic.create(name:'Health')
-sport = Topic.create(name:'Sports & Fitness')
-family = Topic.create(name:'Family & Education')
-film = Topic.create(name:'Film & Media')
-charity = Topic.create(name:'Charity & Causes')
-fashion = Topic.create(name:'Fashion')
-hobby = Topic.create(name:'Hobbies')
-science = Topic.create(name:'Science & Tech')
-spirituality = Topic.create(name:'Spirituality')
-homelife = Topic.create(name:'Home & LifeStyle')
-travel = Topic.create(name:'Travel & Outdoor')
-holiday = Topic.create(name:'Holiday')
-government = Topic.create(name:'Government')
+  music = Topic.create(name:'Music')
+  other = Topic.create(name:'Other')
+  business = Topic.create(name:'Business')
+  food = Topic.create(name:'Food & Drink')
+  arts = Topic.create(name:'Arts')
+  community = Topic.create(name:'Community')
+  health = Topic.create(name:'Health')
+  sport = Topic.create(name:'Sports & Fitness')
+  family = Topic.create(name:'Family & Education')
+  film = Topic.create(name:'Film & Media')
+  charity = Topic.create(name:'Charity & Causes')
+  fashion = Topic.create(name:'Fashion')
+  hobby = Topic.create(name:'Hobbies')
+  science = Topic.create(name:'Science & Tech')
+  spirituality = Topic.create(name:'Spirituality')
+  homelife = Topic.create(name:'Home & LifeStyle')
+  travel = Topic.create(name:'Travel & Outdoor')
+  holiday = Topic.create(name:'Holiday')
+  government = Topic.create(name:'Government')
 
-Event.delete_all
+else
+
+  music = Topic.find_by(name:'Music')
+  other = Topic.find_by(name:'Other')
+  business = Topic.find_by(name:'Business')
+  food = Topic.find_by(name:'Food & Drink')
+  arts = Topic.find_by(name:'Arts')
+  community = Topic.find_by(name:'Community')
+  health = Topic.find_by(name:'Health')
+  sport = Topic.find_by(name:'Sports & Fitness')
+  family = Topic.find_by(name:'Family & Education')
+  film = Topic.find_by(name:'Film & Media')
+  charity = Topic.find_by(name:'Charity & Causes')
+  fashion = Topic.find_by(name:'Fashion')
+  hobby = Topic.find_by(name:'Hobbies')
+  science = Topic.find_by(name:'Science & Tech')
+  spirituality = Topic.find_by(name:'Spirituality')
+  homelife = Topic.find_by(name:'Home & LifeStyle')
+  travel = Topic.find_by(name:'Travel & Outdoor')
+  holiday = Topic.find_by(name:'Holiday')
+  government = Topic.find_by(name:'Government')
+end
+
+if Event.all.count === 0
+
+
 
 event1 = Event.create(
 creater_id:test_user.id,
@@ -381,3 +404,10 @@ image_url: nil,
 topic_id: government.id,
 subtopic_id: government.id
 )
+
+book_mark_event1 = EventBookmark.create(
+  user_id: test_user.id,
+  event_id: event1.id
+)
+
+end

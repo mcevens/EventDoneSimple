@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :events
     resource :session, only: [:create, :destroy]
     resources :topics, only: :index
+    resources :event_bookmarks
   end
 end
