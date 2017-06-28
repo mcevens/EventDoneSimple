@@ -6,7 +6,6 @@ import GlobalHeader from '../global_header';
 class EventRegistration extends React.Component{
 
   constructor(props){
-    debugger
     super(props);
     this.state = {
       title: 'MidDAY MINGLE - Daughters day Party',

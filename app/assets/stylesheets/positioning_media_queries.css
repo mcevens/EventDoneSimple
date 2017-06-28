@@ -516,13 +516,19 @@ Event Titleight: 10px;
   margin-left:auto;
   margin-right:auto;
   padding-top: 30px;
-  padding-bottom:30px;
+  padding-bottom:20px;
   text-align: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius:5px;
+  border-left: 1px solid #D2D6DF;
+  border-right: 1px solid #D2D6DF;
+  border-bottom: 1px solid #D2D6DF;
 }
 
 .event-form .initial-type-ticket > *{
-  margin-top: 30px;
-  margin-bottom:30px;
+  margin-top: 15px;
+  margin-bottom:15px;
+
 }
 
 .table-ticket{
@@ -550,6 +556,7 @@ Event Titleight: 10px;
   border-radius:3px;
   border: 1px solid #D5D5D3;
   background-color: #EFEFEF;
+  border: 1px solid #D2D6DF;
 }
 
 .event .order-container h3{
@@ -564,4 +571,75 @@ Event Titleight: 10px;
   border:0;
   font-size:20px;
   padding:9px 26px;
+}
+
+.event .ticket_table_container{
+  width:500px;
+
+}
+
+.ticket_table{
+  width:100%;
+  margin-top: 20px;
+  border-top: 1px solid #D2D6DF;
+  border-left: 1px solid #D2D6DF;
+  border-right: 1px solid #D2D6DF;
+  border-top-left-radius: 5px;
+  border-top-right-radius:5px;
+}
+
+.ticket_table header{
+  width:100%;
+  color: #45494E;
+  background-color: #EFF2F5;
+  padding-bottom: 15px;
+}
+
+.ticket_table ul {
+  width: 100%;
+  display: flex;
+  padding-left:15px;
+}
+
+.ticket_table input{
+  width: 90%
+}
+
+.ticket_table ul li{
+  padding-top:15px;
+}
+
+.ticket_table ul li label{
+  padding-top:15px;
+}
+
+.ticket_table ul li:nth-child(1) {
+  width: 35%;
+
+}
+
+
+.ticket_table ul li:nth-child(2){
+  width: 25%;
+
+}
+
+.ticket_table ul li:nth-child(3){
+  width: 25%;
+
+}
+.ticket_table ul li:nth-child(4){
+  width: 25%;
+
+}
+
+.ticket_table ul li {
+  vertical-align: center;
+}
+
+.ticket_table-item {
+  background-color: white;
+  margin-top: 0px;
+  padding:0px 0 15px 10px;
+  border-bottom: 1px solid #D5D5D3;
 }

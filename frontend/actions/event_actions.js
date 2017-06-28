@@ -30,6 +30,14 @@ export const requestSingleEvent = (id) => (dispatch) => {
   );
 };
 
+export const updateEventState = (event) => (dispatch) => {
+  const mydispatch = (localEvent) => {
+    dispatch(receiveNewEvent(localEvent));
+    return localEvent;
+  };
+  return mydispatch(event);
+};
+
 export const deleteEvent = id => dispatch => {
  return APIUtil.deleteEvent(id).then((deletedEvent) => {
      dispatch(deleteEventAction({}));
@@ -38,7 +46,6 @@ export const deleteEvent = id => dispatch => {
 };
 
 export const createEvent = event => dispatch => {
-  debugger
  return APIUtil.createEvent(event).then(eventCreated => {
     dispatch(receiveNewEvent(eventCreated));
     return event;
@@ -52,10 +59,12 @@ export const editEvent = event => dispatch => {
   }).fail(err => dispatch(receiveEventErrors(err.responseJSON)));
 };
 
-export const receiveNewEvent = event => ({
+export const receiveNewEvent = event => {
+return ({
   type: RECEIVE_NEW_EVENT,
   event
 });
+};
 
 export const receiveNewTicket = (event, ticket) => ({
   type: RECEIVE_NEW_TICKET,

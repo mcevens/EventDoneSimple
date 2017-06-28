@@ -22,7 +22,6 @@
 #
 
 class Event < ActiveRecord::Base
-
   attr_accessor  :bookmarked
 
   belongs_to(
@@ -57,7 +56,7 @@ class Event < ActiveRecord::Base
   has_many(
     :tickets,
     class_name: "Ticket",
-    foreign_key: :ticket_id,
+    foreign_key: :event_id,
     primary_key: :id
   )
 
@@ -68,7 +67,7 @@ class Event < ActiveRecord::Base
     user_events = nil
 
     if current_user
-      debugger
+
       all_events.each do |event|
         # if current_user.bookmarked_event_ids.include(event.id)
         #   event.bookmarked = true

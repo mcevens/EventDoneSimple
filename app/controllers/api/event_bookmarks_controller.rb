@@ -1,9 +1,9 @@
 class Api::EventBookmarksController < ApplicationController
   def index
     if params[:current_user_id]
-      @event_bookmarks = Bookmark.all.where(user_id: params[:current_user_id])
+      @event_bookmarks = EventBookmark.all.where(user_id: current_user.id)
     else
-      @event_bookmarks = Bookmark.all
+      @event_bookmarks = EventBookmark.all
     end
   end
 

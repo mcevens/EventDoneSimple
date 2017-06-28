@@ -1,6 +1,7 @@
 import { connect  } from 'react-redux';
 import EventForm from './event_form';
-import { createEvent, selectEvent } from '../../actions/event_actions';
+import { createEvent, selectEvent, updateEventState }
+          from '../../actions/event_actions';
 import { editEvent } from '../../actions/event_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -19,7 +20,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return({
-    createEvent: (event) => dispatch(createEvent(event))
+    createEvent: (event) => dispatch(createEvent(event)),
+    updateEventState: (event) => dispatch(updateEventState(event))
   });
 };
 

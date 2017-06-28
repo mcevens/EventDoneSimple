@@ -6,6 +6,7 @@ import TopicHeaderListContainer
 from '../topic_filter/topic_header_list_container';
 import EventIndexItem from './event_index_item';
 
+
 class EventIndex  extends React.Component {
 
   constructor(props){
@@ -14,11 +15,12 @@ class EventIndex  extends React.Component {
 
   componentDidMount(){
     this.props.requestAllEvent();
+    this.props.requestAllEventBookMark();
   }
-
 
   render(){
     const eventsData = this.props.events;
+    const eventBookmarksData = this.props.events;
 
 
     return(
@@ -51,9 +53,8 @@ class EventIndex  extends React.Component {
               </div>
             </section>
             <section className="event-index-content">
-              <h1>Events are coming :)</h1>
+              <h1>Events</h1>
                 <div >
-
                   {eventsData.map(
                     event => <EventIndexItem key={event.id} event={event}/>
                   )}

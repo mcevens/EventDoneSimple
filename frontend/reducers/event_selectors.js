@@ -1,3 +1,5 @@
+import { values } from 'lodash';
+
 export const selectallEvents = (state) => {
   const events = state.events;
   return Object.keys(events).map(id => events[id]);
