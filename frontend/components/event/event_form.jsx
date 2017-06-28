@@ -44,9 +44,6 @@ class EventForm extends React.Component{
     this.initialPaidTicketClick = this.initialPaidTicketClick.bind(this);
     this.initialDonationTicketClick = this
                                   .initialDonationTicketClick.bind(this);
-    this.tableFreeTicketClick = this.tableFreeTicketClick.bind(this);
-    this.tablePaidTicketClick = this.tablePaidTicketClick.bind(this);
-    this.tableDonationTicketClick = this.tableDonationTicketClick.bind(this);
 
   }
 
@@ -75,9 +72,25 @@ class EventForm extends React.Component{
     }
   }
 
+  shouldComponentUpdate(newProps, newState){
+
+    debugger
+    if (Object.keys(newProps).length === 0 && newProps.constructor === Object){
+      if  (newProps.event.tickets !== this.state.tickets){
+      this.mergeEventState(newProps.event);
+      }
+    }
+    return true;
+
+  }
+
   componentWillreceiveProps(nextProps){
+    debugger
+    console.log("Men component lan wi baz");
+    console.log(newProps);
     if (this.props.singleEvent !== nextProps.singleEvent) {
-    //  this.mergeEventState(nextProps.event);
+
+     this.mergeEventState(nextProps.event);
     }
   }
 
@@ -161,8 +174,8 @@ class EventForm extends React.Component{
 
     let ticketItem = {
       key: currentKey,
-      name : 'Alex',
-      price: 200 ,
+      name : '',
+      price: 0 ,
       type : 'FREE',
       quantity: 0
     };
@@ -172,6 +185,7 @@ class EventForm extends React.Component{
     ticketsList[currentKey] = ticketItem;
     ticketArray.push(currentKey);
     tickets.push(ticketItem);
+
     this.setState({
       tickets : tickets,
       tickets_array : ticketArray,
@@ -179,7 +193,6 @@ class EventForm extends React.Component{
       hasTickets: 'none',
       noTickets: 'block'
     });
-
 
     this.setState({
       ticket_initial:"block",
@@ -200,27 +213,6 @@ class EventForm extends React.Component{
     });
   }
 
-  tableFreeTicketClick(){
-
-    this.props.createEvent(this.state);
-    this.setState({
-      ticket_initial:"none",
-      table_ticket: "block"
-    });
-
-  }
-
-  tablePaidTicketClick(){
-    this.setState({
-      ticket_initial:"none"
-    });
-  }
-
-  tableDonationTicketClick(){
-    this.setState({
-      ticket_initial:"none"
-    });
-  }
 
   render (){
     return (
@@ -334,13 +326,18 @@ class EventForm extends React.Component{
                   </header>
                   <div>
 
-                    <div className="ticket_table_container" style={{display:this.state.noTickets}}>
-                        <TicketTable updateEventState={this.props.updateEventState} event={this.state} tickets={this.state.tickets_list}
+                    <div className="ticket_table_container"
+                          style={{display:this.state.noTickets}}>
+                        <TicketTable
+                          updateEventState={this.props.updateEventState}
+                          event={this.state} tickets={this.state.tickets_list}
                           ticket_array={this.state.tickets_array} />
                     </div>
                     <div style={{display:this.state.ticket_initial}}
                               className="initial-type-ticket">
-                        <h5 style={{display:this.state.hasTickets}}>What type of ticket would
+                        <h5
+                          style={{display:this.state.hasTickets}}>
+                          What type of ticket would
                           you like to start with?</h5>
                         <div id="div_ticket_type">
                           <button onClick={this.initialFreeTicketClick}>

@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
     // event = selectEvent(state, eventId);
   }
   return ({
-    event: event,
+    event: state.singleEvent,
     errors
   });
 };
