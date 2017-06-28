@@ -11,6 +11,7 @@ class TicketTable extends React.Component {
 
 
   render(){
+    debugger
     const ticketsData = this.props.tickets;
     const ticketArray = this.props.ticket_array;
     if (ticketsData){
@@ -42,6 +43,10 @@ class TicketTable extends React.Component {
             )}
           </div>
         </div>);
+    }else{
+        return (<div className="ticket_table">
+      </div>);
+
     }
 
   }

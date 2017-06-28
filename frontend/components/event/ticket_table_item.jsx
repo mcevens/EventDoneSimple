@@ -8,6 +8,7 @@ class TicketTableItem extends React.Component{
     super(props);
 
     this.update = this.update.bind(this);
+    this.deleteClick = this.deleteClick.bind(this);
     this.state = {
       name: '',
       quantity: 0
@@ -23,12 +24,26 @@ class TicketTableItem extends React.Component{
     });
   }
 
+  deleteClick(e){
+    e.preventDefault();
+    let pos = this.props.pos;
+    let ticketsData = this.props.event.tickets_list;
+    let event = {};
+    Object.assign(event, this.props.event);
+    delete ticketsData[pos] ;
+    event.tickets_list = ticketsData;
+    let index = event.tickets_array.indexOf(pos);
+    event.tickets.splice(index, 1);
+    event.tickets_array.splice(index, 1);
+    this.props.updateEventState(event);
+  }
 
   update(property) {
     let pos = this.props.pos;
     let ticketsData = this.props.event.tickets_list;
     let ticketItem = ticketsData[pos];
-    let event = this.props.event;
+    let event = {};
+    Object.assign(event, this.props.event);
     return (
         e => {
           this.setState({ [property]: e.target.value });
@@ -64,7 +79,7 @@ class TicketTableItem extends React.Component{
               <label>{this.state.type}</label>
             </li>
             <li>
-              <button>Delete</button>
+              <button onClick={this.deleteClick}>Delete</button>
             </li>
           </ul>
       </div>
