@@ -619,10 +619,8 @@ ul {
 
 }
 
-
 .ticket_table ul li:nth-child(2){
   width: 25%;
-
 }
 
 .ticket_table ul li:nth-child(3){
@@ -631,7 +629,6 @@ ul {
 }
 .ticket_table ul li:nth-child(4){
   width: 25%;
-
 }
 
 .ticket_table ul li {
@@ -643,4 +640,58 @@ ul {
   margin-top: 0px;
   padding:0px 0 15px 10px;
   border-bottom: 1px solid #D5D5D3;
+}
+
+.event-home
+.event-list
+.event-search-div
+{
+  margin-left:auto;
+  margin-right: auto;
+  width:700px;
+}
+
+.event-home .picture-slide{
+  position:relative;
+}
+
+.event-search-div{
+  background-color: #ffffff;
+  border-radius: 3px;
+}
+
+.event-search-div h1{
+  font-size: 36px;
+  font-family: sans-serif;
+  color: #f6682F;
+  margin-left:auto;
+  margin-right: auto;
+  width:300px;
+  position: absolute;
+  top:50px;
+
+}
+
+.event-search-div
+.fitler-box input {
+  border: 1px solid #D2D6DF solid;
+}
+
+.event-search-div
+.filter-box input:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.event-search-div
+.button {
+  background-color: #f6682F;
+  color:white;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.event-search-div
+.button:hover {
+  background-color: #B73A08;
 }

@@ -13,6 +13,7 @@ import {
 import SessionForm from './session_form.jsx';
 import EventFormContainer from './event/event_form_container';
 import HomeIndex from './home_index';
+import EventHome from './event/event_home_container';
 import SessionFormContainer from './session_form_container';
 import EventIndex from './event/event_index';
 import EventIndexContainer from './event/event_index_container';
@@ -23,7 +24,7 @@ import EventRegistrationContainer
 const App = () => (
     <div>
       <Switch>
-        <Route exact path="/" component={HomeIndex}/>
+        <Route exact path="/" component={EventHome}/>
         <Route exact path="/events" component={EventIndexContainer}/>
         <Route exact path="/events/:eventId" component={EventShowContainer}/>
         <Route path="/register/:eventId"
