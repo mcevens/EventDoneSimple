@@ -86,14 +86,13 @@ nav li ul {
   position: absolute;
   top: 1em;
   width: 250px;
-  margin-right: 40px;ul
-        padding: 0;
-        margin: 0;
-        list-style: none;
-
+  margin-right: 40px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
   background-color: #ffffff;
 	border: 1px solid #EFF2F5;
-  color: dark-gray;
+  color: blue;
 }
 
 
@@ -102,12 +101,19 @@ nav li > ul {
   left: -168px;
 }
 
- nav li:hover ul { display: block; }
+ nav li:hover ul {
+
+  display: block;
+
+}
+
 ul {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        }
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+
 #logout-button{
   font-size: 16px;
   padding: 20px;
@@ -298,7 +304,7 @@ ul {
 .event-show-header-left-pane ,
 .event-show-header-right-pane,
 .event-show-detail-description,
-.event-show-detail-other-info,
+.event-show-detail-other-info
  {
   width: 50%;
 }
@@ -451,10 +457,6 @@ Event Titleight: 10px;
   padding-top:20px;
   padding-bottom: 20px;
 }
-
-
-
-
 
 .event-form .header .action {
   background-color: #282C35;
