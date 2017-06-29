@@ -30,6 +30,9 @@ class EventShow extends React.Component{
         <section className="app">
         <div className="event-show">
             <div className="event-show-header">
+              <div event-show-header-image>
+
+              </div>
               <div className="event-show-header-left-pane">
                 <div className="event-show-header-date">
                   <div>{event.start_date}</div>
