@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import TopicHeaderListContainer
 from '../topic_filter/topic_header_list_container';
 import EventIndexItem from './event_index_item';
-import Carousel from './carousel';
+import DemoCarousel from './carrousel';
 
 
 class EventHome  extends React.Component {
@@ -28,7 +28,7 @@ class EventHome  extends React.Component {
         <GlobalHeader headerOrigin="event_index" />
         <section className="event-home-body">
           <div className="carousel">
-            <EventImageSlider />
+            <DemoCarousel />
           </div>
           <div className="search-div">
             <h1>Find your next experience</h1>

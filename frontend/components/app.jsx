@@ -21,12 +21,12 @@ import EventShowContainer from './event/event_show_container';
 import EventRegistrationContainer
             from './registration/event_registration_container';
 
-import DemoCarousel from './carrousel';
+
 const App = () => (
     <div>
       <Switch>
 
-        <Route exact path="/" component={DemoCarousel}/>
+        <Route exact path="/" component={EventHome}/>
         <Route exact path="/events" component={EventIndexContainer}/>
         <Route exact path="/events/:eventId" component={EventShowContainer}/>
         <Route path="/register/:eventId"
