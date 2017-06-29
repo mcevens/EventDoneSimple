@@ -24,7 +24,10 @@ class EventHomeItem extends React.Component{
               <span>
                  <div className="event-home-item-header-image">
                    <img src="assets/img_test" height="165" width="330"></img>
-                 </div>
+                     <div className="event-home-item-footer-image">
+                         <label>FREE</label>
+                     </div>
+               </div>
                  <div className="event-home-item-header-text">
                    <div>
                      {  event.start_date }
@@ -37,9 +40,7 @@ class EventHomeItem extends React.Component{
              </Link>
          </div>
          <div className="event-home-item-footer">
-           <div className="event-home-item-footer-image">
-               <label>FREE</label>
-           </div>
+
            <div className="event-home-item-footer-text">
              <div className="event-home-item-footer-text-label">
                <label>{ `#${event.topic_name}` } </label>

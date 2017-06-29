@@ -95,7 +95,7 @@ import TopicHeaderListContainer from './topic/topic_header_list_container';
       <div className="global-header">
         <nav>
           <div>
-              <a className="logo">Eventdonesimple</a>
+              <Link to={`/`} className="logo">Eventdonesimple</Link>
               { searchForEvent() }
           </div>
           <ul>

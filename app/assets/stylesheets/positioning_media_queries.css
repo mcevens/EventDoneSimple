@@ -802,3 +802,61 @@ select{
 .event-list-search-holder{
   position:relative;
 }
+
+.event-home-item button {
+  background-color: #FFFFFF;
+  border:none;
+  cursor:pointer;
+  color:#0093D7;
+}
+
+.event-home-item {
+  background-color: white;
+  margin-bottom: 20px;
+}
+.event-home-item-header-text{
+  padding-top:20px;
+
+}
+
+.event-home-item-header-text > *{
+  padding-left: 10px;
+}
+
+.event-home-item-header-image{
+  position:relative;
+}
+
+.event-home-item-footer-image{
+  position:absolute;
+  right:0;
+  top:0;
+  background-color: white;
+  padding: 5px;
+  margin: 10px;
+}
+
+.event-home-item-footer{
+  display:flex;
+  justify-content:flex-start;
+  border:1px solid #EFF2F5;
+  height:20%;
+  padding:15px;
+
+
+}
+
+.event-home-item-footer-text{
+  display:flex;
+  justify-content:space-between;
+  /*border:1px solid #EFF2F5;*/
+  width: 80%;
+}
+
+.event-home-item-footer-actions{
+  display: flex;
+  justify-content: right;
+}
+.event-home-item-footer-actions *{
+  border-left:1px solid #EFF2F5;
+}
