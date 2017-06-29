@@ -16,7 +16,10 @@ export const createEvent = (event) => {
   return $.ajax({
     method: 'POST',
     url: 'api/events/',
-    data : { event }
+    dataType: "json",
+    contentType:false,
+    processData: false,
+    data: event
   });
 };
 
