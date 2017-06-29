@@ -23,6 +23,7 @@ class EventShow extends React.Component{
   }
 
   render(){
+    debugger
     const event = this.props.event;
     return(
       <div>
@@ -30,13 +31,13 @@ class EventShow extends React.Component{
         <section className="app">
         <div className="event-show">
             <div className="event-show-header">
-              <div event-show-header-image>
-
+              <div className="event-show-header-image">
+                <img src={event.image_url}></img>
               </div>
               <div className="event-show-header-left-pane">
                 <div className="event-show-header-date">
-                  <div>{event.start_date}</div>
-                  <div>{event.start_date}</div>
+                  <div>{event.start_date_month}</div>
+                  <div>{event.start_date_day}</div>
                 </div>
                 <div className="event-show-header-title">
                     <h1>{event.title}</h1>
@@ -44,11 +45,9 @@ class EventShow extends React.Component{
                 <div className="event-show-header-organizer">
                     <p> {`by ${ event.title }`} </p>
                 </div>
-              </div>
-              <div className="event-show-header-right-pane">
-                 <div className="event-show-header-type-ticket" >
-                    <label>FREE</label>
-                 </div>
+                <div className="event-show-header-type-ticket" >
+                   <label>FREE</label>
+                </div>
               </div>
 
             </div>

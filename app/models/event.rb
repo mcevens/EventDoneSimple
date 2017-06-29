@@ -24,6 +24,9 @@
 class Event < ActiveRecord::Base
   attr_accessor  :bookmarked
 
+  has_attached_file :image,  default_url: "show_picture.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
   belongs_to(
     :creater,
     class_name: "User",
@@ -81,6 +84,18 @@ class Event < ActiveRecord::Base
 
   def bookmarked
     return false
+  end
+
+  def start_date_month
+    "AUG"
+  end
+
+  def start_date_day
+    "11"
+  end
+
+  def start_date_full_date
+    "SUN 12 2017"
   end
 
 end

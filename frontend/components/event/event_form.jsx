@@ -74,7 +74,7 @@ class EventForm extends React.Component{
 
   shouldComponentUpdate(newProps, newState){
 
-    debugger
+
     if (Object.keys(newProps).length === 0 && newProps.constructor === Object){
       if  (newProps.event.tickets !== this.state.tickets){
       this.mergeEventState(newProps.event);
@@ -85,9 +85,8 @@ class EventForm extends React.Component{
   }
 
   componentWillreceiveProps(nextProps){
-    debugger
+
     console.log("Men component lan wi baz");
-    console.log(newProps);
     if (this.props.singleEvent !== nextProps.singleEvent) {
 
      this.mergeEventState(nextProps.event);
@@ -119,6 +118,30 @@ class EventForm extends React.Component{
       tickets_list:event.tickets_list
     });
   }
+
+  updateFile (e) {
+    var file = e.currentTarget.files[0];
+    var fileReader = new FileReader();
+    fileReader.onloadend = function () {
+      this.setState({ imageFile: file, image_url: fileReader.result });
+    }.bind(this);
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
+  //
+  // handleSubmit (e) {
+  //   var formData = new FormData();
+  //   formData.append("tweet[body]", this.state.body);
+  //   formData.append("tweet[image]", this.state.imageFile);
+  //   // TweetApi.createTweet(formData, this.goBack);
+  // }
+  //
+  // goBack () {
+  //   this.context.router.push("/");
+  // }
+
 
   startDateChange (dateString, { dateMoment, timestamp }){
     this.setState({
@@ -154,6 +177,7 @@ class EventForm extends React.Component{
       .then(data => this.props.history.push(`/`));
     }
   }
+
 
   update(property) {
     return e => this.setState({ [property]: e.target.value });
@@ -308,7 +332,8 @@ class EventForm extends React.Component{
                     </div>
                     <div className="details-attr">
                       <label>Event Image</label>
-                      <input type="text"></input>
+                      <input type="file" onchange={this.updateFile}></input>
+                      <img src={this.state.image_url}/>
                     </div>
                     <div className="details-attr">
                       <label>Event Description</label>

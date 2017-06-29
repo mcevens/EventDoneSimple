@@ -27,10 +27,10 @@ class EventHomeItem extends React.Component{
                      <div className="event-home-item-footer-image">
                          <label>FREE</label>
                      </div>
-               </div>
+                   </div>
                  <div className="event-home-item-header-text">
                    <div>
-                     {  event.start_date }
+                     {  event.start_date_full_date }
                    </div>
                    <div>
                      {  event.title }

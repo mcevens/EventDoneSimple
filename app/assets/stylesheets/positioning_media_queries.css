@@ -287,13 +287,25 @@ ul {
 
 }
 .event-show-header{
-  padding:20px;
+  padding-top:20px;
   display:flex;
+  background-color: #F9F9F9;
 }
+
+.event-show-header-image{
+  padding-bottom: 10px;
+}
+
+.event-show-header img{
+  height: 100%;
+}
+
 
 .event-show-header-left-pane > div{
   margin-bottom: 100px;
-  margin-left: 100px;
+}
+.event-show-header-left-pane > div:last-of-type{
+  margin-bottom: 0px;
 }
 
 .event-show-header-right-pane > div{
@@ -301,12 +313,17 @@ ul {
   margin-left: 100px;
 }
 
-.event-show-header-left-pane ,
+
 .event-show-header-right-pane,
 .event-show-detail-description,
 .event-show-detail-other-info
  {
   width: 50%;
+}
+
+.event-show-header-left-pane{
+  width: 100%;
+  padding-left: 30px;
 }
 
 .event-show-header-right-pane{
@@ -317,12 +334,7 @@ ul {
 }
 
 .event-show-header-type-ticket{
-  position: absolute;
-    top: 90%;
-    left: 50%;
-    height: 30%;
-    width: 50%;
-    right:10%;
+
 }
 .event-show-header-date{
 

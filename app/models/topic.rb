@@ -19,4 +19,8 @@ class Topic < ActiveRecord::Base
     primary_key: :id
   )
 
+  def self.top_topic
+
+  end 
+
 end
