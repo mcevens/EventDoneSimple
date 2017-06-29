@@ -21,6 +21,6 @@ class Topic < ActiveRecord::Base
 
   def self.top_topic
 
-  end 
+  end
 
 end

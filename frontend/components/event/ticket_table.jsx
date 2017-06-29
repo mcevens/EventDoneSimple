@@ -11,7 +11,7 @@ class TicketTable extends React.Component {
 
 
   render(){
-    debugger
+    
     const ticketsData = this.props.tickets;
     const ticketArray = this.props.ticket_array;
     if (ticketsData){

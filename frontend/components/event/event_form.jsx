@@ -22,15 +22,19 @@ class EventForm extends React.Component{
       end_time: '',
       description: '',
       image_url: '',
+      imageFile: null,
       topic_id: 20,
       subtopic_id: 20,
+      tickets: [],
       ticket_initial:"block",
       table_ticket:"block",
-      tickets: [],
       tickets_array: [],
       tickets_list:{},
       hasTickets: 'block',
-      noTickets: 'none'
+      noTickets: 'none',
+      freeTicket: 0,
+      PaidTicket: 0,
+      DonationTicket: 0
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,20 +48,64 @@ class EventForm extends React.Component{
     this.initialPaidTicketClick = this.initialPaidTicketClick.bind(this);
     this.initialDonationTicketClick = this
                                   .initialDonationTicketClick.bind(this);
-
+    this.updateFile = this.updateFile.bind(this);
   }
 
   save(e){
+
     e.preventDefault();
     const event = this.state;
     if (this.props.eventId) {
     this.props.editEvent(this.state)
       .then(data => this.props.history.push(`/`));
     }else{
-     this.props.createEvent(this.state)
-      .then(data => this.props.history.push(`/`));
+    //  this.props.createEvent(this.state)
+    //   .then(data => this.props.history.push(`/`));
+       let stringTickets = "";
+      this.state.tickets.forEach(el => {
+        stringTickets += el.name  + ',' + el.quantity.toString() + ';';
+      });
+
+      stringTickets = stringTickets.slice(0,-1);
+
+      var formData = new FormData();
+      debugger
+      formData.append("event[title]", this.state.title);
+      formData.append("event[start_date]", this.state.adresse_line1);
+      formData.append("event[start_time]", this.state.start_date);
+      formData.append("event[end_date]", this.state.start_time);
+      formData.append("event[end_time]", this.state.end_time);
+      formData.append("event[description]", this.state.description);
+      formData.append("event[topic_id]", this.state.topic_id);
+      formData.append("event[subtopic_id]", this.state.subtopic_id);
+      formData.append("event[tickets]", stringTickets);
+      formData.append("event[image]", this.state.imageFile);
+      this.props.createEvent(formData, this.goBack);
     }
   }
+
+
+  handleSubmit (e) {
+    // var formData = new FormData();
+    // formData.append("event[title]", this.state.title);
+    // formData.append("event[start_date]", this.state.adresse_line1);
+    // formData.append("event[start_time]", this.state.start_date);
+    // formData.append("event[end_date]", this.state.start_time);
+    // formData.append("event[end_time]", this.state.end_time);
+    // formData.append("event[description]", this.state.description);
+    // formData.append("event[image_url]", this.state.image_url);
+    // formData.append("event[topic_id]", this.state.topic_id);
+    // formData.append("event[subtopic_id]", this.state.subtopic_id);
+    // formData.append("event[tickets]", this.state.tickets);
+    // formData.append("event[image]", this.state.imageFile);
+    // this.props.createEvent(formData, this.goBack);
+  }
+
+  goBack () {
+    this.context.router.push("/");
+  }
+
+
 
   componentDidMount(){
     if (this.props.eventId){
@@ -120,8 +168,8 @@ class EventForm extends React.Component{
   }
 
   updateFile (e) {
-    var file = e.currentTarget.files[0];
-    var fileReader = new FileReader();
+    let file = e.currentTarget.files[0];
+    let fileReader = new FileReader();
     fileReader.onloadend = function () {
       this.setState({ imageFile: file, image_url: fileReader.result });
     }.bind(this);
@@ -131,16 +179,7 @@ class EventForm extends React.Component{
     }
   }
   //
-  // handleSubmit (e) {
-  //   var formData = new FormData();
-  //   formData.append("tweet[body]", this.state.body);
-  //   formData.append("tweet[image]", this.state.imageFile);
-  //   // TweetApi.createTweet(formData, this.goBack);
-  // }
-  //
-  // goBack () {
-  //   this.context.router.push("/");
-  // }
+
 
 
   startDateChange (dateString, { dateMoment, timestamp }){
@@ -332,7 +371,7 @@ class EventForm extends React.Component{
                     </div>
                     <div className="details-attr">
                       <label>Event Image</label>
-                      <input type="file" onchange={this.updateFile}></input>
+                      <input type="file" onChange={this.updateFile}></input>
                       <img src={this.state.image_url}/>
                     </div>
                     <div className="details-attr">

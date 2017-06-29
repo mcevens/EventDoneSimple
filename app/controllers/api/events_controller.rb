@@ -9,8 +9,9 @@ class Api::EventsController < ApplicationController
    end
 
    def create
+     debugger
      @event =  extractEvent(received_params)
-     @tickets = extractTickets(params)
+     @tickets = newExtractTicket(params)
      @event.creater_id = current_user.id
      if @event.save
        @tickets.each do |ticket|
@@ -21,6 +22,28 @@ class Api::EventsController < ApplicationController
      else
        render json: @event.errors.full_messages, status: 422
      end
+   end
+
+   private
+   def newExtractTicket(received_params)
+     ticketString  = received_params[:event][:tickets]
+     tickets = []
+     ticketArray = ticketString.split(";")
+
+     ticketArray.each do |elem|
+       ticket_params = {}
+       ticket_received = elem.split(",")
+
+       ticket_params[:name] = ticket_received[0]
+       ticket_params[:ticket_type_id] = 1
+       ticket_params[:price] = 0
+       ticket_params[:quantity] = ticket_received[1]
+
+       ticket = Ticket.new(ticket_params)
+       tickets.push(ticket)
+     end
+
+      tickets
    end
 
    private
@@ -38,6 +61,7 @@ class Api::EventsController < ApplicationController
      event_params[:image_url] = received_params[:image_url]
      event_params[:topic_id] = received_params[:topic_id]
      event_params[:subtopic_id] = received_params[:subtopic_id]
+     event_params[:image] = received_params[:image]
      event = Event.new(event_params)
    end
 
@@ -81,6 +105,6 @@ class Api::EventsController < ApplicationController
    private
 
    def received_params
-     params.require(:event).permit(:id,:title, :online, :start_date, :start_time, :end_date, :end_time,:description, :adresse_line1, :image_url, :topic_id, :subtopic_id, tickets_list: [], tickets:{})
+     params.require(:event).permit(:id,:title, :image, :online, :start_date, :start_time, :end_date, :end_time,:description, :adresse_line1, :image_url, :topic_id, :subtopic_id, tickets_list: [], tickets:[])
    end
 end
