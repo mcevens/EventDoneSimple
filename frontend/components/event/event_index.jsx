@@ -7,6 +7,7 @@ from '../topic_filter/topic_header_list_container';
 import EventIndexItem from './event_index_item';
 
 
+
 class EventIndex  extends React.Component {
 
   constructor(props){
