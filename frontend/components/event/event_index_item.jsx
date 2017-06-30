@@ -16,14 +16,17 @@ class EventIndexItem extends React.Component{
 
   render(){
     const event = this.props.event;
-
+    let bookmarked = 'event-not-bookmarked';
+    if (event.bookmarked){
+      bookmarked = 'event-bookmarked' ;
+    }
     return(
       <div className="event-index-item">
          <div className="event-index-item-header">
             <Link to={`/events/${event.id}`}>
               <span>
                  <div className="event-index-item-header-image">
-                   <img></img>
+                   <img src="{event.start_date}"></img>
                  </div>
                  <div className="event-index-item-header-text">
                    <div>
@@ -47,16 +50,16 @@ class EventIndexItem extends React.Component{
              <div className="event-index-item-footer-actions">
                <div>
                  <form onSubmit={this.handleSubmit}>
-                 <button>
-                    Share
-                 </button>
+                   <button style={{display:'none'}}>
+                      Share
+                   </button>
                </form>
                </div>
                <div>
                  <form onSubmit={this.handleSubmit}>
-                 <button>
-                    Bookmark
-                 </button>
+                   <button className={bookmarked}>
+                      Bookmark
+                   </button>
                </form>
                </div>
              </div>

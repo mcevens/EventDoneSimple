@@ -63,27 +63,25 @@ class Event < ActiveRecord::Base
     primary_key: :id
   )
 
-
-
   def self.find_all_bookmarked_by_current_user(current_user)
+
     all_events = Event.all
     user_events = nil
-
+    list_events = []
     if current_user
 
       all_events.each do |event|
-        # if current_user.bookmarked_event_ids.include(event.id)
-        #   event.bookmarked = true
-        # end
+        if current_user.bookmarked_event_ids.include?(event.id)
+          event.bookmarked = true
+        else
+          event.bookmarked = false 
+        end
+        list_events.push(event)
       end
-      return all_events
+      return list_events
     else
       return all_events
     end
-  end
-
-  def bookmarked
-    return false
   end
 
   def start_date_month

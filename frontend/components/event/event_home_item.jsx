@@ -8,14 +8,30 @@ class EventHomeItem extends React.Component{
   }
 
   handleSubmit(e){
+    debugger;
     const event = this.props.event;
     e.preventDefault();
-      this.props.deleteEvent(event.id)
+      this.props.createBookmark(event.id)
         .then(data => this.props.history.push(`/`));
   }
 
   render(){
     const event = this.props.event;
+    const currentUser = this.props.current_user;
+    let bookmarked = 'event-not-bookmarked';
+    let tooltip = 'Save';
+    let displaybookmark = 'none';
+    debugger
+    if (event.bookmarked === true){
+      bookmarked = 'event-bookmarked' ;
+      tooltip = 'Save';
+    }
+
+    if (currentUser){
+      displaybookmark = 'block';
+    }
+
+
 
     return(
       <div className="event-home-item">
@@ -23,7 +39,7 @@ class EventHomeItem extends React.Component{
             <Link to={`/events/${event.id}`}>
               <span>
                  <div className="event-home-item-header-image">
-                   <img src="assets/img_test" height="165" width="330"></img>
+                   <img src={event.image_url} height="165" width="330"></img>
                      <div className="event-home-item-footer-image">
                          <label>FREE</label>
                      </div>
@@ -48,16 +64,19 @@ class EventHomeItem extends React.Component{
              <div className="event-home-item-footer-actions">
                <div>
                  <form onSubmit={this.handleSubmit}>
-                 <button>
+                 <button style={{display:'none'}}>
                     Share
                  </button>
                </form>
                </div>
                <div>
                  <form onSubmit={this.handleSubmit}>
-                 <button>
-                    Bookmark
-                 </button>
+                 <button title={tooltip}>
+                   <span style={{display:displaybookmark}}
+                     className={bookmarked} id="rock">
+
+                   </span>
+                  </button>
                </form>
                </div>
              </div>

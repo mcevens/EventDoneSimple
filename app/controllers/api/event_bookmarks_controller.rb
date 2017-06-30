@@ -8,10 +8,12 @@ class Api::EventBookmarksController < ApplicationController
   end
 
   def create
-    @event_bookmark = EventBookmark.new(bookmark_params)
+
+    @event_bookmark = EventBookmark.new()
+    @event_bookmark.event_id = bookmark_params.to_i
     @event_bookmark.user_id = current_user.id
     if @event_bookmark.save
-      render :show
+      render json: 'api/events/'
     else
       render json: @event_bookmark.errors.full_messages, status: 422
     end
@@ -24,7 +26,8 @@ class Api::EventBookmarksController < ApplicationController
   end
 
   def bookmark_params
-    params.require(:event_bookmark).permit(:event_id)
+    new_params  = params[:eventBookmark]
+    return new_params
   end
 
 end

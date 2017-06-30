@@ -1,4 +1,4 @@
-import {RECEIVE_EVENT_BOOKMARKS} from '../actions/event_bookmark_actions.js';
+import {RECEIVE_EVENT_BOOKMARKS , RECEIVE_NEW_BOOKMARK } from '../actions/event_bookmark_actions.js';
 
 import { merge } from 'lodash';
 const defaultState = {};

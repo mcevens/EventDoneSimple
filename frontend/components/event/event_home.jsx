@@ -20,6 +20,7 @@ class EventHome  extends React.Component {
   }
 
   render(){
+
     const eventsData = this.props.events;
     const eventBookmarksData = this.props.events;
 
@@ -79,7 +80,11 @@ class EventHome  extends React.Component {
               </div>
               <div >
                 {eventsData.map(
-                  event => <EventHomeItem key={event.id} event={event}/>
+                  event => <EventHomeItem
+                  createBookmark={this.props.createBookmark}
+                  key={event.id}
+                  current_user={this.props.currentUser}
+                  event={event}/>
                 )}
               </div>
             </div>

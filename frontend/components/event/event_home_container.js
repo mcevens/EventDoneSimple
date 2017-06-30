@@ -5,20 +5,24 @@ import { requestAllEvent, deleteEvent }
   from '../../actions/event_actions';
 import { selectallEvents }
   from '../../reducers/event_selectors';
-import { requestAllEventBookMark }
+import { requestAllEventBookMark, createBookmark }
   from '../../actions/event_bookmark_actions';
 import {  selectallEventBookMarks }
   from '../../reducers/event_bookmark_selectors';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => {
+return(  {
   events: selectallEvents(state),
-  eventBookmarks: selectallEventBookMarks(state)
+  eventBookmarks: selectallEventBookMarks(state),
+  currentUser: state.session.currentUser
 });
+};
 
 const mapDispatchToProps = (dispatch) => ({
   requestAllEvent: () => dispatch(requestAllEvent()),
   requestAllEventBookMark: () => dispatch(requestAllEventBookMark()),
-  deleteEvent: (id) => dispatch(deleteEvent(id))
+  deleteEvent: (id) => dispatch(deleteEvent(id)),
+  createBookmark:(eventId) => dispatch(createBookmark(eventId))
 });
 
 export default connect(

@@ -9,7 +9,6 @@ class Api::EventsController < ApplicationController
    end
 
    def create
-     debugger
      @event =  extractEvent(received_params)
      @tickets = newExtractTicket(params)
      @event.creater_id = current_user.id
