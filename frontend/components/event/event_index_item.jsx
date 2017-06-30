@@ -26,7 +26,7 @@ class EventIndexItem extends React.Component{
             <Link to={`/events/${event.id}`}>
               <span>
                  <div className="event-index-item-header-image">
-                   <img src="{event.start_date}"></img>
+                   <img src="{event.image_url}"></img>
                  </div>
                  <div className="event-index-item-header-text">
                    <div>
