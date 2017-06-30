@@ -893,3 +893,23 @@ select{
   height:64px;
   display:block;
 }
+
+.maintenance h1{
+  font-size: 50px;
+}
+
+.maitnenace div {
+  font: 20px Helvetica, sans-serif; color: #333;
+}
+
+.maintenance article{
+  display: block; text-align: left; width: 650px; margin: 0 auto;
+}
+
+.maintenance a {
+  color: #dc8100; text-decoration: none;
+}
+
+.maintenance a:hover{
+  color: #333; text-decoration: none;
+}

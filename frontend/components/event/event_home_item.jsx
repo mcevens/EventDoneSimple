@@ -8,7 +8,7 @@ class EventHomeItem extends React.Component{
   }
 
   handleSubmit(e){
-    debugger;
+
     const event = this.props.event;
     e.preventDefault();
       this.props.createBookmark(event.id)
@@ -21,7 +21,6 @@ class EventHomeItem extends React.Component{
     let bookmarked = 'event-not-bookmarked';
     let tooltip = 'Save';
     let displaybookmark = 'none';
-    debugger
     if (event.bookmarked === true){
       bookmarked = 'event-bookmarked' ;
       tooltip = 'Save';
@@ -30,8 +29,6 @@ class EventHomeItem extends React.Component{
     if (currentUser){
       displaybookmark = 'block';
     }
-
-
 
     return(
       <div className="event-home-item">

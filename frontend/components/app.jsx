@@ -20,20 +20,20 @@ import EventIndexContainer from './event/event_index_container';
 import EventShowContainer from './event/event_show_container';
 import EventRegistrationContainer
             from './registration/event_registration_container';
-
+import Maintenance from './event/maintenance';
 
 const App = () => (
     <div>
       <Switch>
 
-        <Route exact path="/" component={EventHome}/>
-        <Route exact path="/events" component={EventIndexContainer}/>
-        <Route exact path="/events/:eventId" component={EventShowContainer}/>
+        <Route exact path="/" component={Maintenance}/>
+        <Route exact path="/events" component={Maintenance}/>
+        <Route exact path="/events/:eventId" component={Maintenance}/>
         <Route path="/register/:eventId"
-                    component={EventRegistrationContainer}/>
-        <ProtectedRoute path="/create" component={EventFormContainer }/>
-        <AuthRoute path="/login" component={SessionFormContainer}/>
-        <AuthRoute path="/signup" component={SessionFormContainer}/>
+                    component={Maintenance}/>
+        <ProtectedRoute path="/create" component={Maintenance }/>
+        <AuthRoute path="/login" component={Maintenance}/>
+        <AuthRoute path="/signup" component={Maintenance}/>
       </Switch>
     </div>
 );

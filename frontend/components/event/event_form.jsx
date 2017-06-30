@@ -419,16 +419,21 @@ class EventForm extends React.Component{
                 </fieldset>
                 <fieldset className="additional">
                   <header>
+                    <h2 className="event-form-fields-header-icon">
+                      2
+                    </h2>
+                    <h2>Additional Settings </h2>
                   </header>
+
                 </fieldset>
               </div>
               <div className="actions">
                 <h1>Nice Job!You're almost done.</h1>
                 <div>
-                    <button onClick={this.save}>
+                    <button >
                       Save
                     </button>
-                     <button className="live-event">
+                     <button onClick={this.save} className="live-event">
                        Make Your Event Live
                      </button>
                 </div>
