@@ -74,7 +74,7 @@ class Event < ActiveRecord::Base
         if current_user.bookmarked_event_ids.include?(event.id)
           event.bookmarked = true
         else
-          event.bookmarked = false 
+          event.bookmarked = false
         end
         list_events.push(event)
       end
@@ -82,6 +82,10 @@ class Event < ActiveRecord::Base
     else
       return all_events
     end
+  end
+
+  def picture_from_url(url)
+    self.image = URI.parse(url).open
   end
 
   def start_date_month

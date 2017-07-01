@@ -83,7 +83,7 @@ Event.delete_all
 if Event.all.count === 0
 
 
-
+begin
 event1 = Event.create(
 creater_id:test_user.id,
 title: "",
@@ -99,7 +99,7 @@ image_url: nil,
 description: "Test",
 topic_id: music.id,
 subtopic_id: music.id,
-image: File.open('app/assets/images/art.jpg')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/art.jpg')
 )
 
 event2 = Event.create(
@@ -117,7 +117,7 @@ description: "Test",
 image_url: nil,
 topic_id: business.id,
 subtopic_id: business.id,
-image: File.open('app/assets/images/business.jpg')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/business.jpg')
 )
 
 event3 = Event.create(
@@ -135,7 +135,7 @@ description: "Test",
 image_url: nil,
 topic_id: food.id,
 subtopic_id: food.id,
-image: File.open('app/assets/images/fashion.png')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/fashion.png')
 )
 
 event4 = Event.create(
@@ -153,7 +153,7 @@ description: "Test",
 image_url: nil,
 topic_id: arts.id,
 subtopic_id: arts.id,
-image: File.open('app/assets/images/art.jpg')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/art.jpg')
 )
 
 event5 = Event.create(
@@ -171,7 +171,7 @@ description: "Test",
 image_url: nil,
 topic_id: community.id,
 subtopic_id: community.id,
-image: File.open('app/assets/images/community.jpg')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/community.jpg')
 )
 
 event6 = Event.create(
@@ -189,7 +189,7 @@ description: "Test",
 image_url: nil,
 topic_id: music.id,
 subtopic_id: music.id,
-image: File.open('app/assets/images/film_&_media.png')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/film_media.png')
 )
 
 event7 = Event.create(
@@ -207,7 +207,7 @@ description: "Test",
 image_url: nil,
 topic_id: health.id,
 subtopic_id: health.id,
-image: File.open('app/assets/images/health.gif')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/health.gif')
 )
 
 event8 = Event.create(
@@ -225,7 +225,7 @@ description: "Test",
 image_url: nil,
 topic_id: sport.id,
 subtopic_id: sport.id,
-image: File.open('app/assets/images/sports.jpg')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/sports.jpg')
 )
 
 
@@ -244,7 +244,7 @@ description: "Test",
 image_url: nil,
 topic_id: family.id,
 subtopic_id: family.id,
-image: File.open('app/assets/images/family_and_education.jpg')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/family_and_education.jpg')
 )
 
 event10 = Event.create(
@@ -262,7 +262,8 @@ description: "Test",
 image_url: nil,
 topic_id: film.id,
 subtopic_id: film.id,
-image: File.open('app/assets/images/film_&_media.png')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/film_&_media.png')
+
 )
 
 event11 = Event.create(
@@ -280,7 +281,7 @@ description: "Test",
 image_url: nil,
 topic_id: charity.id,
 subtopic_id: charity.id,
-image: File.open('app/assets/images/charity_&_cause.jpg')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/charity_&_cause.jpg.')
 )
 
 event12 = Event.create(
@@ -298,7 +299,7 @@ description: "Test",
 image_url: nil,
 topic_id: fashion.id,
 subtopic_id: fashion.id,
-image: File.open('app/assets/images/fashion.png')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/fashion.png')
 )
 
 event13 = Event.create(
@@ -316,7 +317,7 @@ description: "Test",
 image_url: nil,
 topic_id: hobby.id,
 subtopic_id: hobby.id,
-image: File.open('app/assets/images/hobbies.png')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/hobbies.png')
 )
 
 event14 = Event.create(
@@ -334,7 +335,8 @@ description: "Test",
 image_url: nil,
 topic_id: science.id,
 subtopic_id: science.id,
-image: File.open('app/assets/images/holiday.png')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/holiday.png')
+
 )
 
 event15 = Event.create(
@@ -352,7 +354,7 @@ description: "Test",
 image_url: nil,
 topic_id: spirituality.id,
 subtopic_id: spirituality.id,
-image: File.open('app/assets/images/spirituality.jpg')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/spirituality.jpg')
 )
 
 event16 = Event.create(
@@ -370,7 +372,7 @@ description: "Test",
 image_url: nil,
 topic_id: homelife.id,
 subtopic_id: homelife.id,
-image: File.open('app/assets/images/home_lifestyle.png')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/home_lifestyle.png')
 )
 
 event16 = Event.create(
@@ -388,7 +390,7 @@ description: "Test",
 image_url: nil,
 topic_id: travel.id,
 subtopic_id: travel.id,
-image: File.open('app/assets/images/travel_outdoor.jpg')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/travel_outdoor.jpg')
 )
 
 event16 = Event.create(
@@ -406,7 +408,7 @@ description: "Test",
 image_url: nil,
 topic_id: holiday.id,
 subtopic_id: holiday.id,
-image: File.open('app/assets/images/holiday.png')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/holiday.png')
 )
 
 event16 = Event.create(
@@ -424,9 +426,12 @@ description: "Test",
 image_url: nil,
 topic_id: government.id,
 subtopic_id: government.id,
-image: File.open('app/assets/images/government.jpg')
+image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/government.jpg')
 )
 
+rescue
+
+end
 book_mark_event1 = EventBookmark.create(
   user_id: test_user.id,
   event_id: event1.id
