@@ -82,8 +82,8 @@ Event.delete_all
 
 if Event.all.count === 0
 
-
 begin
+
 event1 = Event.create(
 creater_id:test_user.id,
 title: "",
@@ -96,15 +96,15 @@ start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
 image_url: nil,
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 topic_id: music.id,
 subtopic_id: music.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/art.jpg')
+image: File.open('assets/images/art.jpg')
 )
 
 event2 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -113,16 +113,16 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: business.id,
 subtopic_id: business.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/business.jpg')
+image: File.open('assets/images/business.jpg')
 )
 
 event3 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -131,16 +131,16 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: food.id,
 subtopic_id: food.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/fashion.png')
+image: File.open('assets/images/food.jpg')
 )
 
 event4 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -149,16 +149,16 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: arts.id,
 subtopic_id: arts.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/art.jpg')
+image: File.open('assets/images/art.jpg')
 )
 
 event5 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -167,16 +167,16 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: community.id,
 subtopic_id: community.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/community.jpg')
+image: File.open('assets/images/community.jpg')
 )
 
 event6 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -185,16 +185,16 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: music.id,
 subtopic_id: music.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/film_media.png')
+image: File.open('assets/images/film_&_media.png')
 )
 
 event7 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -203,16 +203,16 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: health.id,
 subtopic_id: health.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/health.gif')
+image: File.open('assets/images/health.gif')
 )
 
 event8 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -221,17 +221,17 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: sport.id,
 subtopic_id: sport.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/sports.jpg')
+image: File.open('assets/images/sports.jpg')
 )
 
 
 event9 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -240,16 +240,16 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: family.id,
 subtopic_id: family.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/family_and_education.jpg')
+image: File.open('assets/images/family_and_education.jpg')
 )
 
 event10 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -258,17 +258,16 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: film.id,
 subtopic_id: film.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/film_&_media.png')
-
+image: File.open('assets/images/film_&_media.png')
 )
 
 event11 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -277,16 +276,16 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: charity.id,
 subtopic_id: charity.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/charity_&_cause.jpg.')
+image: File.open('assets/images/charity_&_cause.jpg')
 )
 
 event12 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -295,16 +294,16 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: fashion.id,
 subtopic_id: fashion.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/fashion.png')
+image: File.open('assets/images/fashion.png')
 )
 
 event13 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -313,16 +312,16 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: hobby.id,
 subtopic_id: hobby.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/hobbies.png')
+image: File.open('assets/images/hobbies.png')
 )
 
 event14 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -331,17 +330,16 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: science.id,
 subtopic_id: science.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/holiday.png')
-
+image: File.open('assets/images/holiday.png')
 )
 
 event15 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -350,16 +348,16 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: spirituality.id,
 subtopic_id: spirituality.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/spirituality.jpg')
+image: File.open('assets/images/spirituality.jpg')
 )
 
 event16 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -368,16 +366,16 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: homelife.id,
 subtopic_id: homelife.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/home_lifestyle.png')
+image: File.open('assets/images/home_lifestyle.png')
 )
 
 event16 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -386,16 +384,16 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: travel.id,
 subtopic_id: travel.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/travel_outdoor.jpg')
+image: File.open('assets/images/travel_outdoor.jpg')
 )
 
 event16 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -404,16 +402,16 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: holiday.id,
 subtopic_id: holiday.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/holiday.png')
+image: File.open('assets/images/holiday.png')
 )
 
 event16 = Event.create(
 creater_id:test_user.id,
-title: "test",
+title: "Meet Lady gaga",
 longitude: nil,
 latitude: nil,
 online: nil,
@@ -422,16 +420,13 @@ start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "Test",
+description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: government.id,
 subtopic_id: government.id,
-image: URI.parse('https://s3.us-east-2.amazonaws.com/eventdonesimple-dev/static_seeds/government.jpg')
+image: File.open('assets/images/go.png')
 )
-
-rescue
-
-end
+end 
 book_mark_event1 = EventBookmark.create(
   user_id: test_user.id,
   event_id: event1.id
