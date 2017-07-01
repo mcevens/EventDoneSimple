@@ -20,6 +20,7 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
+require 'date'
 
 class Event < ActiveRecord::Base
   attr_accessor  :bookmarked
@@ -89,15 +90,16 @@ class Event < ActiveRecord::Base
   end
 
   def start_date_month
-    "AUG"
+    Date.parse(start_date).strftime("%b").upcase
   end
 
   def start_date_day
-    "11"
+    Date.parse(start_date).strftime("%u")
   end
 
   def start_date_full_date
-    "SUN 12 2017"
+    Date.parse(start_date).strftime("%A, %b %d") + " " +  start_time[0..-4] + " " + Time.parse(start_time).strftime("%P")
   end
+
 
 end
