@@ -460,7 +460,26 @@ ul {
 .event-form .date-picker {
   width:130px;
   display: inline;
+  padding: 10px 15px;;
+  font-size:14px;
+  margin-right:15px;
 }
+
+.event-form .time-picker{
+  width:130px;
+  display: inline;
+  padding : 10px;
+  font-size: 14px;
+  margin-right: 15px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
 
 .event-form .header .title{
   display: flex;
@@ -507,18 +526,31 @@ ul {
   margin-top: 15px;
 }
 
+
+
 .event-form fieldset .details-attr > * {
   display:block;
   margin-top:7px;
 }
 
+
 .event-form fieldset .details-attr input {
   width: 80%
 }
 
-.event-form fieldset .details-g-attr > * {
-  display: inline-block;
+.event-form fieldset .details-g-attr .start-end-date {
+  display:flex;
 }
+.event-form fieldset .details-g-attr .start-end-date .flex {
+  display: flex;
+}
+.event-form fieldset .date-zone {
+    margin-right: 20px;
+}
+
+/*.event-form fieldset .details-g-attr > * {
+  display: inline-block;
+}*/
 
 .event-form .content .actions {
   background-color: white;

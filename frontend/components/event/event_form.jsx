@@ -38,10 +38,6 @@ class EventForm extends React.Component{
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.startDateChange = this.startDateChange.bind(this);
-    this.startTimeChange = this.startTimeChange.bind(this);
-    this.endDateChange = this.endDateChange.bind(this);
-    this.endTimeChange = this.endTimeChange.bind(this);
     this.update = this.update.bind(this);
     this.save = this.save.bind(this);
     this.initialFreeTicketClick = this.initialFreeTicketClick.bind(this);
@@ -59,8 +55,6 @@ class EventForm extends React.Component{
     this.props.editEvent(this.state)
       .then(data => this.props.history.push(`/`));
     }else{
-    //  this.props.createEvent(this.state)
-    //   .then(data => this.props.history.push(`/`));
        let stringTickets = "";
       this.state.tickets.forEach(el => {
         stringTickets += el.name  + ',' + el.quantity.toString() + ';';
@@ -69,11 +63,12 @@ class EventForm extends React.Component{
       stringTickets = stringTickets.slice(0,-1);
 
       var formData = new FormData();
-      debugger
+
       formData.append("event[title]", this.state.title);
-      formData.append("event[start_date]", this.state.adresse_line1);
-      formData.append("event[start_time]", this.state.start_date);
-      formData.append("event[end_date]", this.state.start_time);
+      formData.append("event[adresse_line1]", this.state.adresse_line1);
+      formData.append("event[start_date]", this.state.start_date);
+      formData.append("event[start_time]", this.state.start_time);
+      formData.append("event[end_date]", this.state.end_date);
       formData.append("event[end_time]", this.state.end_time);
       formData.append("event[description]", this.state.description);
       formData.append("event[topic_id]", this.state.topic_id);
@@ -181,30 +176,30 @@ class EventForm extends React.Component{
   //
 
 
-
-  startDateChange (dateString, { dateMoment, timestamp }){
-    this.setState({
-      start_date: dateString
-    });
-  }
-
-  startTimeChange(value){
-    this.setState({
-      start_time: value.format("HH:mm")
-    });
-  }
-
-  endDateChange(dateString, { dateMoment, timestamp}){
-    this.setState({
-      end_date: dateString
-    });
-  }
-
-  endTimeChange(value){
-    this.setState({
-      end_time: value.format("HH:mm")
-    });
-  }
+  //
+  // startDateChange (dateString, { dateMoment, timestamp }){
+  //   this.setState({
+  //     start_date: dateString
+  //   });
+  // }
+  //
+  // startTimeChange(value){
+  //   this.setState({
+  //     start_time: value.format("HH:mm")
+  //   });
+  // }
+  //
+  // endDateChange(dateString, { dateMoment, timestamp}){
+  //   this.setState({
+  //     end_date: dateString
+  //   });
+  // }
+  //
+  // endTimeChange(value){
+  //   this.setState({
+  //     end_time: value.format("HH:mm")
+  //   });
+  // }
 
   handleSubmit(e){
     e.preventDefault();
@@ -344,30 +339,51 @@ class EventForm extends React.Component{
                         />
                     </div>
                     <div className="details-g-attr">
-                      <div className="details-attr">
-                        <label>Starts</label>
-                          <DateField
-                              dateFormat="YYYY-MM-DD"
-                              date = {this.state.start_date}
-                              onChange= {this.startDateChange}
-                          />
-                        <TimePicker showSecond={false}
-                            onChange = {this.startTimeChange}
-                           />
-                      </div>
-                      <div className="details-attr">
-                        <label>Ends</label>
-                        <DateField
-                            dateFormat="YYYY-MM-DD"
-                            date = {this.state.start_date}
-                            onChange= {this.endDateChange}
-                        />
-                        <TimePicker
-                          showSecond={false}
-                          onChange={this.endTimeChange}
-                          />
-
-                      </div>
+                      <div className="start-end-date">
+                          <div className="date-zone">
+                          <label>STARTS</label>
+                            <div className="flex">
+                              <div>
+                                <input type="date"
+                                       id="event-form-start-date"
+                                       className="date-picker"
+                                       value={this.state.start_date}
+                                       onChange={this.update("start_date")}/>
+                                <span className="event-form-error"></span>
+                              </div>
+                              <div>
+                                <input type="time"
+                                       id="event-form-start-time"
+                                       className="time-picker"
+                                       step="60"
+                                       value={this.state.start_time}
+                                       onChange={this.update("start_time")}/>
+                                <span className="event-form-error"></span>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="date-zone">
+                            <label>ENDS</label>
+                            <div className="flex">
+                              <div>
+                                <input type="date"
+                                       id="event-form-end-date"
+                                       className="date-picker"
+                                       value={this.state.end_date}
+                                       onChange={this.update("end_date")}/>
+                                <span className="event-form-error"></span>
+                              </div>
+                              <div>
+                                <input type="time"
+                                       id="event-form-end-time"
+                                       className="time-picker"
+                                       value={this.state.end_time}
+                                       onChange={this.update("end_time")}/>
+                                <span className="event-form-error"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                     </div>
                     <div className="details-attr">
                       <label>Event Image</label>
