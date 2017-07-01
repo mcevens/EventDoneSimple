@@ -104,6 +104,11 @@ class SessionForm extends React.Component {
                     />
               </li>
               <li>
+                // <p>Already have an account? <a><Link  to="/login">LOG IN</Link>
+                //
+                // </a></p>
+              </li>
+              <li>
                     {this.renderErrors()}
               </li>
               <li id="rememberMe">
