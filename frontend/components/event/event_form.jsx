@@ -23,7 +23,7 @@ class EventForm extends React.Component{
       description: '',
       image_url: '',
       imageFile: null,
-      topic_id: 20,
+      topic_id: 0,
       subtopic_id: 20,
       tickets: [],
       ticket_initial:"block",
@@ -37,7 +37,6 @@ class EventForm extends React.Component{
       DonationTicket: 0
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.save = this.save.bind(this);
     this.initialFreeTicketClick = this.initialFreeTicketClick.bind(this);
@@ -45,6 +44,7 @@ class EventForm extends React.Component{
     this.initialDonationTicketClick = this
                                   .initialDonationTicketClick.bind(this);
     this.updateFile = this.updateFile.bind(this);
+    this.topicSelectedIndexChanged = this.topicSelectedIndexChanged.bind(this);
   }
 
   save(e){
@@ -59,9 +59,7 @@ class EventForm extends React.Component{
       this.state.tickets.forEach(el => {
         stringTickets += el.name  + ',' + el.quantity.toString() + ';';
       });
-
       stringTickets = stringTickets.slice(0,-1);
-
       var formData = new FormData();
 
       formData.append("event[title]", this.state.title);
@@ -79,30 +77,13 @@ class EventForm extends React.Component{
     }
   }
 
-
-  handleSubmit (e) {
-    // var formData = new FormData();
-    // formData.append("event[title]", this.state.title);
-    // formData.append("event[start_date]", this.state.adresse_line1);
-    // formData.append("event[start_time]", this.state.start_date);
-    // formData.append("event[end_date]", this.state.start_time);
-    // formData.append("event[end_time]", this.state.end_time);
-    // formData.append("event[description]", this.state.description);
-    // formData.append("event[image_url]", this.state.image_url);
-    // formData.append("event[topic_id]", this.state.topic_id);
-    // formData.append("event[subtopic_id]", this.state.subtopic_id);
-    // formData.append("event[tickets]", this.state.tickets);
-    // formData.append("event[image]", this.state.imageFile);
-    // this.props.createEvent(formData, this.goBack);
-  }
-
   goBack () {
     this.context.router.push("/");
   }
 
-
-
   componentDidMount(){
+    debugger
+    const topics =   this.props.requestAllTopic();
     if (this.props.eventId){
       this.props.requestSingleEvent(this.props.eventId);
       const event = this.props.event;
@@ -173,45 +154,6 @@ class EventForm extends React.Component{
       fileReader.readAsDataURL(file);
     }
   }
-  //
-
-
-  //
-  // startDateChange (dateString, { dateMoment, timestamp }){
-  //   this.setState({
-  //     start_date: dateString
-  //   });
-  // }
-  //
-  // startTimeChange(value){
-  //   this.setState({
-  //     start_time: value.format("HH:mm")
-  //   });
-  // }
-  //
-  // endDateChange(dateString, { dateMoment, timestamp}){
-  //   this.setState({
-  //     end_date: dateString
-  //   });
-  // }
-  //
-  // endTimeChange(value){
-  //   this.setState({
-  //     end_time: value.format("HH:mm")
-  //   });
-  // }
-
-  handleSubmit(e){
-    e.preventDefault();
-    if (this.props.eventId) {
-      this.props.editEvent(this.state)
-      .then(data => this.props.history.push(`/`));
-    }else{
-      this.props.createEvent(this.state)
-      .then(data => this.props.history.push(`/`));
-    }
-  }
-
 
   update(property) {
     return e => this.setState({ [property]: e.target.value });
@@ -271,8 +213,16 @@ class EventForm extends React.Component{
     });
   }
 
+  topicSelectedIndexChanged(e){
+    this.setState({
+      topic_id: e.target.value
+    });
+  }
 
   render (){
+    const topicsData = this.props.topics;
+
+    debugger
     return (
       <div>
         <GlobalHeader />
@@ -390,8 +340,7 @@ class EventForm extends React.Component{
                       <input type="file" onChange={this.updateFile}></input>
                       <img src={this.state.image_url}/>
                     </div>
-                    <div className="details-attr">
-                      <label>Event Description</label>
+                    <div>
                       <textarea rows="9" cols="77">
                       </textarea>
                     </div>
@@ -440,7 +389,17 @@ class EventForm extends React.Component{
                     </h2>
                     <h2>Additional Settings </h2>
                   </header>
-
+                  <section>
+                    <div className="details-attr">
+                      <label>Event Topic</label>
+                      <select onChange={this.topicSelectedIndexChanged} >
+                        <option disabled selected value> -- Select a topic -- </option>
+                        {topicsData.map(
+                          topic =>  <option value={topic.id}>{topic.name}</option>
+                        )}
+                      </select>
+                    </div>
+                  </section>
                 </fieldset>
               </div>
               <div className="actions">
