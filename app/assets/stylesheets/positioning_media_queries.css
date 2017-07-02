@@ -483,29 +483,39 @@ input::-webkit-inner-spin-button {
   background-color: #F8F8FA;
   width:100%
 }
-.event-form .header .title{
+
+
+
+.event-form-container .header .title{
   display: flex;
   justify-content: space-between;
   padding-top:20px;
   padding-bottom: 20px;
+  width: 1080px;
+  margin:auto;
 }
 
-.event-form .header .action {
+.event-form-container .header .action {
   background-color: #282C35;
   color:white;
 }
 
-.event-form .header .action ul{
+.event-form-container .header .action > div {
+  width: 1080px;
+  margin:auto;
+}
+
+.event-form-container .header .action ul{
   display: flex;
   justify-content: flex-start;
 }
-.event-form .header .action li{
+.event-form-container .header .action li{
   border-right:1px solid black;
 }
-.event-form .header .action ul li a{
+.event-form-container .header .action ul li a{
   display:block;
   cursor:pointer;
-  padding:30px;
+  padding:20px 40px;
   color:white;
 }
 

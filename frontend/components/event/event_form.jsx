@@ -225,39 +225,40 @@ class EventForm extends React.Component{
         <GlobalHeader />
         <section className="app">
           <div className="event-form-container">
-            <div className="event-form">
-              <div className="header">
-                <div className="title">
-                  <header>
-                    <h1>Create An Event</h1>
-                  </header>
-                  <div>
-                    <button>
-                      SAVE
-                    </button>
-                    <button>
-                      PREVIEW
-                    </button>
-                    <button className="live-event">
-                      MAKE EVENT LIVE
-                    </button>
-                  </div>
-                </div>
-                <div className="action">
-                  <div>
-                    <ul>
-                      <li>
-                      </li>
-                      <li>
-                        <a>EDIT</a>
-                      </li>
-                      <li>
-                        <a>DESIGN</a>
-                      </li>
-                    </ul>
-                  </div>
+            <div className="header">
+              <div className="title">
+                <header>
+                  <h1>Create An Event</h1>
+                </header>
+                <div>
+                  <button>
+                    SAVE
+                  </button>
+                  <button>
+                    PREVIEW
+                  </button>
+                  <button className="live-event">
+                    MAKE EVENT LIVE
+                  </button>
                 </div>
               </div>
+              <div className="action">
+                <div>
+                  <ul>
+                    <li>
+                    </li>
+                    <li>
+                      <a>EDIT</a>
+                    </li>
+                    <li>
+                      <a>DESIGN</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="event-form">
+
               <div className="content">
                 <div className="fields">
                   <fieldset className="details">
