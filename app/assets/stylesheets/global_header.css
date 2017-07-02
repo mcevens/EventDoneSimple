@@ -1,0 +1,146 @@
+ul {
+padding: 0;
+margin: 0;
+list-style: none;
+}
+
+a{
+  text-decoration: none;
+  cursor: pointer;
+  color: #0093D7;
+}
+
+nav {
+  display: flex;
+   justify-content: space-between;
+}
+
+nav a {
+  text-transform: capitalize;
+  color:#45494E;
+}
+
+nav a:hover, #logout-button:hover{
+  background-color: #F8F8FA;
+}
+
+/*nav ul li a:last-child{
+  color:#0278b8;
+}*/
+
+/*{
+  display: inline-block;
+}*/
+
+nav ul li a {
+  padding: 20px;
+  display: block;
+  font-size: 16px;
+}
+
+.logo {
+  display: inline;
+  float: left;
+  color:#F26832;
+  font-family: "Benton Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  padding:15px;
+  border-right: 1px solid #EFF2F5;
+}
+.logo:hover{
+  background-color: #FFFFFF;
+}
+
+.global-header{
+  border-bottom: 1px solid #EFF2F5;
+}
+
+
+.user-menu-dropdown  {
+	border-bottom: 1px solid #EFF2F5;
+  background-color: #FFFFFF;
+}
+
+.user-menu-dropdown li {
+	margin: 0px 0;
+	cursor: pointer;
+	font-size: 12px;
+	display:block;
+  font-family: Helvetica, Tahoma, Arial, sans-serif
+}
+
+ nav ul li{
+  display: inline-block;
+  position:relative;
+  border-left: 1px solid #EFF2F5;
+}
+
+nav li ul {
+  display: none;
+  position: absolute;
+  top: 1em;
+  width: 250px;
+  margin-right: 40px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background-color: #ffffff;
+	border: 1px solid #EFF2F5;
+  color: blue;
+}
+
+
+nav li > ul {
+  top: auto;
+  left: -168px;
+}
+
+ nav li:hover ul {
+
+  display: block;
+
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+
+#logout-button{
+  font-size: 16px;
+  padding: 20px;
+  background-color: white;
+  cursor: pointer;
+  border:none;
+  width:100%;
+  text-align: left;
+  font-weight: 200;
+  color: #45494E;
+  font-family:"Helvetica", "Tahoma", "Arial", "sans-serif"
+}
+
+.errors{
+  color:red;
+}
+
+.topic-list-nav{
+  background-color: white;
+  border: 1px solid #EFF2F5;
+  border-top: none;
+  width: 450px;
+  position:absolute;
+  left: 237px;
+  top : 60px;
+  display: none;
+}
+
+.topic-list-nav ul li{
+  display:block;
+}
+
+.search_bar input:focus + div {
+  display:block;
+}

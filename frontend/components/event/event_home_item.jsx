@@ -43,10 +43,19 @@ class EventHomeItem extends React.Component{
                    </div>
                  <div className="event-home-item-header-text">
                    <div>
-                     {  event.start_date_full_date }
+                     <label className="event-date">
+                       {  event.start_date_full_date }
+                     </label>
                    </div>
                    <div>
-                     {  event.title }
+                     <label className="event-title">
+                       {  event.title }
+                     </label>
+                   </div>
+                   <div>
+                     <label className="event-venue">
+                       { event.adresse_line1 }
+                     </label>
                    </div>
                  </div>
                </span>
