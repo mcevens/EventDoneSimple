@@ -31,10 +31,7 @@ class EventForm extends React.Component{
       tickets_array: [],
       tickets_list:{},
       hasTickets: 'block',
-      noTickets: 'none',
-      freeTicket: 0,
-      PaidTicket: 0,
-      DonationTicket: 0
+      noTickets: 'none'
     };
 
     this.update = this.update.bind(this);
@@ -82,7 +79,7 @@ class EventForm extends React.Component{
   }
 
   componentDidMount(){
-    debugger
+
     const topics =   this.props.requestAllTopic();
     if (this.props.eventId){
       this.props.requestSingleEvent(this.props.eventId);
@@ -222,199 +219,204 @@ class EventForm extends React.Component{
   render (){
     const topicsData = this.props.topics;
 
-    debugger
+
     return (
       <div>
         <GlobalHeader />
         <section className="app">
-          <div className="event-form">
-            <div className="header">
-              <div className="title">
-                <header>
-                  <h1>Create An Event</h1>
-                </header>
-                <div>
-                  <button>
-                    SAVE
-                  </button>
-                  <button>
-                    PREVIEW
-                  </button>
-                  <button className="live-event">
-                    MAKE EVENT LIVE
-                  </button>
-                </div>
-              </div>
-              <div className="action">
-                <div>
-                  <ul>
-                    <li>
-                    </li>
-                    <li>
-                      <a>EDIT</a>
-                    </li>
-                    <li>
-                      <a>DESIGN</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="content">
-              <div className="fields">
-                <fieldset className="details">
+          <div className="event-form-container">
+            <div className="event-form">
+              <div className="header">
+                <div className="title">
                   <header>
-                    <h2>
-                      1
-                    </h2>
-                    <h2>Event Details</h2>
-                  </header>
-                  <section>
-                    <div className="details-attr">
-                      <label>Event Title</label>
-                      <input
-                        type="text"
-                        value={this.state.title}
-                        placeholder="Give it a Short distinct name"
-                        onChange={this.update('title')}
-                        />
-                    </div>
-                    <div className="details-attr">
-                      <label>Location</label>
-                      <input
-                        type="text"
-                        value={this.state.adresse_line1}
-                        placeholder="Specify where it held."
-                        onChange={this.update('adresse_line1')}
-                        />
-                    </div>
-                    <div className="details-g-attr">
-                      <div className="start-end-date">
-                          <div className="date-zone">
-                          <label>STARTS</label>
-                            <div className="flex">
-                              <div>
-                                <input type="date"
-                                       id="event-form-start-date"
-                                       className="date-picker"
-                                       value={this.state.start_date}
-                                       onChange={this.update("start_date")}/>
-                                <span className="event-form-error"></span>
-                              </div>
-                              <div>
-                                <input type="time"
-                                       id="event-form-start-time"
-                                       className="time-picker"
-                                       step="60"
-                                       value={this.state.start_time}
-                                       onChange={this.update("start_time")}/>
-                                <span className="event-form-error"></span>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="date-zone">
-                            <label>ENDS</label>
-                            <div className="flex">
-                              <div>
-                                <input type="date"
-                                       id="event-form-end-date"
-                                       className="date-picker"
-                                       value={this.state.end_date}
-                                       onChange={this.update("end_date")}/>
-                                <span className="event-form-error"></span>
-                              </div>
-                              <div>
-                                <input type="time"
-                                       id="event-form-end-time"
-                                       className="time-picker"
-                                       value={this.state.end_time}
-                                       onChange={this.update("end_time")}/>
-                                <span className="event-form-error"></span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div className="details-attr">
-                      <label>Event Image</label>
-                      <input type="file" onChange={this.updateFile}></input>
-                      <img src={this.state.image_url}/>
-                    </div>
-                    <div>
-                      <textarea rows="9" cols="77">
-                      </textarea>
-                    </div>
-                  </section>
-                </fieldset>
-                <fieldset className="tickets">
-                  <header>
-                    <h2 className="event-form-fields-header-icon">
-                      2
-                    </h2>
-                    <h2>Create Tickets</h2>
+                    <h1>Create An Event</h1>
                   </header>
                   <div>
-
-                    <div className="ticket_table_container"
-                          style={{display:this.state.noTickets}}>
-                        <TicketTable
-                          updateEventState={this.props.updateEventState}
-                          event={this.state} tickets={this.state.tickets_list}
-                          ticket_array={this.state.tickets_array} />
-                    </div>
-                    <div style={{display:this.state.ticket_initial}}
-                              className="initial-type-ticket">
-                        <h5
-                          style={{display:this.state.hasTickets}}>
-                          What type of ticket would
-                          you like to start with?</h5>
-                        <div id="div_ticket_type">
-                          <button onClick={this.initialFreeTicketClick}>
-                            FREE TICKET
-                          </button>
-                          <button onClick={this.initialPaidTicketClick}>
-                            PAID TICKET
-                          </button>
-                          <button onClick={this.initialDonationTicketClick}>
-                            DONATION
-                          </button>
-                        </div>
-                      </div>
-                  </div>
-                </fieldset>
-                <fieldset className="additional">
-                  <header>
-                    <h2 className="event-form-fields-header-icon">
-                      2
-                    </h2>
-                    <h2>Additional Settings </h2>
-                  </header>
-                  <section>
-                    <div className="details-attr">
-                      <label>Event Topic</label>
-                      <select onChange={this.topicSelectedIndexChanged} >
-                        <option disabled selected value> -- Select a topic -- </option>
-                        {topicsData.map(
-                          topic =>  <option value={topic.id}>{topic.name}</option>
-                        )}
-                      </select>
-                    </div>
-                  </section>
-                </fieldset>
-              </div>
-              <div className="actions">
-                <h1>Nice Job!You're almost done.</h1>
-                <div>
-                    <button >
-                      Save
+                    <button>
+                      SAVE
                     </button>
-                     <button onClick={this.save} className="live-event">
-                       Make Your Event Live
-                     </button>
+                    <button>
+                      PREVIEW
+                    </button>
+                    <button className="live-event">
+                      MAKE EVENT LIVE
+                    </button>
+                  </div>
+                </div>
+                <div className="action">
+                  <div>
+                    <ul>
+                      <li>
+                      </li>
+                      <li>
+                        <a>EDIT</a>
+                      </li>
+                      <li>
+                        <a>DESIGN</a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div >
+              <div className="content">
+                <div className="fields">
+                  <fieldset className="details">
+                    <header>
+                      <h2>
+                        1
+                      </h2>
+                      <h2>Event Details</h2>
+                    </header>
+                    <section>
+                      <div className="details-attr">
+                        <label>Event Title</label>
+                        <input
+                          type="text"
+                          value={this.state.title}
+                          placeholder="Give it a Short distinct name"
+                          onChange={this.update('title')}
+                          />
+                      </div>
+                      <div className="details-attr">
+                        <label>Location</label>
+                        <input
+                          type="text"
+                          value={this.state.adresse_line1}
+                          placeholder="Specify where it held."
+                          onChange={this.update('adresse_line1')}
+                          />
+                      </div>
+                      <div className="details-g-attr">
+                        <div className="start-end-date">
+                            <div className="date-zone">
+                            <label>STARTS</label>
+                              <div className="flex">
+                                <div>
+                                  <input type="date"
+                                         id="event-form-start-date"
+                                         className="date-picker"
+                                         value={this.state.start_date}
+                                         onChange={this.update("start_date")}/>
+                                  <span className="event-form-error"></span>
+                                </div>
+                                <div>
+                                  <input type="time"
+                                         id="event-form-start-time"
+                                         className="time-picker"
+                                         step="60"
+                                         value={this.state.start_time}
+                                         onChange={this.update("start_time")}/>
+                                  <span className="event-form-error"></span>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="date-zone">
+                              <label>ENDS</label>
+                              <div className="flex">
+                                <div>
+                                  <input type="date"
+                                         id="event-form-end-date"
+                                         className="date-picker"
+                                         value={this.state.end_date}
+                                         onChange={this.update("end_date")}/>
+                                  <span className="event-form-error"></span>
+                                </div>
+                                <div>
+                                  <input type="time"
+                                         id="event-form-end-time"
+                                         className="time-picker"
+                                         value={this.state.end_time}
+                                         onChange={this.update("end_time")}/>
+                                  <span className="event-form-error"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div className="details-attr">
+                        <label>Event Image</label>
+                        <input type="file" onChange={this.updateFile}></input>
+                        <img src={this.state.image_url}/>
+                      </div>
+                      <div>
+                        <textarea rows="9" cols="77">
+                        </textarea>
+                      </div>
+                    </section>
+                  </fieldset>
+                  <fieldset className="tickets">
+                    <header>
+                      <h2 className="event-form-fields-header-icon">
+                        2
+                      </h2>
+                      <h2>Create Tickets</h2>
+                    </header>
+                    <div>
+
+                      <div className="ticket_table_container"
+                            style={{display:this.state.noTickets}}>
+                          <TicketTable
+                            updateEventState={this.props.updateEventState}
+                            event={this.state} tickets={this.state.tickets_list}
+                            ticket_array={this.state.tickets_array} />
+                      </div>
+                      <div style={{display:this.state.ticket_initial}}
+                                className="initial-type-ticket">
+                          <h5
+                            style={{display:this.state.hasTickets}}>
+                            What type of ticket would
+                            you like to start with?</h5>
+                          <div id="div_ticket_type">
+                            <button onClick={this.initialFreeTicketClick}>
+                              FREE TICKET
+                            </button>
+                            <button onClick={this.initialPaidTicketClick}>
+                              PAID TICKET
+                            </button>
+                            <button onClick={this.initialDonationTicketClick}>
+                              DONATION
+                            </button>
+                          </div>
+                        </div>
+                    </div>
+                  </fieldset>
+                  <fieldset className="additional">
+                    <header>
+                      <h2 className="event-form-fields-header-icon">
+                        3
+                      </h2>
+                      <h2>Additional Settings </h2>
+                    </header>
+                    <section>
+                      <div className="details-attr">
+                        <label>Event Topic</label>
+                        <select onChange={this.topicSelectedIndexChanged} >
+                          <option disabled selected value> -- Select a topic -- </option>
+                          {topicsData.map(
+                            topic =>  <option value={topic.id}>{topic.name}</option>
+                          )}
+                        </select>
+                      </div>
+                    </section>
+                  </fieldset>
+                </div>
+
+              </div >
+            </div>
+            <div className="actions">
+
+              <div>
+                  <h1>Nice job! You're almost done.</h1>
+                  <button >
+                    Save
+                  </button>
+                   <button onClick={this.save} className="live-event">
+                     Make Your Event Live
+                   </button>
+              </div>
+            </div>
           </div>
+
         </section>
       </div>
     );

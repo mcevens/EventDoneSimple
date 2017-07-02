@@ -25,6 +25,15 @@ module.exports = {
       test: /\.node$/,
       loader: "node-loader"
     }
-    ]
+  ],
+    rules: [
+       {
+         test: /\.css$/,
+         use: [
+           'style-loader',
+          'css-loader'
+         ]
+       }
+     ]
   }
 };
