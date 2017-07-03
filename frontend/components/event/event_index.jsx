@@ -5,8 +5,7 @@ import { connect } from 'react-redux';
 import TopicHeaderListContainer
 from '../topic_filter/topic_header_list_container';
 import EventIndexItem from './event_index_item';
-
-
+import { Link } from 'react-router-dom';
 
 class EventIndex  extends React.Component {
 
@@ -20,9 +19,14 @@ class EventIndex  extends React.Component {
   }
 
   render(){
-    const eventsData = this.props.events;
-    const eventBookmarksData = this.props.events;
 
+    let eventsData = this.props.events;
+    let eventBookmarksData = this.props.events;
+    let topic = {};
+    if (this.props.topic) {
+      eventsData = this.props.eventsCategory;
+      topic = this.props.topic;
+    }
 
     return(
       <div className="event-index">
@@ -41,8 +45,9 @@ class EventIndex  extends React.Component {
                    <ul>
                      <li>CATEGORY</li>
                       <ul>
+                        <li><Link to="/events">All Categories</Link></li>
                          <li>
-                            <TopicHeaderListContainer />
+                            <TopicHeaderListContainer topic={topic}  />
                          </li>
                       </ul>
                      <li>EVENT TYPE</li>

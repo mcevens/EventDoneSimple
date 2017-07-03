@@ -14,7 +14,14 @@ class Topic < ActiveRecord::Base
 
   has_many(
     :subtopics,
-    class_name: "topic",
+    class_name: "Topic",
+    foreign_key: :topic_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :events,
+    class_name: "Event",
     foreign_key: :topic_id,
     primary_key: :id
   )

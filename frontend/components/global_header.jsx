@@ -3,6 +3,7 @@ import { connect }  from 'react-redux';
 import { Link }  from 'react-router-dom';
 import { logout } from '../actions/session_actions';
 import TopicHeaderListContainer from './topic/topic_header_list_container';
+import { withRouter } from 'react-router-dom';
 
   const GlobalHeader = function(props) {
   const currentUser = props.currentUser;
@@ -84,7 +85,7 @@ import TopicHeaderListContainer from './topic/topic_header_list_container';
         <div className="search_bar" >
            <img></img>
            <input placeholder="Search for events" type="text"></input>
-          <TopicHeaderListContainer />
+
         </div>
       );
     }
@@ -134,4 +135,8 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(GlobalHeader);
+export default  withRouter(
+   connect(mapStateToProps
+     , mapDispatchToProps
+   )(GlobalHeader)
+ );

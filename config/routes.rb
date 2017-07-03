@@ -4,7 +4,10 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resources :events
     resource :session, only: [:create, :destroy]
-    resources :topics, only: :index
+    resources :topics, only: [:index, :show]
     resources :event_bookmarks
+
   end
 end
+
+  # get '/topics/:name', to: 'topics#show'

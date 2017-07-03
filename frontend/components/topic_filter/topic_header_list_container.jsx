@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import TopicHeaderList from './topic_header_list';
 import { requestAllTopic } from '../../actions/topic_action';
 import { selectallTopics } from '../../reducers/topic_selectors';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   //debugger
@@ -17,7 +18,9 @@ const mapDispatchToProps = (dispatch) => {
 });
 };
 
-export default connect(
+export default withRouter(
+connect(
   mapStateToProps,
   mapDispatchToProps
-)(TopicHeaderList);
+)(TopicHeaderList)
+);

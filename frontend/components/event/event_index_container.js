@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import EventIndex from './event_index';
 import { requestAllEvent, deleteEvent }
@@ -21,7 +22,9 @@ const mapDispatchToProps = (dispatch) => ({
   deleteEvent: (id) => dispatch(deleteEvent(id))
 });
 
-export default connect(
+export default withRouter(
+  connect(
   mapStateToProps,
   mapDispatchToProps
-)(EventIndex);
+  )(EventIndex)
+);

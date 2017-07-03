@@ -13,14 +13,8 @@ class TopicHeaderList extends React.Component {
   }
 
   render(){
-
     const topicsData = this.props.topics;
     const topicsToShow = [];
-    // let i = 0 ;
-    // while (i < 6){
-    //
-    // }
-
     return(
           <div className="topic-list-nav">
             <ul >

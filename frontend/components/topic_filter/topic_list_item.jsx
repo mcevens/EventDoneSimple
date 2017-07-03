@@ -10,7 +10,7 @@ class TopicListItem extends React.Component{
     const topic = this.props.topic;
     return(
           <li>
-            <Link to={`/topics/${topic.id}`}>
+            <Link to={`/topics/${topic.id}`} >
               {topic.name}
             </Link>
           </li>

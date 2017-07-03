@@ -9,17 +9,17 @@ class TopicHeaderList extends React.Component {
   }
 
   componentDidMount(){
-    this.props.requestAllTopic();
+      this.props.requestAllTopic();
   }
 
   render(){
-
-    const topicsData = this.props.topics;
-    const topicsToShow = [];
-    // let i = 0 ;
-    // while (i < 6){
-    //
-    // }
+    debugger
+    let topicsData = this.props.topics;
+    let topicsToShow = [];
+    if (this.props.topic.topic) {
+      topicsData = [];
+      topicsData.push(this.props.topic.topic);
+    }
 
     return(
           <div className="topic-filter">
