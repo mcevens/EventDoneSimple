@@ -187,33 +187,42 @@ bp.app{
 
 
 .event-show{
-  width: 700px;
-  margin-left: auto;
-  margin-right:auto;
-  margin-top: 10px;
-  min-width: 1080px;
-  background-color: #ffffff;
-  border-radius:3px;
+  position: absolute;
+    left: calc(50% - (1080px/2));
+    right: 300px;
+    top: 100px;
+    border: 1px solid black;
+    background-color: white;
+    width: 1080px;
+    height: 800px;
 
 }
 .event-show-header{
-  padding-top:20px;
-  display:flex;
-  background-color: #F9F9F9;
+  display: flex;
 }
 
 .event-show-header-image{
-  padding-bottom: 10px;
+  width: 700px;
+  height: 350px;
 }
 
 .event-show-header img{
   height: 100%;
+  width: 100%;
 }
 
-
-.event-show-header-left-pane > div{
-  margin-bottom: 100px;
+.event-show-header-left-pane{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid #EFF2F5;
+  width: 380px;
+  height: 350px;
+  font-size: 18px;
 }
+
 .event-show-header-left-pane > div:last-of-type{
   margin-bottom: 0px;
 }
@@ -229,11 +238,6 @@ bp.app{
 .event-show-detail-other-info
  {
   width: 50%;
-}
-
-.event-show-header-left-pane{
-  width: 100%;
-  padding-left: 30px;
 }
 
 .event-show-header-right-pane{
@@ -261,19 +265,15 @@ bp.app{
   justify-content: space-between;
   border-top: 1px solid  #EFF2F5;
   border-bottom: 1px solid  #EFF2F5;
-  padding:20px;
-}
-.event-show-action-share-bookmark{
-  display:flex;
-
-}
-.event-show-action-share-bookmark button{
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
-  cursor:pointer;
+  padding:10px 10px 10px 15px;
+  width: auto;
+  height:40px;
 }
 
+.event-show-action-bookmark{
+  cursor: pointer;
+  padding-top: 10px;
+}
 
 .event-show-action-share-register button{
   background-color: #00ab44;
@@ -286,11 +286,19 @@ bp.app{
 
 .event-show-action-share-register button:hover{
   background-color: #01451B;
+  color: white;
+  font-size: 18px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  width: 355px;
+  text-align: center;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 .event-show-detail{
   display:flex;
-  padding:20px;
+  padding-top: 50px;
 }
 
 .event-show-detail-description > div{
@@ -645,6 +653,11 @@ input::-webkit-inner-spin-button {
   margin-top: 0px;
   padding:0px 0 15px 10px;
   border-bottom: 1px solid #D5D5D3;
+
+}
+
+.ticket_table-item .ticket_type{
+  line-height: 40px;
 }
 
 .event-home{
@@ -925,4 +938,10 @@ select{
 
 .maintenance a:hover{
   color: #333; text-decoration: none;
+}
+
+span.event-form-error {
+  font-size: 13px;
+  color: #f00;
+  display: flex;
 }

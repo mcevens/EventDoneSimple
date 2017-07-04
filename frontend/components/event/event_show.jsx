@@ -29,7 +29,10 @@ class EventShow extends React.Component{
       <div>
         <GlobalHeader />
         <section className="app">
+          <img className="event-show-background-image" src="" />
+
         <div className="event-show">
+
             <div className="event-show-header">
               <div className="event-show-header-image">
                 <img src={event.image_url}></img>
@@ -52,24 +55,19 @@ class EventShow extends React.Component{
 
             </div>
              <div className="event-show-action">
-               <div className="event-show-action-share-bookmark">
-                 <div>
+               <div className="event-show-action-bookmark">
+
                    <form onSubmit={this.handleSubmit}>
-                   <button>
-                      Share
-                   </button>
+                     <div className="icon-selected">
+                        <i id="icon" className="fa fa-bookmark" aria-hidden="true"></i>
+                      </div>
                  </form>
-                 </div>
-                 <div>
-                   <form onSubmit={this.handleSubmit}>
-                   <button>
-                      Bookmark
-                   </button>
-                 </form>
-                 </div>
+
                </div>
-               <div className="event-show-action-share-register">
-                   <Link to="/register">Register</Link>
+               <div >
+                  <p className="event-show-action-share-register">
+                   <Link to="/register">Ticket</Link>
+                   </p>
                </div>
              </div>
              <div className="event-show-detail">

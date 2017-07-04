@@ -6,6 +6,8 @@ import TimePicker from 'rc-time-picker';
 import moment from 'moment';
 import TicketTableContainer from './ticket_table_container';
 import TicketTable from './ticket_table';
+import { validateField, validateForm } from './validate';
+
 
 class EventForm extends React.Component{
   constructor(props){
@@ -31,7 +33,8 @@ class EventForm extends React.Component{
       tickets_array: [],
       tickets_list:{},
       hasTickets: 'block',
-      noTickets: 'none'
+      noTickets: 'none',
+      pageTitle: 'Create An Event'
     };
 
     this.update = this.update.bind(this);
@@ -45,33 +48,40 @@ class EventForm extends React.Component{
   }
 
   save(e){
-
+  debugger;
     e.preventDefault();
     const event = this.state;
-    if (this.props.eventId) {
-    this.props.editEvent(this.state)
-      .then(data => this.props.history.push(`/`));
-    }else{
-       let stringTickets = "";
-      this.state.tickets.forEach(el => {
-        stringTickets += el.name  + ',' + el.quantity.toString() + ';';
-      });
-      stringTickets = stringTickets.slice(0,-1);
-      var formData = new FormData();
+    const isFormReady = validateForm(event);
+    console.log(this.state.start_date);
 
-      formData.append("event[title]", this.state.title);
-      formData.append("event[adresse_line1]", this.state.adresse_line1);
-      formData.append("event[start_date]", this.state.start_date);
-      formData.append("event[start_time]", this.state.start_time);
-      formData.append("event[end_date]", this.state.end_date);
-      formData.append("event[end_time]", this.state.end_time);
-      formData.append("event[description]", this.state.description);
-      formData.append("event[topic_id]", this.state.topic_id);
-      formData.append("event[subtopic_id]", this.state.subtopic_id);
-      formData.append("event[tickets]", stringTickets);
-      formData.append("event[image]", this.state.imageFile);
-      this.props.createEvent(formData, this.goBack);
+    if (isFormReady) {
+      if (this.props.eventId) {
+      this.props.editEvent(this.state)
+        .then(data => this.props.history.push(`/`));
+      }else{
+         let stringTickets = "";
+        this.state.tickets.forEach(el => {
+          stringTickets += el.name  + ',' + el.quantity.toString() + ';';
+        });
+        stringTickets = stringTickets.slice(0,-1);
+        var formData = new FormData();
+
+        formData.append("event[title]", this.state.title);
+        formData.append("event[adresse_line1]", this.state.adresse_line1);
+        formData.append("event[start_date]", this.state.start_date);
+        formData.append("event[start_time]", this.state.start_time);
+        formData.append("event[end_date]", this.state.end_date);
+        formData.append("event[end_time]", this.state.end_time);
+        formData.append("event[description]", this.state.description);
+        formData.append("event[topic_id]", this.state.topic_id);
+        formData.append("event[subtopic_id]", this.state.subtopic_id);
+        formData.append("event[tickets]", stringTickets);
+        formData.append("event[image]", this.state.imageFile);
+        this.props.createEvent(formData, this.goBack);
+      }
     }
+
+
   }
 
   goBack () {
@@ -106,8 +116,6 @@ class EventForm extends React.Component{
   }
 
   componentWillreceiveProps(nextProps){
-
-    console.log("Men component lan wi baz");
     if (this.props.singleEvent !== nextProps.singleEvent) {
 
      this.mergeEventState(nextProps.event);
@@ -153,7 +161,22 @@ class EventForm extends React.Component{
   }
 
   update(property) {
-    return e => this.setState({ [property]: e.target.value });
+    return e => {
+      e.preventDefault();
+      const value = e.currentTarget.value;
+      if (property === "topic_id") {
+      this.setState({ subtopic_id: 0 });
+    }
+      if(property === "title"){
+        if(value === ''){
+          this.setState({pageTitle: 'Create An Event'});
+        }else{
+          this.setState({pageTitle: value});
+        }
+      }
+      validateField(property, value);
+     this.setState({ [property]: e.target.value });
+   };
   }
 
   errors(){
@@ -198,15 +221,67 @@ class EventForm extends React.Component{
 
   }
 
-  initialPaidTicketClick(){
+  initialPaidTicketClick(e){
+    e.preventDefault();
+    let currentKey = this.state.tickets_array.length + 1;
+
+    let ticketItem = {
+      key: currentKey,
+      name : '',
+      price: 0 ,
+      type : 'PAID',
+      quantity: 0
+    };
+    let tickets = this.state.tickets;
+    let ticketArray = this.state.tickets_array;
+    let ticketsList = this.state.tickets_list;
+    ticketsList[currentKey] = ticketItem;
+    ticketArray.push(currentKey);
+    tickets.push(ticketItem);
+
     this.setState({
-      ticket_initial:"none"
+      tickets : tickets,
+      tickets_array : ticketArray,
+      tickets_list :ticketsList,
+      hasTickets: 'none',
+      noTickets: 'block'
+    });
+
+    this.setState({
+      ticket_initial:"block",
+      table_ticket: "block"
     });
   }
 
-  initialDonationTicketClick(){
+  initialDonationTicketClick(e){
+    e.preventDefault();
+    let currentKey = this.state.tickets_array.length + 1;
+
+    let ticketItem = {
+      key: currentKey,
+      name : '',
+      price: 0 ,
+      type : 'DONATION',
+      quantity: 0
+    };
+    let tickets = this.state.tickets;
+    let ticketArray = this.state.tickets_array;
+    let ticketsList = this.state.tickets_list;
+    ticketsList[currentKey] = ticketItem;
+    ticketArray.push(currentKey);
+    tickets.push(ticketItem);
+
     this.setState({
-      ticket_initial:"none"
+      tickets : tickets,
+      tickets_array : ticketArray,
+      tickets_list :ticketsList,
+      hasTickets: 'none',
+      noTickets: 'block'
+    });
+
+    this.setState({
+      ticket_initial:"block",
+      table_ticket: "block"
     });
   }
 
@@ -228,7 +303,7 @@ class EventForm extends React.Component{
             <div className="header">
               <div className="title">
                 <header>
-                  <h1>Create An Event</h1>
+                  <h1>{this.state.pageTitle}</h1>
                 </header>
                 <div>
                   <button>
@@ -271,21 +346,24 @@ class EventForm extends React.Component{
                     <section>
                       <div className="details-attr">
                         <label>Event Title</label>
-                        <input
+                        <input id="event-form-title"
                           type="text"
                           value={this.state.title}
                           placeholder="Give it a Short distinct name"
                           onChange={this.update('title')}
                           />
+                          <span className="event-form-error"></span>
                       </div>
                       <div className="details-attr">
                         <label>Location</label>
-                        <input
+                        <input id="address-input"
                           type="text"
                           value={this.state.adresse_line1}
                           placeholder="Specify where it held."
                           onChange={this.update('adresse_line1')}
                           />
+                          <span className="event-form-error"
+                            id="event-form-address-error"></span>
                       </div>
                       <div className="details-g-attr">
                         <div className="start-end-date">
@@ -391,12 +469,13 @@ class EventForm extends React.Component{
                     <section>
                       <div className="details-attr">
                         <label>Event Topic</label>
-                        <select onChange={this.topicSelectedIndexChanged} >
-                          <option disabled selected value> -- Select a topic -- </option>
+                        <select id="event-form-topic" onChange={this.update("topic_id")} >
+                          <option disabled  selected value="0"> -- Select a topic -- </option>
                           {topicsData.map(
                             topic =>  <option value={topic.id}>{topic.name}</option>
                           )}
                         </select>
+                        <span className="event-form-error"></span>
                       </div>
                     </section>
                   </fieldset>

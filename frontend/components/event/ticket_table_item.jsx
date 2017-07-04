@@ -11,16 +11,30 @@ class TicketTableItem extends React.Component{
     this.deleteClick = this.deleteClick.bind(this);
     this.state = {
       name: '',
-      quantity: 0
+      quantity: 0,
+      showLabel: 'block',
+      showPrice: 'none',
     };
   }
 
   componentDidMount(){
     const ticket = this.props.ticket;
+    let showLabel ='block';
+    let showPrice = 'none';
+    if (ticket.type === 'PAID') {
+      showLabel = 'none';
+      showPrice = 'block';
+    }else{
+      showLabel = 'block';
+      showPrice = 'none';
+    }
+
     this.setState({
       name: ticket.name,
       quantity: ticket.quantity,
-      type: ticket.type
+      type: ticket.type,
+      showLabel: showLabel,
+      showPrice: showPrice,
     });
   }
 
@@ -76,7 +90,16 @@ class TicketTableItem extends React.Component{
                  />
             </li>
             <li>
-              <label>{this.state.type}</label>
+              <div className="ticket_type">
+                  <label style={{display:this.state.showLabel}}>{this.state.type}</label>
+                  <input
+                    style={{display:this.state.showPrice}}
+                    type="text"
+                    placeholder="15.00"
+                    value={this.state.price}
+                    onChange={this.update('price')}
+                    />
+              </div>
             </li>
             <li>
               <button onClick={this.deleteClick}>Delete</button>

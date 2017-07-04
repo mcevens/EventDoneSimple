@@ -25,6 +25,9 @@ require 'date'
 class Event < ActiveRecord::Base
   attr_accessor  :bookmarked
 
+  validates :title, presence: true
+  validates :creater_id, :topic_id, :subtopic_id, presence: true
+  validates :start_date, :start_time, :end_date, :end_time, presence: true
   has_attached_file :image,  default_url: "show_picture.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
