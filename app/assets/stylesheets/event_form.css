@@ -1,0 +1,344 @@
+
+
+.event-form{
+  width: 700px;
+  margin-left: auto;
+  margin-right:auto;
+  min-width: 1080px;
+  border-radius:3px;
+}
+
+.event-form-container h2{
+  display: inline-block;
+  font-size: 30px;
+  padding-left: 20px
+}
+.event-form-container h1{
+   font-size: 40px;
+   font-weight:bold;
+}
+
+.event-form label{
+  vertical-align: middle;
+  font-size: 16px;
+  color:#282c35;
+  line-height: 22px;
+  text-transform: uppercase;
+  font-weight: bold
+}
+
+.event-form textarea{
+   padding-left:15px;
+   padding-top:7px;
+   font-size: 18px;
+}
+
+.event-form-container  button{
+  margin-right:10px;
+  background-color: transparent;
+  color:#0278b8;
+  padding:9px 18px;
+  border:2px solid #0278b8;
+  cursor:pointer;
+}
+
+.event-form-container  button:hover{
+  background-color:#013653;
+  color: #ffffff;
+}
+
+.event-form-container  .live-event {
+  color: #ffffff;
+  border:none;
+  background-color:#00ab44;
+}
+.event-form-container  .live-event:hover {
+  background-color: #00451B  ;
+
+}
+
+.event-form .date-picker {
+  width:130px;
+  display: inline;
+  padding: 10px 15px;;
+  font-size:14px;
+  margin-right:15px;
+}
+
+.event-form .time-picker{
+  width:130px;
+  display: inline;
+  padding : 10px;
+  font-size: 14px;
+  margin-right: 15px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.event-form-container {
+  background-color: #F8F8FA;
+  width:100%;
+}
+
+
+
+.event-form-container .header .title{
+  display: flex;
+  justify-content: space-between;
+  padding-top:20px;
+  padding-bottom: 20px;
+  width: 1080px;
+  margin:auto;
+}
+
+.event-form-container .header .action {
+  background-color: #282C35;
+  color:white;
+}
+
+.event-form-container .header .action > div {
+  width: 1080px;
+  margin:auto;
+}
+
+.event-form-container .header .action ul{
+  display: flex;
+  justify-content: flex-start;
+}
+.event-form-container .header .action li{
+  border-right:1px solid black;
+}
+.event-form-container .header .action ul li a{
+  display:block;
+  cursor:pointer;
+  padding:20px 40px;
+  color:white;
+}
+
+.event-form fieldset {
+  margin-top:20px;
+}
+
+
+.event-form fieldset header {
+  border-bottom: 1px solid #D2D6DF
+}
+
+.event-form fieldset header h2:first-child {
+  background-color:  #0093d7;
+  padding:10px 15px;
+  color:white;
+}
+
+.event-form fieldset section > div {
+  margin-top: 15px;
+}
+
+
+
+.event-form fieldset .details-attr > * {
+  display:block;
+  margin-top:7px;
+}
+
+
+.event-form fieldset .details-attr input {
+  width: 80%
+}
+
+.event-form fieldset .details-g-attr .start-end-date {
+  display:flex;
+}
+.event-form fieldset .details-g-attr .start-end-date .flex {
+  display: flex;
+}
+.event-form fieldset .date-zone {
+  margin-right: 20px;
+}
+
+.event-form fieldset select{
+  padding: 10px;
+  width: 25%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+  z-index: 1;
+  display: block;
+  font-size: 16px;
+  background: #fff;
+  overflow: hidden;
+  -webkit-appearance: menulist-button;
+}
+
+/*.event-form fieldset .details-g-attr > * {
+  display: inline-block;
+}*/
+
+.event-form-container .actions {
+  background-color: #fff;
+  border-top: 1px solid #D2D6DF;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  z-index: 1;
+  width: 100%;
+}
+
+.event-form-container .actions div{
+  margin :  auto;
+  text-align: center;
+
+}
+
+.event-form-container .actions div *{
+
+  margin-bottom: 10px;
+}
+
+.event-form .initial-type-ticket{
+  width: 100%;
+  margin-left:auto;
+  margin-right:auto;
+  padding-top: 30px;
+  padding-bottom:20px;
+  text-align: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius:5px;
+  border-left: 1px solid #D2D6DF;
+  border-right: 1px solid #D2D6DF;
+  border-bottom: 1px solid #D2D6DF;
+}
+
+.event-form .initial-type-ticket > *{
+  margin-top: 15px;
+  margin-bottom:15px;
+
+}
+
+
+
+
+
+.event-form .fields{
+  margin-bottom:20px;
+}
+
+.table-ticket{
+  border-radius:10%;
+  border-color: 1px solid #D2D6df;
+  width: 100%;
+}
+
+.table-ticket ul{
+  display:flex;
+  align-content: space-around;
+}
+
+.table-ticket ul > li{
+  padding: 10px 15px;
+}
+
+.event-registration .wrapper{
+  width: 900px;
+  margin :auto 0;
+  display: flex;
+}
+
+.event .order-container {
+  border-radius:3px;
+  border: 1px solid #D5D5D3;
+  background-color: #EFEFEF;
+  border: 1px solid #D2D6DF;
+}
+
+.event .order-container h3{
+  border-bottom: 1px solid #D5D5D3;
+  color: #00580;
+  font-weight: bold;
+  font-size:16px;
+}
+
+.event .order-container button{
+  background-color: #01AB45;
+  border:0;
+  font-size:20px;
+  padding:9px 26px;
+}
+
+.event .ticket_table_container{
+  width:500px;
+
+}
+
+.ticket_table{
+  width:100%;
+  margin-top: 20px;
+  border-top: 1px solid #D2D6DF;
+  border-left: 1px solid #D2D6DF;
+  border-right: 1px solid #D2D6DF;
+  border-top-left-radius: 5px;
+  border-top-right-radius:5px;
+}
+
+.ticket_table header{
+  width:100%;
+  color: #45494E;
+  background-color: #EFF2F5;
+  padding-bottom: 15px;
+}
+
+.ticket_table ul {
+  width: 100%;
+  display: flex;
+  padding-left:15px;
+}
+
+.ticket_table input{
+  width: 90%
+}
+
+.ticket_table ul li{
+  padding-top:15px;
+}
+
+.ticket_table ul li label{
+  padding-top:15px;
+}
+
+.ticket_table ul li:nth-child(1) {
+  width: 35%;
+
+}
+
+.ticket_table ul li:nth-child(2){
+  width: 25%;
+}
+
+.ticket_table ul li:nth-child(3){
+  width: 25%;
+
+}
+.ticket_table ul li:nth-child(4){
+  width: 25%;
+}
+
+.ticket_table ul li {
+  vertical-align: center;
+}
+
+.ticket_table-item {
+  background-color: white;
+  margin-top: 0px;
+  padding:0px 0 15px 10px;
+  border-bottom: 1px solid #D5D5D3;
+
+}
+
+.ticket_table-item .ticket_type{
+  line-height: 40px;
+}

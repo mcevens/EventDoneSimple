@@ -1,0 +1,121 @@
+
+
+.select-ticket-container{
+  background-color: #F8F8FA;
+}
+
+.select-ticcket-header{
+  line-height: 20px;
+  vertical-align: middle;
+  background-color: #EFF2F5;
+}
+
+.select-ticket-items{
+
+}
+
+.select-ticket-item{
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  display: block;
+  margin-bottom: 3px;
+  background-color: #fff;
+  border-left: 5px solid #0093D7;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.select-ticket-info{
+
+}
+
+.select-ticket-info h2{
+  color: #282C35;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+  padding-bottom: 5px;
+  word-wrap: break-word;
+}
+
+.select-ticket-info span{
+  color: #45494E;
+  text-transform: uppercase;
+  font-size: 15px;
+  line-height: 22px;
+  padding: 0 5px 0 0
+}
+
+.select-ticket-quantity{
+
+}
+
+.select-ticket-quantity select {
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px #D2D6DF solid;
+  border-radius: 3px;
+  color: #45494E;
+  background-color: #fff;
+  font-size: 16px;
+  line-height: 16px;
+  height: 44px;
+  box-sizing: border-box;
+}
+
+.select-ticket-footer{
+  margin-left: 10px;
+  margin-right: 10px;
+  display:flex;
+  justify-content: space-between;
+  border-top: 1px solid #E0E0E2;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.select-ticket-other-info{
+  display: flex;
+  justify-content: space-between;
+}
+
+.select-ticket-action{
+
+}
+
+.select-ticket-action button{
+  background-color: #00ab44;
+  /*height:40px;*/
+  cursor:pointer;
+
+  font-weight: 400;
+  color: white;
+  padding:5px 20px;
+  line-height: 40px;
+  vertical-align: middle;
+  font-size: 18px;
+  margin:0 auto;
+}
+
+.select-ticket-action button:hover{
+  background-color: #00ab44;
+  /*height:40px;*/
+  cursor:pointer;
+
+  font-weight: 400;
+  color: white;
+  padding:5px 20px;
+  line-height: 40px;
+  vertical-align: middle;
+  font-size: 18px;
+  margin:0 auto;
+}
+
+.event-show-action-share-register button{
+  background-color: #01451B;
+  color: white;
+
+  text-align: center;
+  border-radius: 3px;
+  cursor: pointer;
+}

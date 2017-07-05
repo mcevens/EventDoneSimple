@@ -1,0 +1,132 @@
+
+.event-show{
+  position: absolute;
+    left: calc(50% - (1080px/2));
+    right: 300px;
+    top: 100px;
+    border: 1px solid #B6B4B6;
+    background-color: white;
+    width: 1080px;
+    height: 800px;
+
+}
+.event-show-header{
+  display: flex;
+}
+
+.event-show-header-image{
+  width: 700px;
+}
+
+.event-show-header img{
+  height: 100%;
+  width: 100%;
+}
+
+.event-show-header-left-pane{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid #EFF2F5;
+  width: 380px;
+  height: 350px;
+  font-size: 18px;
+  background-color: #FCFCFC;
+}
+
+.event-show-header-left-pane > div:last-of-type{
+  margin-bottom: 0px;
+}
+
+.event-show-header-right-pane > div{
+  margin-bottom: 100px;
+  margin-left: 100px;
+}
+
+
+.event-show-header-right-pane,
+.event-show-detail-description,
+.event-show-detail-other-info
+ {
+  width: 50%;
+}
+
+.event-show-header-right-pane{
+  position:relative;
+  display:flex;
+  justify-content: flex-end;
+
+}
+
+.event-show-header-type-ticket{
+
+}
+.event-show-header-date{
+
+}
+.event-show-header-title{
+
+}
+.event-show-header-organizer{
+
+}
+
+.event-show-action{
+  display:flex;
+  justify-content: space-between;
+  border-top: 1px solid  #B6B4B6;
+  border-bottom: 1px solid  #B6B4B6;
+  padding:10px 10px 10px 15px;
+  width: auto;
+  height:40px;
+}
+
+.event-show-action-bookmark{
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+.event-show-action-share-register button{
+  background-color: #00ab44;
+  /*height:40px;*/
+  cursor:pointer;
+
+  font-weight: 400;
+  color: white;
+  padding:5px 20px;
+  line-height: 40px;
+  vertical-align: middle;
+  font-size: 18px;
+  margin:0 auto;
+}
+
+.event-show-action-share-register button:hover{
+  background-color: #01451B;
+  color: white;
+
+  text-align: center;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.event-show-detail{
+  display:flex;
+  padding-top: 50px;
+}
+
+.event-show-detail-description > div{
+  margin-bottom: 100px;
+  margin-left: 100px;
+}
+.event-show-detail-other-info > div{
+  margin-bottom: 100px;
+  margin-left: 100px;
+}
+.event-show-organizer-wrapper{
+
+}
+.event-show-organizer-content{
+
+}
