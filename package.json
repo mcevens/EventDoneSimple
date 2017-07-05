@@ -45,8 +45,10 @@
     "react-text-input": "0.0.8",
     "react-transition-group": "^1.2.0",
     "redux": "^3.7.0",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "webpack": "^3.0.0"
+  },
+  "devDependencies": {
+     "redux-logger": "^3.0.6"
   }
 }
