@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect} from 'react-redux';
 import GlobalHeader from '../global_header';
+import SelectTicket from './select_ticket';
 import {
   Route,
   Redirect,
@@ -10,6 +11,10 @@ import {
 class EventShow extends React.Component{
   constructor(props){
     super(props);
+    this.state = {
+        ticket_or_register : 'Register'
+    };
+    this.registerClick = this.registerClick.bind(this);
   }
 
   componentDidMount(){
@@ -20,10 +25,18 @@ class EventShow extends React.Component{
     if (this.props.eventId !== nextProps.match.params.eventId) {
       this.props.requestSingleEvent(nextProps.match.params.eventId);
     }
+
+  }
+
+  registerClick(e){
+    debugger;
+    console.log('olala');
+    e.preventDefault();
+    this.props.openModal(<SelectTicket event={this.props.event}/>);
   }
 
   render(){
-    debugger
+
     const event = this.props.event;
     return(
       <div>
@@ -64,10 +77,10 @@ class EventShow extends React.Component{
                  </form>
 
                </div>
-               <div >
-                  <p className="event-show-action-share-register">
-                   <Link to="/register">Ticket</Link>
-                   </p>
+               <div className="event-show-action-share-register">
+                    <button onClick={this.registerClick}>
+                        {this.state.ticket_or_register}
+                    </button>
                </div>
              </div>
              <div className="event-show-detail">

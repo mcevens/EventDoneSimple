@@ -1,6 +1,7 @@
 import React from 'react';
 import EventShow from './event_show';
 import { receiveSingleEvent } from '../../actions/event_actions';
+import { openModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import { selectEvent } from '../../reducers/event_selectors.js';
 import { withRouter } from 'react-router-dom';
@@ -17,7 +18,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    requestSingleEvent: (id) => dispatch(receiveSingleEvent(id))
+    requestSingleEvent: (id) => dispatch(receiveSingleEvent(id)),
+    openModal: (component) => dispatch(openModal(component))
   });
 };
 

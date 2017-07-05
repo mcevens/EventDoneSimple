@@ -191,7 +191,7 @@ bp.app{
     left: calc(50% - (1080px/2));
     right: 300px;
     top: 100px;
-    border: 1px solid black;
+    border: 1px solid #B6B4B6;
     background-color: white;
     width: 1080px;
     height: 800px;
@@ -203,7 +203,6 @@ bp.app{
 
 .event-show-header-image{
   width: 700px;
-  height: 350px;
 }
 
 .event-show-header img{
@@ -221,6 +220,7 @@ bp.app{
   width: 380px;
   height: 350px;
   font-size: 18px;
+  background-color: #FCFCFC;
 }
 
 .event-show-header-left-pane > div:last-of-type{
@@ -263,8 +263,8 @@ bp.app{
 .event-show-action{
   display:flex;
   justify-content: space-between;
-  border-top: 1px solid  #EFF2F5;
-  border-bottom: 1px solid  #EFF2F5;
+  border-top: 1px solid  #B6B4B6;
+  border-bottom: 1px solid  #B6B4B6;
   padding:10px 10px 10px 15px;
   width: auto;
   height:40px;
@@ -277,20 +277,22 @@ bp.app{
 
 .event-show-action-share-register button{
   background-color: #00ab44;
-  height:40px;
+  /*height:40px;*/
   cursor:pointer;
-  width: 200px;
+
   font-weight: 400;
   color: white;
+  padding:10px 50px;
+  line-height: 40px;
+  vertical-align: middle;
+  font-size: 18px;
+  margin:0 auto;
 }
 
 .event-show-action-share-register button:hover{
   background-color: #01451B;
   color: white;
-  font-size: 18px;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  width: 355px;
+
   text-align: center;
   border-radius: 3px;
   cursor: pointer;
