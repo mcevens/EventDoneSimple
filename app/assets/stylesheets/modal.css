@@ -1,0 +1,37 @@
+.modal-root{
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin-left: inherit;
+  display: flex;
+  margin-right: auto;
+  justify-content: center;
+  height: 100%;
+  z-index: 500;
+  background-color: rgba(242,242,242,.9);
+}
+
+
+.modal-content-pre{
+  margin-top: -10%;
+  visibility: hidden;
+  -webkit-transition: margin-top .5s linear;
+  -moz-transition: margin-top .5s linear;
+  transition: margin-top .5s linear;
+  z-index: 1000;
+}
+
+.modal-content-post{
+  visibility: visible;
+  display: block;
+  margin-top: 5%;
+  z-index: 1000;
+  -webkit-transition: margin-top .5s linear;
+  -moz-transition: margin-top .5s linear;
+  transition: margin-top .5s linear;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  position: fixed;
+}

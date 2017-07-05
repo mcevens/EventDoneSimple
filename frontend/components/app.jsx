@@ -21,13 +21,13 @@ import EventIndexContainer from './event/event_index_container';
 import EventShowContainer from './event/event_show_container';
 import EventRegistrationContainer
             from './registration/event_registration_container';
+import ModalContainer from './modal/modal_container';
 
-// import Maintenance from '/event';
 
 const App = () => (
     <div>
+      <ModalContainer/>
       <Switch>
-
         <Route exact path="/" component={EventHome}/>
         <Route exact path="/events" component={EventIndexContainer}/>
         <Route exact path="/events/:eventId" component={EventShowContainer}/>
