@@ -53,16 +53,6 @@ export const validateField = (prop, value) => {
       document.getElementById('event-form-topic').style.borderColor = 'rgb(210, 214, 223)';
       document.querySelector('#event-form-topic + span').innerHTML = "";
     }
-  } else if (prop === "subtopic_id") {
-    if (value === "0") {
-      document.getElementById('event-form-subtopic').style.borderColor = '#f00';
-      document.querySelector('#event-form-subtopic + span').innerHTML = "Subcategory is required";
-      return false;
-    } else {
-      document.getElementById('event-form-subtopic').style.borderColor = 'rgb(210, 214, 223)';
-      document.querySelector('#event-form-subtopic + span').innerHTML = "";
-      return true;
-    }
   }
   return true;
 };
