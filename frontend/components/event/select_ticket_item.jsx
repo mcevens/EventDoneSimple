@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 class SelectTicketItem extends React.Component{
   constructor(props){
     super(props);
-    this.ticket_quantity_change = this.ticket_quantity_change.bind(this);
+    this.ticketQuantityChange = this.ticketQuantityChange.bind(this);
   }
 
   ticketQuantityChange(){
-    
+
   }
 
   render(){
