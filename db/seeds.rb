@@ -86,11 +86,11 @@ if Event.all.count === 0
 
 event1 = Event.create(
 creater_id:test_user.id,
-title: "",
+title: "Cumpleanos Silvia & Arturo ",
 longitude: nil,
 latitude: nil,
 online: nil,
-adresse_line1: "587 MEACHAM AVE ELMONT",
+adresse_line1: "El Castillo, San Nicolas",
 start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
@@ -102,13 +102,37 @@ subtopic_id: music.id,
 image: File.open('app/assets/images/art.jpg')
 )
 
+ticket_1_1  = Ticket.create(
+  name: "Free entry for family",
+  quantity: 10,
+  price: 0,
+  ticket_type_id:1,
+  event_id: event1.id
+)
+
+ticket_1_2  = Ticket.create(
+  name: "Strangers get tickets",
+  quantity: 10,
+  price: 12,
+  ticket_type_id:2,
+  event_id: event1.id
+)
+
+ticket_1_3  = Ticket.create(
+  name: "Long time friends invited",
+  quantity: 10,
+  price: 0,
+  ticket_type_id:3,
+  event_id: event1.id
+)
+
 event2 = Event.create(
 creater_id:test_user.id,
-title: "Meet Lady gaga",
+title: "Politicas Publicas Chile 2017",
 longitude: nil,
 latitude: nil,
 online: nil,
-adresse_line1: "587 MEACHAM AVE ELMONT",
+adresse_line1: "New York, New York",
 start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
@@ -122,16 +146,16 @@ image: File.open('app/assets/images/business.jpg')
 
 event3 = Event.create(
 creater_id:test_user.id,
-title: "Meet Lady gaga",
+title: "Bronx Spanish OSHA 10",
 longitude: nil,
 latitude: nil,
 online: nil,
-adresse_line1: "587 MEACHAM AVE ELMONT",
+adresse_line1: "NYST Bronx, Bronx",
 start_date:"2017-12-25",
 start_time:"8:00:00",
 end_date: "2017-12-26",
 end_time: "2017-12-25",
-description: "This meeting is an opportunity to meet the great lady gaga",
+description: "Obten su tarjeta de OSHA 10 ORAS para la construccion",
 image_url: nil,
 topic_id: food.id,
 subtopic_id: food.id,
