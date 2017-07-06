@@ -12,7 +12,9 @@ import {
 class SelectTicket extends React.Component{
   constructor(props){
     super(props);
+    this.state = {
 
+    };
   }
 
   render(){
@@ -27,21 +29,6 @@ class SelectTicket extends React.Component{
           </div>
            <div className="select-ticket-content">
               <div className="select-ticket-items">
-                 <div className="select-ticket-item">
-                   <div className="select-ticket-info">
-                       <h2>Ticket Name</h2>
-                       <div>
-                         <span>Ticket Price</span>
-                       </div>
-                   </div>
-                   <div className="select-ticket-quantity">
-                     <select>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                     </select>
-                   </div>
-                 </div>
                  {ticketsData.map(
                    ticket => <SelectTicketItem key={ticket.id} ticket={ticket}/>
                  )}

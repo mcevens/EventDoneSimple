@@ -294,7 +294,6 @@ class EventForm extends React.Component{
   render (){
     const topicsData = this.props.topics;
 
-
     return (
       <div>
         <GlobalHeader />

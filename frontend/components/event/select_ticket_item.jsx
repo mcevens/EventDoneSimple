@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 class SelectTicketItem extends React.Component{
   constructor(props){
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.ticket_quantity_change = this.ticket_quantity_change.bind(this);
+  }
+
+  ticketQuantityChange(){
+    
   }
 
   render(){
@@ -14,11 +18,12 @@ class SelectTicketItem extends React.Component{
         <div className="select-ticket-info">
             <h2>{ticket.name}</h2>
             <div>
-              <span>{ticket.price}</span>
+              <span>{ `$ ${ticket.price}` }</span>
             </div>
         </div>
         <div className="select-ticket-quantity">
-          <select>
+          <select onChange={this.ticketQuantityChange()}>
+               <option value="0">0</option>
                <option value="1">1</option>
                <option value="2">2</option>
                <option value="3">3</option>
