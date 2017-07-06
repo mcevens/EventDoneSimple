@@ -98,8 +98,7 @@ end_time: "2017-12-25",
 image_url: nil,
 description: "This meeting is an opportunity to meet the great lady gaga",
 topic_id: music.id,
-subtopic_id: music.id,
-image: File.open('app/assets/images/art.jpg')
+subtopic_id: music.id
 )
 
 ticket_1_1  = Ticket.create(
@@ -140,8 +139,7 @@ end_time: "2017-12-25",
 description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: business.id,
-subtopic_id: business.id,
-image: File.open('app/assets/images/business.jpg')
+subtopic_id: business.id
 )
 
 event3 = Event.create(
@@ -158,8 +156,7 @@ end_time: "2017-12-25",
 description: "Obten su tarjeta de OSHA 10 ORAS para la construccion",
 image_url: nil,
 topic_id: food.id,
-subtopic_id: food.id,
-image: File.open('app/assets/images/food.png')
+subtopic_id: food.id
 )
 
 event4 = Event.create(
@@ -176,8 +173,7 @@ end_time: "2017-12-25",
 description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: arts.id,
-subtopic_id: arts.id,
-image: File.open('app/assets/images/art.jpg')
+subtopic_id: arts.id
 )
 
 event5 = Event.create(
@@ -194,8 +190,7 @@ end_time: "2017-12-25",
 description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: community.id,
-subtopic_id: community.id,
-image: File.open('app/assets/images/community.jpg')
+subtopic_id: community.id
 )
 
 event6 = Event.create(
@@ -212,8 +207,7 @@ end_time: "2017-12-25",
 description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: music.id,
-subtopic_id: music.id,
-image: File.open('app/assets/images/film_&_media.png')
+subtopic_id: music.id
 )
 
 event7 = Event.create(
@@ -230,8 +224,7 @@ end_time: "2017-12-25",
 description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: health.id,
-subtopic_id: health.id,
-image: File.open('app/assets/images/health.gif')
+subtopic_id: health.id
 )
 
 event8 = Event.create(
@@ -248,8 +241,7 @@ end_time: "2017-12-25",
 description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: sport.id,
-subtopic_id: sport.id,
-image: File.open('app/assets/images/sports.jpg')
+subtopic_id: sport.id
 )
 
 
@@ -267,8 +259,7 @@ end_time: "2017-12-25",
 description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: family.id,
-subtopic_id: family.id,
-image: File.open('app/assets/images/family_and_education.jpg')
+subtopic_id: family.id
 )
 
 event10 = Event.create(
@@ -285,8 +276,7 @@ end_time: "2017-12-25",
 description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: film.id,
-subtopic_id: film.id,
-image: File.open('app/assets/images/film_&_media.png')
+subtopic_id: film.id
 )
 
 event11 = Event.create(
@@ -303,8 +293,7 @@ end_time: "2017-12-25",
 description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: charity.id,
-subtopic_id: charity.id,
-image: File.open('app/assets/images/charity_&_cause.jpg')
+subtopic_id: charity.id
 )
 
 event12 = Event.create(
@@ -321,8 +310,7 @@ end_time: "2017-12-25",
 description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: fashion.id,
-subtopic_id: fashion.id,
-image: File.open('app/assets/images/fashion.png')
+subtopic_id: fashion.id
 )
 
 event13 = Event.create(
@@ -339,8 +327,7 @@ end_time: "2017-12-25",
 description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: hobby.id,
-subtopic_id: hobby.id,
-image: File.open('app/assets/images/hobbies.png')
+subtopic_id: hobby.id
 )
 
 event14 = Event.create(
@@ -357,8 +344,7 @@ end_time: "2017-12-25",
 description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: science.id,
-subtopic_id: science.id,
-image: File.open('app/assets/images/holiday.png')
+subtopic_id: science.id
 )
 
 event15 = Event.create(
@@ -375,8 +361,7 @@ end_time: "2017-12-25",
 description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: spirituality.id,
-subtopic_id: spirituality.id,
-image: File.open('app/assets/images/spirituality.jpg')
+subtopic_id: spirituality.id
 )
 
 event16 = Event.create(
@@ -393,8 +378,7 @@ end_time: "2017-12-25",
 description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: homelife.id,
-subtopic_id: homelife.id,
-image: File.open('app/assets/images/home_lifestyle.png')
+subtopic_id: homelife.id
 )
 
 event16 = Event.create(
@@ -411,8 +395,7 @@ end_time: "2017-12-25",
 description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: travel.id,
-subtopic_id: travel.id,
-image: File.open('app/assets/images/travel_outdoor.jpg')
+subtopic_id: travel.id
 )
 
 event16 = Event.create(
@@ -429,8 +412,7 @@ end_time: "2017-12-25",
 description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: holiday.id,
-subtopic_id: holiday.id,
-image: File.open('app/assets/images/holiday.png')
+subtopic_id: holiday.id
 )
 
 event16 = Event.create(
@@ -447,8 +429,7 @@ end_time: "2017-12-25",
 description: "This meeting is an opportunity to meet the great lady gaga",
 image_url: nil,
 topic_id: government.id,
-subtopic_id: government.id,
-image: File.open('app/assets/images/government.jpg')
+subtopic_id: government.id
 )
 
 book_mark_event1 = EventBookmark.create(
