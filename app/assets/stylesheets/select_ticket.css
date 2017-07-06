@@ -22,6 +22,10 @@
   margin:20px;
 }
 
+.select-ticket-item-decoration{
+  border-left: 10px solid #0093D7;
+}
+
 .select-ticket-item{
   background-color: #FFFFFF;
   display: flex;
