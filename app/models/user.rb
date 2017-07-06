@@ -37,6 +37,13 @@ class User < ActiveRecord::Base
     source: :event
   )
 
+  has_many(
+    :ticket_orders,
+    class_name: "TicketOrder",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
 
