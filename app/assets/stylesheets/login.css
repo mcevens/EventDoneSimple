@@ -33,12 +33,12 @@ input[type="text"], input[type="password"]{
   height: 40px;
   font-size: 18px;
   font-family: sans-serif;
-  border-color: 1px solid #C3C6CF;
+  border: 1px solid #C3C6CF;
   padding-left: 10px;
 }
 
 input[type="text"]:focus, input[type="password"]:focus {
-  border-color: 2px solid #1E8E9A ;
+  border: 1px solid #1E8E9A ;
 }
 
 .login-wrapper {
