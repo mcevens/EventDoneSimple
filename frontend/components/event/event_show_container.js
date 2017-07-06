@@ -9,7 +9,6 @@ import { withRouter } from 'react-router-dom';
 const mapStateToProps = (state, ownProps) => {
   const eventId = ownProps.match.params.eventId;
   const event = selectEvent(state, eventId);
-
   return ({
     eventId: eventId,
     event: event

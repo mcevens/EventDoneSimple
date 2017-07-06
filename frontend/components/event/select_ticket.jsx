@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect} from 'react-redux';
 import GlobalHeader from '../global_header';
+import SelectTicketItem from './select_ticket_item';
 import {
   Route,
   Redirect,
@@ -15,6 +16,8 @@ class SelectTicket extends React.Component{
   }
 
   render(){
+    let event = this.props.event;
+    let ticketsData = event.tickets;
 
     return(
       <div>
@@ -39,7 +42,9 @@ class SelectTicket extends React.Component{
                      </select>
                    </div>
                  </div>
-
+                 {ticketsData.map(
+                   ticket => <SelectTicketItem key={ticket.id} ticket={ticket}/>
+                 )}
               </div>
            </div>
            <div className="select-ticket-footer">
@@ -57,7 +62,7 @@ class SelectTicket extends React.Component{
                     USD
                   </label>
                   <label>
-                    "$22.09"
+                    {"$22.09"}
                   </label>
                 </div>
               </div>

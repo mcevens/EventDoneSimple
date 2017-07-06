@@ -5,10 +5,17 @@
   min-width: 600px;
 }
 
-.select-ticcket-header{
+.select-ticket-header{
   line-height: 20px;
   vertical-align: middle;
   background-color: #EFF2F5;
+  width: 600px;
+  padding: 15px;
+}
+
+.select-ticket-header h1{
+  font-size: 20px;
+  text-align: center;
 }
 
 .select-ticket-items{
@@ -21,9 +28,13 @@
   justify-content: space-between;
   margin-bottom: 3px;
   background-color: #fff;
-  border-left: 5px solid #0093D7;
+  border-left: 10px solid #0093D7;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.select-ticket-item > *{
+  padding:20px;
 }
 
 .select-ticket-info{
@@ -37,6 +48,7 @@
   font-weight: 400;
   padding-bottom: 5px;
   word-wrap: break-word;
+
 }
 
 .select-ticket-info span{
@@ -62,13 +74,13 @@
   line-height: 16px;
   height: 44px;
   box-sizing: border-box;
-  padding: 10px;
-  cursor: pointer
+  cursor: pointer;
+  width: 80px;
 }
 
 
 .select-ticket-footer{
-  margin-left: 10px;
+  padding-left: 20px;
   margin-right: 10px;
   display:flex;
   justify-content: space-between;
@@ -81,6 +93,13 @@
 .select-ticket-other-info{
   display: flex;
   justify-content: space-between;
+  line-height: 43px;
+  width: 50%;
+}
+
+.select-ticket-other-info label{
+  vertical-align: middle;
+  margin-right: 5px;
 }
 
 .select-ticket-action{
