@@ -20,7 +20,7 @@ class SelectTicket extends React.Component{
       <div>
         <div className="select-ticket-container">
           <div className="select-ticket-header">
-
+              <h1>Register</h1>
           </div>
            <div className="select-ticket-content">
               <div className="select-ticket-items">

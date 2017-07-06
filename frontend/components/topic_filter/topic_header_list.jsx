@@ -13,7 +13,6 @@ class TopicHeaderList extends React.Component {
   }
 
   render(){
-    debugger
     let topicsData = this.props.topics;
     let topicsToShow = [];
     if (this.props.topic.topic) {

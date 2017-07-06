@@ -417,7 +417,8 @@ class EventForm extends React.Component{
                         <input type="file" onChange={this.updateFile}></input>
                         <img src={this.state.image_url}/>
                       </div>
-                      <div>
+                      <div className="details-attr">
+                        <label>Event Description</label>
                         <textarea rows="9" cols="77">
                         </textarea>
                       </div>

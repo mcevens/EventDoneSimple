@@ -2,6 +2,7 @@
 
 .select-ticket-container{
   background-color: #F8F8FA;
+  min-width: 600px;
 }
 
 .select-ticcket-header{
@@ -11,14 +12,13 @@
 }
 
 .select-ticket-items{
-
+  margin:20px;
 }
 
 .select-ticket-item{
   background-color: #FFFFFF;
   display: flex;
   justify-content: space-between;
-  display: block;
   margin-bottom: 3px;
   background-color: #fff;
   border-left: 5px solid #0093D7;
@@ -62,7 +62,10 @@
   line-height: 16px;
   height: 44px;
   box-sizing: border-box;
+  padding: 10px;
+  cursor: pointer
 }
+
 
 .select-ticket-footer{
   margin-left: 10px;
@@ -72,6 +75,7 @@
   border-top: 1px solid #E0E0E2;
   padding-top: 10px;
   padding-bottom: 10px;
+  background-color: #ffffff;
 }
 
 .select-ticket-other-info{
@@ -85,37 +89,24 @@
 
 .select-ticket-action button{
   background-color: #00ab44;
-  /*height:40px;*/
   cursor:pointer;
-
-  font-weight: 400;
-  color: white;
-  padding:5px 20px;
-  line-height: 40px;
+      color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  line-height: 22px;
+  font-weight: 600;
   vertical-align: middle;
-  font-size: 18px;
-  margin:0 auto;
+  position: relative;
+  width: auto;
+  height: auto;
+  border: 0;
+  padding: 11px 20px;
+  text-align: center;
 }
 
 .select-ticket-action button:hover{
-  background-color: #00ab44;
-  /*height:40px;*/
-  cursor:pointer;
-
-  font-weight: 400;
-  color: white;
-  padding:5px 20px;
-  line-height: 40px;
-  vertical-align: middle;
-  font-size: 18px;
-  margin:0 auto;
-}
-
-.event-show-action-share-register button{
   background-color: #01451B;
   color: white;
-
-  text-align: center;
-  border-radius: 3px;
-  cursor: pointer;
+  margin:0 auto;
 }

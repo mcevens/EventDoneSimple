@@ -16,9 +16,17 @@ class EventIndexItem extends React.Component{
 
   render(){
     const event = this.props.event;
+    const currentUser = this.props.current_user;
     let bookmarked = 'event-not-bookmarked';
-    if (event.bookmarked){
+    let tooltip = 'Save';
+    let displaybookmark = 'block';
+    if (event.bookmarked === true){
       bookmarked = 'event-bookmarked' ;
+      tooltip = 'Save';
+    }
+
+    if (currentUser){
+      displaybookmark = 'block';
     }
     return(
       <div className="event-index-item">
@@ -59,16 +67,12 @@ class EventIndexItem extends React.Component{
              <div className="event-index-item-footer-actions">
                <div>
                  <form onSubmit={this.handleSubmit}>
-                   <button style={{display:'none'}}>
-                      Share
-                   </button>
-               </form>
-               </div>
-               <div>
-                 <form onSubmit={this.handleSubmit}>
-                   <button >
-                      Bookmark
-                   </button>
+                 <button title={tooltip}>
+                   <span style={{display:displaybookmark}}
+                     className={bookmarked} id="rock">
+
+                   </span>
+                  </button>
                </form>
                </div>
              </div>

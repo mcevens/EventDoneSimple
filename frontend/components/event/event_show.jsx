@@ -29,15 +29,25 @@ class EventShow extends React.Component{
   }
 
   registerClick(e){
-    debugger;
-    console.log('olala');
     e.preventDefault();
     this.props.openModal(<SelectTicket event={this.props.event}/>);
   }
 
   render(){
-
     const event = this.props.event;
+    const currentUser = this.props.current_user;
+    let bookmarked = 'event-not-bookmarked';
+    let tooltip = 'Save';
+    let displaybookmark = 'none';
+    if (event.bookmarked === true){
+      bookmarked = 'event-bookmarked' ;
+      tooltip = 'Save';
+    }
+
+    if (currentUser){
+      displaybookmark = 'block';
+    }
+
     return(
       <div>
         <GlobalHeader />
