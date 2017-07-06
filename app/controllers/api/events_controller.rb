@@ -9,9 +9,12 @@ class Api::EventsController < ApplicationController
    end
 
    def create
+     debugger
      @event =  extractEvent(received_params)
      @tickets = newExtractTicket(params)
      @event.creater_id = current_user.id
+     #TODO SUBTOPIC FEATURE
+     @event.subtopic_id = @event.topic_id
      if @event.save
        @tickets.each do |ticket|
          ticket.event_id = @event.id
