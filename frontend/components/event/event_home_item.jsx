@@ -11,8 +11,7 @@ class EventHomeItem extends React.Component{
 
     const event = this.props.event;
     e.preventDefault();
-      this.props.createBookmark(event.id)
-        .then(data => this.props.history.push(`/`));
+      this.props.createBookmark(event.id);
   }
 
   render(){

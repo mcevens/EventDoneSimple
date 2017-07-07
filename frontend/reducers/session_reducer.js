@@ -13,7 +13,7 @@ import {
 const nullUser = Object.freeze({
   currentUser: null,
   errors:[],
-  ticket_orders:[]
+  ticketOrders:[]
 });
 
 const SessionReducer = (state = nullUser, action) => {
@@ -30,9 +30,13 @@ const SessionReducer = (state = nullUser, action) => {
          ticketOrders
        });
    case RECEIVE_NEW_TICKET_ORDER:
+        debugger
         let ticketOrder = action.ticketOrder;
         let currentTicketOrders = state.ticketOrders;
-        ticketOrders.push(ticketOrder);
+        if (currentTicketOrders === undefined) {
+          currentTicketOrders = [];
+        }
+        currentTicketOrders.push(ticketOrder);
         return merge({},state, {
           ticketOrders
         });

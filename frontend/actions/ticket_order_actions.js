@@ -20,3 +20,11 @@ export const receiveTicketOrderErrors =  errors => ({
   type: RECEIVE_TICKET_ORDER_ERRORS,
   errors
 });
+
+export const updateTicketOrderState = (ticketOrder) => (dispatch) => {
+  const mydispatch = (localticketOrder) => {
+    dispatch(receiveNewTicketOrder(localticketOrder));
+    return localticketOrder;
+  };
+  return mydispatch(ticketOrder);
+};

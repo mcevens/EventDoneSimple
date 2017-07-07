@@ -5,13 +5,18 @@ import { openModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import { selectEvent } from '../../reducers/event_selectors.js';
 import { withRouter } from 'react-router-dom';
+import { createTicketOrder, updateTicketOrderState }
+          from '../../actions/ticket_order_actions';
 
 const mapStateToProps = (state, ownProps) => {
+
+  debugger
   const eventId = ownProps.match.params.eventId;
   const event = selectEvent(state, eventId);
   return ({
     eventId: eventId,
-    event: event
+    event: event,
+    session: state.session
   });
 };
 

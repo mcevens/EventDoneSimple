@@ -2,6 +2,7 @@ import React from 'react';
 import { connect} from 'react-redux';
 import GlobalHeader from '../global_header';
 import SelectTicket from './select_ticket';
+import SelectTicketContainer from './select_ticket_container';
 import {
   Route,
   Redirect,
@@ -30,10 +31,11 @@ class EventShow extends React.Component{
 
   registerClick(e){
     e.preventDefault();
-    this.props.openModal(<SelectTicket event={this.props.event}/>);
+    this.props.openModal(<SelectTicketContainer  event={this.props.event}/>);
   }
 
   render(){
+    debugger
     const event = this.props.event;
     const currentUser = this.props.current_user;
     let bookmarked = 'event-not-bookmarked';

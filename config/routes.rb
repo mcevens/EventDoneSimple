@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :topics, only: [:index, :show]
     resources :event_bookmarks
-    ressources :ticket_orders, only:[:create, :destroy]
+    resources :ticket_orders, only:[:create, :destroy]
 
   end
 end

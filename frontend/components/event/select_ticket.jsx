@@ -19,6 +19,8 @@ class SelectTicket extends React.Component{
   }
 
   render(){
+
+    debugger
     let event = this.props.event;
     let ticketsData = event.tickets;
 
@@ -31,7 +33,10 @@ class SelectTicket extends React.Component{
            <div className="select-ticket-content">
               <div className="select-ticket-items">
                  {ticketsData.map(
-                   ticket => <SelectTicketItem key={ticket.id} ticket={ticket}/>
+                   ticket => <SelectTicketItem key={ticket.id}
+                              createTicketOrder = {this.props.createTicketOrder}
+                              updateTicketOrderState = {this.props.updateTicketOrderState}
+                              ticket={ticket}/>
                  )}
               </div>
            </div>

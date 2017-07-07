@@ -25,11 +25,12 @@ class SelectTicketItem extends React.Component{
         itemBorderLeftWidth: 'none'
       });
     }
-
-    // this.props.updateTicketOrder(ticketOrder);
+    debugger
+    this.props.updateTicketOrderState(ticketOrder);
   }
 
   render(){
+    debugger
     const ticket = this.props.ticket;
     return(
     <div className="select-ticket-item-decoration">
