@@ -31,7 +31,7 @@ const App = () => (
         <Route exact path="/" component={EventHome}/>
         <Route exact path="/events" component={EventIndexContainer}/>
         <Route exact path="/events/:eventId" component={EventShowContainer}/>
-        <Route path="/register/:eventId"
+        <ProtectedRoute path="/register/:eventId"
                     component={EventRegistrationContainer}/>
                   <Route exact path="/topics/:topicId" component={CategoryEventsContainer} />
         <ProtectedRoute path="/create" component={EventFormContainer }/>
