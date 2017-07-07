@@ -28,7 +28,7 @@ module.exports = {
     path: path.join(__dirname, 'app', 'assets', 'javascripts'),
     filename: "bundle.js"
   },
-  plugings:plugins,
+  plugins:plugins,
   resolve: {
     extensions: ["*", ".js", ".jsx"]
   },
