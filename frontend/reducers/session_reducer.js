@@ -30,7 +30,6 @@ const SessionReducer = (state = nullUser, action) => {
          ticketOrders
        });
    case RECEIVE_NEW_TICKET_ORDER:
-        debugger
         let ticketOrder = action.ticketOrder;
         let currentTicketOrders = state.ticketOrders;
         if (currentTicketOrders === undefined) {

@@ -112,7 +112,6 @@
 .event-index-item-header-text .event-venue{
     text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
     color: #666A73;
     font-size: 16px;
     line-height: 18px;
@@ -321,7 +320,7 @@ select{
 }
 .event-home-item-header-text{
   padding-top:20px;
-
+  width: 330px;
 }
 
 .event-home-item-header-text > *{
@@ -364,7 +363,6 @@ select{
 .event-home-item-header-text .event-venue{
     text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
     color: #666A73;
     line-height: 18px;
     height: 18px;
