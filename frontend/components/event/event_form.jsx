@@ -39,16 +39,13 @@ class EventForm extends React.Component{
 
     this.update = this.update.bind(this);
     this.save = this.save.bind(this);
-    this.initialFreeTicketClick = this.initialFreeTicketClick.bind(this);
-    this.initialPaidTicketClick = this.initialPaidTicketClick.bind(this);
-    this.initialDonationTicketClick = this
-                                  .initialDonationTicketClick.bind(this);
     this.updateFile = this.updateFile.bind(this);
+    this.addTicketClick = this.addTicketClick.bind(this);
     this.topicSelectedIndexChanged = this.topicSelectedIndexChanged.bind(this);
   }
 
   save(e){
-  debugger;
+
     e.preventDefault();
     const event = this.state;
     const isFormReady = validateForm(event);
@@ -104,9 +101,8 @@ class EventForm extends React.Component{
   }
 
   shouldComponentUpdate(newProps, newState){
-
-
-    if (Object.keys(newProps).length === 0 && newProps.constructor === Object){
+    if (Object.keys(newProps).length === 0 &&
+        newProps.constructor === Object){
       if  (newProps.event.tickets !== this.state.tickets){
       this.mergeEventState(newProps.event);
       }
@@ -188,101 +184,41 @@ class EventForm extends React.Component{
       );
     }
   }
-  initialFreeTicketClick(e){
-    e.preventDefault();
-    let currentKey = this.state.tickets_array.length + 1;
 
-    let ticketItem = {
-      key: currentKey,
-      name : '',
-      price: 0 ,
-      type : 'FREE',
-      quantity: 0
-    };
-    let tickets = this.state.tickets;
-    let ticketArray = this.state.tickets_array;
-    let ticketsList = this.state.tickets_list;
-    ticketsList[currentKey] = ticketItem;
-    ticketArray.push(currentKey);
-    tickets.push(ticketItem);
+  addTicketClick(property){
+    return e => {
+      e.preventDefault();
+      let currentKey = this.state.tickets_array.length + 1;
+      const type = e.currentTarget.value;
 
-    this.setState({
-      tickets : tickets,
-      tickets_array : ticketArray,
-      tickets_list :ticketsList,
-      hasTickets: 'none',
-      noTickets: 'block'
-    });
+      let ticketItem = {
+        key: currentKey,
+        name : '',
+        price: 0 ,
+        type : property,
+        quantity: 0
+      };
 
-    this.setState({
-      ticket_initial:"block",
-      table_ticket: "block"
-    });
+      let tickets = this.state.tickets;
+      let ticketArray = this.state.tickets_array;
+      let ticketsList = this.state.tickets_list;
+      ticketsList[currentKey] = ticketItem;
+      ticketArray.push(currentKey);
+      tickets.push(ticketItem);
 
-  }
+      this.setState({
+        tickets : tickets,
+        tickets_array : ticketArray,
+        tickets_list :ticketsList,
+        hasTickets: 'none',
+        noTickets: 'block'
+      });
 
-  initialPaidTicketClick(e){
-    e.preventDefault();
-    let currentKey = this.state.tickets_array.length + 1;
-
-    let ticketItem = {
-      key: currentKey,
-      name : '',
-      price: 0 ,
-      type : 'PAID',
-      quantity: 0
-    };
-    let tickets = this.state.tickets;
-    let ticketArray = this.state.tickets_array;
-    let ticketsList = this.state.tickets_list;
-    ticketsList[currentKey] = ticketItem;
-    ticketArray.push(currentKey);
-    tickets.push(ticketItem);
-
-    this.setState({
-      tickets : tickets,
-      tickets_array : ticketArray,
-      tickets_list :ticketsList,
-      hasTickets: 'none',
-      noTickets: 'block'
-    });
-
-    this.setState({
-      ticket_initial:"block",
-      table_ticket: "block"
-    });
-  }
-
-  initialDonationTicketClick(e){
-    e.preventDefault();
-    let currentKey = this.state.tickets_array.length + 1;
-
-    let ticketItem = {
-      key: currentKey,
-      name : '',
-      price: 0 ,
-      type : 'DONATION',
-      quantity: 0
-    };
-    let tickets = this.state.tickets;
-    let ticketArray = this.state.tickets_array;
-    let ticketsList = this.state.tickets_list;
-    ticketsList[currentKey] = ticketItem;
-    ticketArray.push(currentKey);
-    tickets.push(ticketItem);
-
-    this.setState({
-      tickets : tickets,
-      tickets_array : ticketArray,
-      tickets_list :ticketsList,
-      hasTickets: 'none',
-      noTickets: 'block'
-    });
-
-    this.setState({
-      ticket_initial:"block",
-      table_ticket: "block"
-    });
+      this.setState({
+        ticket_initial:"block",
+        table_ticket: "block"
+      });
+   };
   }
 
   topicSelectedIndexChanged(e){
@@ -446,13 +382,13 @@ class EventForm extends React.Component{
                             What type of ticket would
                             you like to start with?</h5>
                           <div id="div_ticket_type">
-                            <button onClick={this.initialFreeTicketClick}>
+                            <button onClick={this.addTicketClick("FREE")}>
                               FREE TICKET
                             </button>
-                            <button onClick={this.initialPaidTicketClick}>
+                            <button onClick={this.addTicketClick("PAID")}>
                               PAID TICKET
                             </button>
-                            <button onClick={this.initialDonationTicketClick}>
+                            <button onClick={this.addTicketClick("DONATION")}>
                               DONATION
                             </button>
                           </div>
