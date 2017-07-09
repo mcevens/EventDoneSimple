@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { hashHistory } from 'react-router';
 import GlobalHeader from '../global_header';
 import { DateField, Calendar } from 'react-date-picker';
 import TimePicker from 'rc-time-picker';
@@ -74,15 +75,12 @@ class EventForm extends React.Component{
         formData.append("event[subtopic_id]", this.state.subtopic_id);
         formData.append("event[tickets]", stringTickets);
         formData.append("event[image]", this.state.imageFile);
-        this.props.createEvent(formData, this.goBack);
+        this.props.createEvent(formData).then((data) => {
+          this.props.history.push(`/events/${data.id}`);
+        });
       }
     }
 
-
-  }
-
-  goBack () {
-    this.context.router.push("/");
   }
 
   componentDidMount(){
