@@ -53,6 +53,15 @@ export const validateField = (prop, value) => {
       document.getElementById('event-form-topic').style.borderColor = 'rgb(210, 214, 223)';
       document.querySelector('#event-form-topic + span').innerHTML = "";
     }
+  } else if (prop === "image_url"){
+    if (value === "" ) {
+      document.getElementById('event-form-image').style.borderColor = '#f00';
+      document.querySelector('#event-form-image + span').innerHTML = "Image is required";
+      return false;
+    } else {
+      document.getElementById('event-form-image').style.borderColor = 'rgb(210, 214, 223)';
+      document.querySelector('#event-form-image + span').innerHTML = "";
+    }
   }
   return true;
 };

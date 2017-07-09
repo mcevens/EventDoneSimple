@@ -1,6 +1,6 @@
 import React from 'react';
 import EventShow from './event_show';
-import { receiveSingleEvent } from '../../actions/event_actions';
+import { requestSingleEvent } from '../../actions/event_actions';
 import { openModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import { selectEvent } from '../../reducers/event_selectors.js';
@@ -10,9 +10,11 @@ import { createTicketOrder, updateTicketOrderState }
 
 const mapStateToProps = (state, ownProps) => {
 
-  debugger
-  const eventId = ownProps.match.params.eventId;
-  const event = selectEvent(state, eventId);
+  let eventId = ownProps.match.params.eventId;
+  let event = selectEvent(state, eventId);
+  if (state.events.event) {
+    event = state.events.event;
+  }
   return ({
     eventId: eventId,
     event: event,
@@ -22,7 +24,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    requestSingleEvent: (id) => dispatch(receiveSingleEvent(id)),
+    requestSingleEvent: (id) => dispatch(requestSingleEvent(id)),
     openModal: (component) => dispatch(openModal(component))
   });
 };

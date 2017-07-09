@@ -23,8 +23,10 @@ export const receiveSingleEvent = (event) => ({
 });
 
 export const requestSingleEvent = (id) => (dispatch) => {
+  debugger
   return APIUtil.fetchSingleEvent(id).then(event => {
       dispatch(receiveSingleEvent(event));
+      debugger
       return event;
     }
   );
@@ -48,7 +50,7 @@ export const deleteEvent = id => dispatch => {
 export const createEvent = event => dispatch => {
  return APIUtil.createEvent(event).then(eventCreated => {
     dispatch(receiveNewEvent(eventCreated));
-    return event;
+    return eventCreated;
   }).fail(err => dispatch(receiveEventErrors(err.responseJSON)));
 };
 

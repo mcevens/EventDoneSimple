@@ -12,7 +12,7 @@ const _defaultState = {};
 const singleEventReducer  = (state = _defaultState, action) => {
   Object.freeze(state);
   let nextState;
-  
+
   switch (action.type) {
     case RECEIVE_NEW_EVENT:
        nextState = {};

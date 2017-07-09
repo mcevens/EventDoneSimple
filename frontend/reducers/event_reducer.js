@@ -4,6 +4,7 @@ import {
   RECEIVE_EDITED_EVENT,
   DELETE_EVENT,
   RECEIVE_NEW_TICKET,
+  RECEIVE_SINGLE_EVENT
 } from '../actions/event_actions';
 import { merge } from 'lodash';
 
@@ -22,6 +23,8 @@ const eventReducer  = (state = _defaultState, action) => {
         nextState = {};
         merge(nextState, state, {[action.event.id]: action.event});
         return nextState;
+    case RECEIVE_SINGLE_EVENT:
+        return action.event;
     case DELETE_EVENT:
         return {};
     default:

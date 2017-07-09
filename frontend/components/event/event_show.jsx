@@ -19,10 +19,12 @@ class EventShow extends React.Component{
   }
 
   componentDidMount(){
+    debugger
     this.props.requestSingleEvent(this.props.eventId);
   }
 
   componentWillreceiveProps(nextProps){
+    debugger
     if (this.props.eventId !== nextProps.match.params.eventId) {
       this.props.requestSingleEvent(nextProps.match.params.eventId);
     }

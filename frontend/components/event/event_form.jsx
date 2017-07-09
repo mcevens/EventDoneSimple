@@ -76,7 +76,9 @@ class EventForm extends React.Component{
         formData.append("event[tickets]", stringTickets);
         formData.append("event[image]", this.state.imageFile);
         this.props.createEvent(formData).then((data) => {
-          this.props.history.push(`/events/${data.id}`);
+          debugger
+
+          this.props.history.push(`/events/${data.event.id}`);
         });
       }
     }
@@ -347,8 +349,10 @@ class EventForm extends React.Component{
                       </div>
                       <div className="details-attr">
                         <label>Event Image</label>
-                        <input type="file" onChange={this.updateFile}></input>
-                        <img src={this.state.image_url}/>
+                        <input  type="file" onChange={this.updateFile}></input>
+
+                        <img id="event-form-image" src={this.state.image_url}/>
+                          <span className="event-form-error"></span>
                       </div>
                       <div className="details-attr">
                         <label>Event Description</label>
