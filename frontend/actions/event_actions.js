@@ -23,10 +23,10 @@ export const receiveSingleEvent = (event) => ({
 });
 
 export const requestSingleEvent = (id) => (dispatch) => {
-  debugger
+
   return APIUtil.fetchSingleEvent(id).then(event => {
       dispatch(receiveSingleEvent(event));
-      debugger
+
       return event;
     }
   );

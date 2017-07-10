@@ -76,8 +76,6 @@ class EventForm extends React.Component{
         formData.append("event[tickets]", stringTickets);
         formData.append("event[image]", this.state.imageFile);
         this.props.createEvent(formData).then((data) => {
-          debugger
-
           this.props.history.push(`/events/${data.event.id}`);
         });
       }

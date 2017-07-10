@@ -71,9 +71,27 @@ class SessionForm extends React.Component {
     }
 }
 
+  renderLoginSetup(){
+    if (this.props.formType === 'login') {
+      return(
+        <p>Don't have an account ?<Link  to="/signup">SIGN UP</Link>
+
+        </p>
+      );
+    }else {
+      return(
+
+        <p>Already have an account?<Link  to="/login">LOG IN</Link>
+
+        </p>
+      );
+    }
+  }
+
   render() {
 
     const buttonText = this.props.formType === 'login' ? 'Log In' : 'Sign Up';
+
     return (
     <div className="login-wrapper">
       <section className="login" >
@@ -104,9 +122,7 @@ class SessionForm extends React.Component {
                     />
               </li>
               <li>
-                // <p>Already have an account? <a><Link  to="/login">LOG IN</Link>
-                //
-                // </a></p>
+                 {this.renderLoginSetup()}
               </li>
               <li>
                     {this.renderErrors()}
