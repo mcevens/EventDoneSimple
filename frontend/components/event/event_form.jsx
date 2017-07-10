@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { hashHistory } from 'react-router';
 import GlobalHeader from '../global_header';
 import { DateField, Calendar } from 'react-date-picker';
 import TimePicker from 'rc-time-picker';
