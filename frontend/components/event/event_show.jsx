@@ -15,7 +15,11 @@ class EventShow extends React.Component{
     this.state = {
         ticket_or_register : 'Register'
     };
+    this.state = {
+      bookmarked : null
+    };
     this.registerClick = this.registerClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount(){
@@ -29,22 +33,41 @@ class EventShow extends React.Component{
 
   }
 
+  handleSubmit(e){
+    let event = this.props.event;
+    if (event.bookmarked === true) {
+      this.props.destroyEventBookmark(event.id).then((data) => {
+        this.setState({
+          bookmarked:false
+        });
+      });
+    } else {
+      this.props.createEventBookmark(event.id).then((data) => {
+        this.setState({
+          bookmarked:true
+        });
+      });
+    }
+  }
+
   registerClick(e){
     e.preventDefault();
     this.props.openModal(<SelectTicketContainer  event={this.props.event}/>);
   }
 
   render(){
-    const event = this.props.event;
-    const currentUser = this.props.current_user;
+    let event = this.props.event;
+    if (this.state.bookmarked !== null) {
+      event.bookmarked = this.state.bookmarked;
+    }
+    let currentUser = this.props.session.currentUser;
     let bookmarked = 'event-not-bookmarked';
     let tooltip = 'Save';
-    let displaybookmark = 'none';
+    let displaybookmark = 'block';
     if (event.bookmarked === true){
       bookmarked = 'event-bookmarked' ;
       tooltip = 'Save';
     }
-
     if (currentUser){
       displaybookmark = 'block';
     }
@@ -80,17 +103,18 @@ class EventShow extends React.Component{
             </div>
              <div className="event-show-action">
                <div className="event-show-action-bookmark">
-
                    <form onSubmit={this.handleSubmit}>
-                     <div className="icon-selected">
-                        <i id="icon" className="fa fa-bookmark" aria-hidden="true"></i>
-                      </div>
+                     <button title={tooltip}>
+                       <span style={{display:displaybookmark}}
+                         className={bookmarked} id="rock">
+                       </span>
+                      </button>
                  </form>
 
                </div>
                <div className="event-show-action-share-register">
                     <button onClick={this.registerClick}>
-                        {this.state.ticket_or_register}
+                        Register
                     </button>
                </div>
              </div>

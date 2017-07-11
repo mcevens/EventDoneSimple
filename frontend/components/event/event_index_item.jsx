@@ -5,18 +5,35 @@ class EventIndexItem extends React.Component{
   constructor(props){
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      bookmarked : null
+    };
   }
 
   handleSubmit(e){
-    const event = this.props.event;
-    e.preventDefault();
-      this.props.deleteEvent(event.id)
-        .then(data => this.props.history.push(`/`));
+    let event = this.props.event;
+    if (event.bookmarked === true) {
+      this.props.destroyEventBookmark(event.id).then((data) => {
+
+        this.setState({
+          bookmarked:false
+        });
+      });
+    } else {
+      this.props.createEventBookmark(event.id).then((data) => {
+        this.setState({
+          bookmarked:true
+        });
+      });
+    }
   }
 
   render(){
-    const event = this.props.event;
-    const currentUser = this.props.current_user;
+    let event = this.props.event;
+    if (this.state.bookmarked !== null) {
+      event.bookmarked = this.state.bookmarked;
+    }
+    let currentUser = this.props.current_user;
     let bookmarked = 'event-not-bookmarked';
     let tooltip = 'Save';
     let displaybookmark = 'block';

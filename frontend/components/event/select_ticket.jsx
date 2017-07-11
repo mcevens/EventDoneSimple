@@ -20,7 +20,6 @@ class SelectTicket extends React.Component{
 
   render(){
 
-    debugger
     let event = this.props.event;
     let ticketsData = event.tickets;
 

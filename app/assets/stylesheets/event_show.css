@@ -85,8 +85,14 @@
 
 .event-show-action-bookmark{
   cursor: pointer;
-  padding-top: 10px;
 }
+.event-show-action-bookmark button{
+  background-color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+}
+
+
 
 .event-show-action-share-register button{
   background-color: #00ab44;

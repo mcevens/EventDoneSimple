@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import TopicHeaderListContainer
 from '../topic_filter/topic_header_list_container';
 import EventHomeItem from './event_home_item';
+import EventHomeItemContainer from './event_home_item_container';
 import DemoCarousel from './carrousel';
 
 
@@ -16,13 +17,11 @@ class EventHome  extends React.Component {
 
   componentDidMount(){
     this.props.requestAllEvent();
-    this.props.requestAllEventBookMark();
   }
 
   render(){
 
     const eventsData = this.props.events;
-    const eventBookmarksData = this.props.events;
 
     return(
       <div className="event-home">
@@ -80,8 +79,7 @@ class EventHome  extends React.Component {
               </div>
               <div >
                 {eventsData.map(
-                  event => <EventHomeItem
-                  createBookmark={this.props.createBookmark}
+                  event => <EventHomeItemContainer
                   key={event.id}
                   current_user={this.props.currentUser}
                   event={event}/>

@@ -7,6 +7,8 @@ import { selectEvent } from '../../reducers/event_selectors.js';
 import { withRouter } from 'react-router-dom';
 import { createTicketOrder, updateTicketOrderState }
           from '../../actions/ticket_order_actions';
+import { destroyEventBookmark, createEventBookmark }
+                  from '../../actions/event_bookmark_actions';
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -14,16 +16,20 @@ const mapStateToProps = (state, ownProps) => {
   let event = selectEvent(state, eventId);
   if (state.events.event) {
     event = state.events.event;
+    event["tickets"] = state.events.tickets;
   }
   return ({
     eventId: eventId,
     event: event,
-    session: state.session
+    session: state.session,
+    bookmark: state.bookmark
   });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return ({
+    destroyEventBookmark: id => dispatch(destroyEventBookmark(id)),
+    createEventBookmark: bookmark => dispatch(createEventBookmark(bookmark)),
     requestSingleEvent: (id) => dispatch(requestSingleEvent(id)),
     openModal: (component) => dispatch(openModal(component))
   });

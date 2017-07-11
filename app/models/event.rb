@@ -88,6 +88,31 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def self.find_by_id_with_bookmark(id, current_user)
+    if current_user
+      values =  Event.find_by_sql(["
+         SELECT
+             events.*
+            ,case when event_bookmarks.id is null then
+              false
+            else
+              true
+            end
+
+             as bookmarked2
+         FROM
+             events
+         LEFT JOIN
+           event_bookmarks on event_bookmarks.event_id = events.id and event_bookmarks.user_id = :user_id
+         WHERE events.id = :id
+          ", {:user_id => current_user.id, :id => id }]
+        )
+       values.first
+     else
+       return Event.find_by_id(id)
+     end
+  end
+
   def picture_from_url(url)
     self.image = URI.parse(url).open
   end

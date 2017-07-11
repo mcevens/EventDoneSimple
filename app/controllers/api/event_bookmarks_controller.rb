@@ -13,14 +13,15 @@ class Api::EventBookmarksController < ApplicationController
     @event_bookmark.event_id = bookmark_params.to_i
     @event_bookmark.user_id = current_user.id
     if @event_bookmark.save
-      render json: 'api/events/'
+      render json: @event_bookmark
     else
       render json: @event_bookmark.errors.full_messages, status: 422
     end
   end
 
   def destroy
-    @event_bookmark = EventBookmark.find_by_user_and_event(current_user.id, params[:event_id])
+    bookmarks = EventBookmark.where("user_id = ? and event_id = ?", current_user.id, params[:id])
+    @event_bookmark = bookmarks.first
     @event_bookmark.destroy
     render json: @event_bookmark
   end

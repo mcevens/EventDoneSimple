@@ -6,19 +6,17 @@ import { requestAllEvent, deleteEvent }
   from '../../actions/event_actions';
 import { selectallEvents }
   from '../../reducers/event_selectors';
-import { requestAllEventBookMark }
-  from '../../actions/event_bookmark_actions';
-import {  selectallEventBookMarks }
-  from '../../reducers/event_bookmark_selectors';
+  import { requestBookmarks }
+    from '../../actions/event_bookmark_actions';
 
 const mapStateToProps = (state) => ({
   events: selectallEvents(state),
-  eventBookmarks: selectallEventBookMarks(state)
+  bookmarks: state.bookmarks
 });
 
 const mapDispatchToProps = (dispatch) => ({
   requestAllEvent: () => dispatch(requestAllEvent()),
-  requestAllEventBookMark: () => dispatch(requestAllEventBookMark()),
+  requestBookmarks: user => dispatch(requestBookmarks(user)),
   deleteEvent: (id) => dispatch(deleteEvent(id))
 });
 

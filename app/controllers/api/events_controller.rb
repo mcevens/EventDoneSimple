@@ -5,14 +5,15 @@ class Api::EventsController < ApplicationController
    end
 
    def show
-     @event = Event.find_by_id(params[:id])
+     @event = Event.find_by_id_with_bookmark(params[:id], current_user)
+     @event.bookmarked = @event.bookmarked2
+     @event
    end
 
    def create
      @event =  extractEvent(received_params)
      @tickets = newExtractTicket(params)
      @event.creater_id = current_user.id
-     #TODO SUBTOPIC FEATURE
      @event.subtopic_id = @event.topic_id
 
      if @event.save
