@@ -18,7 +18,7 @@ const eventReducer  = (state = _defaultState, action) => {
     case RECEIVE_ALL_EVENT:
       nextState = {};
       merge(nextState, state, action.events);
-      return nextState;
+      return action.events;
     case RECEIVE_EDITED_EVENT:
         nextState = {};
         merge(nextState, state, {[action.event.id]: action.event});
