@@ -1,6 +1,7 @@
 import React from 'react';
 import EventShow from './event_show';
-import { requestSingleEvent } from '../../actions/event_actions';
+import { requestSingleEvent , updateEventState }
+              from '../../actions/event_actions';
 import { openModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import { selectEvent } from '../../reducers/event_selectors.js';
@@ -31,6 +32,7 @@ const mapDispatchToProps = (dispatch) => {
     destroyEventBookmark: id => dispatch(destroyEventBookmark(id)),
     createEventBookmark: bookmark => dispatch(createEventBookmark(bookmark)),
     requestSingleEvent: (id) => dispatch(requestSingleEvent(id)),
+    updateEventState:(event) => dispatch(updateEventState(event)),
     openModal: (component) => dispatch(openModal(component))
   });
 };

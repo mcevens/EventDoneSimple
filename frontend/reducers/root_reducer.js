@@ -5,6 +5,7 @@ import singleTopicReducer from './single_topic_reducer';
 import eventReducer from './event_reducer';
 import eventBookmarkReducer from './event_bookmark_reducer';
 import singleEventReducer from './single_event_reducer';
+import ticketOrderReducer from './ticket_order_reducer';
 import modalReducer from './modal_reducer';
 
 export default combineReducers({
@@ -14,5 +15,6 @@ export default combineReducers({
   eventBookmarks: eventBookmarkReducer,
   singleEvent: singleEventReducer,
   singleTopic : singleTopicReducer,
-  modal: modalReducer
+  modal: modalReducer,
+  ticketOrders: ticketOrderReducer
 });

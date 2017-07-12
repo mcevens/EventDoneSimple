@@ -52,7 +52,9 @@ class EventShow extends React.Component{
 
   registerClick(e){
     e.preventDefault();
-    this.props.openModal(<SelectTicketContainer  event={this.props.event}/>);
+    this.props.openModal(<SelectTicketContainer
+                          updateEventState={this.props.updateEventState}
+                          event={this.props.event}/>);
   }
 
   render(){

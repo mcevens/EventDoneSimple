@@ -14,23 +14,33 @@ class SelectTicketItem extends React.Component{
   }
 
   ticketQuantityChange(e){
+    let event = this.props.event;
+    let pos = this.props.pos;
     let value = e.currentTarget.value;
-    let ticketOrder = null;
+    let ticketOrder = {};
+    let ticket = {};
+    Object.assign(ticket, this.props.ticket);
+
     if (value > 0 ){
       this.setState({
         itemBorderLeftWidth: '1px solid #0093D7'
       });
+      ticketOrder["quantity"] = value;
+      ticketOrder["ticket_id"] = ticket.id;
+      ticket["ticketOrder"] = ticketOrder ;
     }else{
       this.setState({
         itemBorderLeftWidth: 'none'
       });
+      ticket.ticketOrder = {};
+      delete ticket.ticketOrder;
     }
-    debugger
-    this.props.updateTicketOrderState(ticketOrder);
+    event.tickets[pos] = ticket;
+    this.props.updateEventState(event);
   }
 
   render(){
-    debugger
+
     const ticket = this.props.ticket;
     return(
     <div className="select-ticket-item-decoration">

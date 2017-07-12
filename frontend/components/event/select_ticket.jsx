@@ -12,16 +12,39 @@ import {
 class SelectTicket extends React.Component{
   constructor(props){
     super(props);
-    this.state = {
-      quantity: 0,
-
-    };
+      this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  render(){
+  handleSubmit(e) {
+    e.preventDefault();
+    let event = this.props.event;
+    let ticketOrders = [];
+    let ticketsData = event.tickets;
 
+    ticketsData.forEach( ticketData =>{
+        if (ticketData.ticketOrder) {
+          ticketOrders.push(ticketData.ticketOrder);
+        }
+      });
+     this.props.createTicketOrder(ticketOrders);
+  }
+
+
+  render(){
     let event = this.props.event;
     let ticketsData = event.tickets;
+    let quantity = 0 ;
+    let totalPrice = 0 ;
+    let ticketOrders = [];
+
+    ticketsData.forEach( ticketData =>{
+      if (ticketData.ticketOrder) {
+        quantity += Number(ticketData.ticketOrder.quantity);
+        totalPrice += ticketData.price * Number(ticketData.ticketOrder.quantity);
+        ticketOrders.push(ticketData.ticketOrder);
+      }
+     }
+    );
 
     return(
       <div>
@@ -32,10 +55,13 @@ class SelectTicket extends React.Component{
            <div className="select-ticket-content">
               <div className="select-ticket-items">
                  {ticketsData.map(
-                   ticket => <SelectTicketItem key={ticket.id}
+                   (ticket,pos) => <SelectTicketItem key={ticket.id}
                               createTicketOrder = {this.props.createTicketOrder}
-                              updateTicketOrderState = {this.props.updateTicketOrderState}
-                              ticket={ticket}/>
+                              updateEventState = {this.props.updateEventState}
+                              ticket={ticket}
+                              event ={event}
+                              pos = {pos}
+                              />
                  )}
               </div>
            </div>
@@ -46,7 +72,7 @@ class SelectTicket extends React.Component{
                     QTY :
                   </label>
                   <label>
-                    1
+                    {quantity}
                   </label>
                 </div>
                 <div>
@@ -54,14 +80,16 @@ class SelectTicket extends React.Component{
                     USD
                   </label>
                   <label>
-                    {"$22.09"}
+                    {totalPrice}
                   </label>
                 </div>
               </div>
               <div className="select-ticket-action">
-                 <button>
+                <form onSubmit={this.handleSubmit}>
+                 <button >
                     CHECKOUT
                  </button>
+               </form>
               </div>
            </div>
         </div>

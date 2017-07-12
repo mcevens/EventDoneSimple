@@ -1,19 +1,24 @@
 import { connect  } from 'react-redux';
 import SelectTicket from './select_ticket';
-import { createTicketOrder, updateTicketOrderState }
+import { createTicketOrder }
           from '../../actions/ticket_order_actions';
+import { updateTicketState }
+          from '../../actions/ticket_actions';
+import { requestSingleEvent , updateEventState }
+                        from '../../actions/event_actions';
 import { withRouter } from 'react-router-dom';
-const mapStateToProps = (state, ownProps) => {
-  debugger
-  const eventId = null;
-  const event = null;
-  const errors = state.errors;
-  // if (ownProps.match.params.postId) {
-  //   // eventId = ownProps.match.params.eventId;
-  //   // event = selectEvent(state, eventId);
-  // }
+const mapStateToProps = (state, ownProps) =>{
+  let eventId = null;
+  let event = null;
+  let errors = state.errors;
+  if (state.events.event) {
+    event = state.events.event;
+    event["tickets"] = state.events.tickets;
+  }
   return ({
     session: state.session,
+    event: event,
+    ticket: state.ticket,
     errors
   });
 };
@@ -21,7 +26,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return({
     createTicketOrder: (ticketOrder) => dispatch(createTicketOrder(ticketOrder)),
-    updateTicketOrderState: (ticketOrder) => dispatch(updateTicketOrderState(ticketOrder))
+    updateTicketState: (ticket) => dispatch(updateTicketState(ticket))
   });
 };
 
