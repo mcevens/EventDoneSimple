@@ -17,6 +17,7 @@ export const requestAllEvent = () => (dispatch) => {
   .then(events => dispatch(receiveAllEvent(events)));
 };
 
+
 export const receiveSingleEvent = (event) => ({
   type: RECEIVE_SINGLE_EVENT,
   event

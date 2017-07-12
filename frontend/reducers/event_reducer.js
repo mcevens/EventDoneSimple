@@ -10,7 +10,6 @@ import { merge } from 'lodash';
 
 const _defaultState = {};
 
-
 const eventReducer  = (state = _defaultState, action) => {
   Object.freeze(state);
   let nextState;

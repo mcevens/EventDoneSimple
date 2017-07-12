@@ -1,13 +1,15 @@
 class Api::EventsController < ApplicationController
 
   def index
-     @events = Event.find_all_bookmarked_by_current_user(current_user)
+    search_term = ''
+    if params[:search].present?
+      search_term = params[:search].downcase
+    end
+     @events = Event.find_all_bookmarked_by_current_user(current_user, search_term)
    end
 
    def show
      @event = Event.find_by_id_with_bookmark(params[:id], current_user)
-     @event.bookmarked = @event.bookmarked2
-     @event
    end
 
    def create

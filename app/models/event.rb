@@ -67,22 +67,40 @@ class Event < ActiveRecord::Base
     primary_key: :id
   )
 
-  def self.find_all_bookmarked_by_current_user(current_user)
+  def self.find_all_bookmarked_by_current_user(current_user, search_term)
 
     all_events = Event.all
     user_events = nil
     list_events = []
     if current_user
 
-      all_events.each do |event|
-        if current_user.bookmarked_event_ids.include?(event.id)
-          event.bookmarked = true
-        else
-          event.bookmarked = false
-        end
-        list_events.push(event)
-      end
-      return list_events
+      # all_events.each do |event|
+      #   if current_user.bookmarked_event_ids.include?(event.id)
+      #     event.bookmarked = true
+      #   else
+      #     event.bookmarked = false
+      #   end
+      #   list_events.push(event)
+      # end
+      # return list_events
+      values =  Event.find_by_sql(["
+         SELECT
+             events.*
+            ,case when event_bookmarks.id is null then
+              false
+            else
+              true
+            end
+
+             as was_bookmarked
+         FROM
+             events
+         LEFT JOIN
+           event_bookmarks on event_bookmarks.event_id = events.id and event_bookmarks.user_id = :user_id
+         WHERE events.title LIKE :search_term
+          ", {:user_id => current_user.id, :search_term => "%#{search_term}%" }]
+        )
+      values
     else
       return all_events
     end
@@ -99,7 +117,7 @@ class Event < ActiveRecord::Base
               true
             end
 
-             as bookmarked2
+             as was_bookmarked
          FROM
              events
          LEFT JOIN

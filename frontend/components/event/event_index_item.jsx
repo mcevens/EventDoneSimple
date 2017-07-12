@@ -12,7 +12,7 @@ class EventIndexItem extends React.Component{
 
   handleSubmit(e){
     let event = this.props.event;
-    if (event.bookmarked === true) {
+    if (event.was_bookmarked === true) {
       this.props.destroyEventBookmark(event.id).then((data) => {
 
         this.setState({
@@ -31,13 +31,13 @@ class EventIndexItem extends React.Component{
   render(){
     let event = this.props.event;
     if (this.state.bookmarked !== null) {
-      event.bookmarked = this.state.bookmarked;
+      event.was_bookmarked = this.state.bookmarked;
     }
     let currentUser = this.props.current_user;
     let bookmarked = 'event-not-bookmarked';
     let tooltip = 'Save';
     let displaybookmark = 'block';
-    if (event.bookmarked === true){
+    if (event.was_bookmarked === true){
       bookmarked = 'event-bookmarked' ;
       tooltip = 'Save';
     }

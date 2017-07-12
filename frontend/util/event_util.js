@@ -12,6 +12,13 @@ export const fetchSingleEvent = (id) =>{
   });
 };
 
+export const fetchSearchEvents = searchTerm => (
+  $.ajax({
+    method: 'GET',
+    url: `api/events/search?q=${searchTerm}`
+  })
+);
+
 export const createEvent = (event) => {
   return $.ajax({
     method: 'POST',
