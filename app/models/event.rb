@@ -23,7 +23,6 @@
 require 'date'
 
 class Event < ActiveRecord::Base
-  attr_accessor  :bookmarked
 
   validates :title, presence: true
   validates :creater_id, :topic_id, :subtopic_id, presence: true
@@ -68,21 +67,9 @@ class Event < ActiveRecord::Base
   )
 
   def self.find_all_bookmarked_by_current_user(current_user, search_term)
-
     all_events = Event.all
-    user_events = nil
-    list_events = []
-    if current_user
 
-      # all_events.each do |event|
-      #   if current_user.bookmarked_event_ids.include?(event.id)
-      #     event.bookmarked = true
-      #   else
-      #     event.bookmarked = false
-      #   end
-      #   list_events.push(event)
-      # end
-      # return list_events
+    if current_user
       values =  Event.find_by_sql(["
          SELECT
              events.*
@@ -97,13 +84,17 @@ class Event < ActiveRecord::Base
              events
          LEFT JOIN
            event_bookmarks on event_bookmarks.event_id = events.id and event_bookmarks.user_id = :user_id
-         WHERE events.title LIKE :search_term
+         WHERE Lower(events.title) LIKE :search_term
           ", {:user_id => current_user.id, :search_term => "%#{search_term}%" }]
         )
       values
     else
       return all_events
     end
+  end
+
+  def was_bookmarked
+
   end
 
   def self.find_by_id_with_bookmark(id, current_user)
@@ -146,6 +137,5 @@ class Event < ActiveRecord::Base
   def start_date_full_date
     Date.parse(start_date).strftime("%A, %b %d") + " " +  start_time[0..-4] + " " + Time.parse(start_time).strftime("%P")
   end
-
 
 end

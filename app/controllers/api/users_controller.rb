@@ -12,8 +12,13 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(email: params[:email]);
-    render @user
+    @user = current_user
+
+    if current_user
+      render :show
+    else
+      render json: ["You are not signed in"], status: 422
+    end
   end
 
   private

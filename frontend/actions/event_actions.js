@@ -5,6 +5,7 @@ export const RECEIVE_NEW_EVENT = 'RECEIVE_NEW_EVENT';
 export const RECEIVE_NEW_TICKET = 'RECEIVE_NEW_TICKET';
 export const RECEIVE_EDITED_EVENT = 'RECEIVE_NEW_EVENT';
 export const RECEIVE_EVENT_ERRORS = 'RECEIVE_EVENT_ERRORS';
+export const RECEIVE_USER_EVENT = 'RECEIVE_USER_EVENT';
 export const DELETE_EVENT = 'DELETE_EVENT';
 
 export const receiveAllEvent = (events) => ({
@@ -12,11 +13,20 @@ export const receiveAllEvent = (events) => ({
   events
 });
 
-export const requestAllEvent = () => (dispatch) => {
-  return APIUtil.fetchAllEvent()
+export const receiveUserEvent = (events) => ({
+  type: RECEIVE_USER_EVENT,
+  events
+});
+
+export const requestAllEvent = (seachTerm) => (dispatch) => {
+  return APIUtil.fetchSearchEvents(seachTerm)
   .then(events => dispatch(receiveAllEvent(events)));
 };
 
+export const requestUserEvent = () => (dispatch) => {
+  return APIUtil.fetchAllEvent()
+  .then(events => dispatch(receiveAllEvent(events)));
+};
 
 export const receiveSingleEvent = (event) => ({
   type: RECEIVE_SINGLE_EVENT,

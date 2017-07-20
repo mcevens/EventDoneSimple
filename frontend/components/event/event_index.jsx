@@ -61,7 +61,8 @@ class EventIndex  extends React.Component {
               <h1>Events</h1>
                 <div >
                   {eventsData.map(
-                    event => <EventIndexItemContainer key={event.id} event={event}/>
+                    event => <EventIndexItemContainer
+                    key={event.id} event={event}/>
                   )}
               </div>
             </section>

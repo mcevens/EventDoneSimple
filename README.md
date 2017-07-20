@@ -1,24 +1,36 @@
-# README
+# EventDoneSimple
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Eventbryte LIVE](http://www.eventbryte.site)
 
-Things you may want to cover:
+![Mainpage](docs/img/home.jpg)
 
-* Ruby version
+EventDoneSimple is a full-stack web application inspired by [Eventbrite](http://www.eventbrite.com). This application was implemented using an MVC architecture whith Rails on the backend, and Redux React.js on the front end. PostgreSQL is the DBMS used for data persistance.
 
-* System dependencies
+## Features & Implementation
 
-* Configuration
+### Authentication
 
-* Database creation
+  User registration is the entry of the software. To be able to conveniently operate all of the critical operations, a person must have an account. The authentication module provides a user with forms where he can create an account and sign in to the system. It includes :
 
-* Database initialization
+   * Data validation ( email , password  )
+   * Protection against Cross-Site Request Forgery (CSRF) using session token
+   * Password hashed with a cryptographic algorithm proven to be effective.
+   * Demo login to allow the use of the software for experimental purpose by a non registered user.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### Events
 
-* Deployment instructions
+  The main purpose of this project is to provide a user a web platform where he can organize events and allow people to attend them. The events module provides a user with all the basic info to
+   * Creation of event
+   * Edition of event
+   * View information about an event
+   * List all events
 
-* ...
+### Categories
+
+  Events are grouped in categories ( Music ,  ). EventDoneSimple provide a module to
+  users
+
+
+
+### C

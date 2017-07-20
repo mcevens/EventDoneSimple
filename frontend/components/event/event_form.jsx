@@ -7,11 +7,12 @@ import moment from 'moment';
 import TicketTableContainer from './ticket_table_container';
 import TicketTable from './ticket_table';
 import { validateField, validateForm } from './validate';
-
+import ReactDOM from 'react-dom';
 
 class EventForm extends React.Component{
   constructor(props){
     super(props);
+    this.coords = {lat: props.lat, lng: props.lng};
     let today = new Date();
     const now = moment().hour(0).minute(0);
 
@@ -44,12 +45,71 @@ class EventForm extends React.Component{
     this.topicSelectedIndexChanged = this.topicSelectedIndexChanged.bind(this);
   }
 
+  initMap() {
+  const map = ReactDOM.findDOMNode(this.refs.map);
+  this.map = new google.maps.Map(map, {
+    center: {lat: 40.7250239, lng: -73.99679200000003},
+    zoom: 15,
+    disableDefaultUI: true,
+  });
+  const input = document.getElementById('address-input');
+
+  const autocomplete = new google.maps.places.Autocomplete(input);
+  autocomplete.bindTo('bounds', this.map);
+
+  const marker = new google.maps.Marker({
+    map: this.map
+  });
+
+  autocomplete.addListener('place_changed', () => {
+
+    marker.setVisible(false);
+
+    const place = autocomplete.getPlace();
+    if (!place.geometry) {
+      window.alert("Autocomplete's returned place contains no geometry");
+      return "";
+    }
+
+    this.map.setCenter(place.geometry.location);
+    this.map.setZoom(15);
+
+    marker.setPosition(place.geometry.location);
+    marker.setVisible(true);
+
+    document.querySelectorAll('.address input').forEach(el => {
+      el.setAttribute('type', 'text');
+    });
+    const venueName = document.getElementById('venue-name');
+    const addressDetail = document.getElementById('address-detail');
+    const addressCity = document.getElementById('address-city');
+    const addressState = document.getElementById('address-state');
+    const addressZip = document.getElementById('address-zip');
+
+    validateField("place_id", place.place_id);
+    this.setState({ place_id: place.place_id, address_detail: "" });
+    if (place.types.includes("point_of_interest")) {
+      this.setState({ venue_name: place.name });
+      venueName.value = place.name;
+    } else {
+      this.setState({ venue_name: "" });
+      venueName.value = "";
+    }
+    const formattedAddress = place.formatted_address.split(", ");
+    input.value = formattedAddress[0];
+    addressDetail.value = "";
+    addressCity.value = formattedAddress[1];
+    addressState.value = formattedAddress[2].split(" ")[0];
+    addressZip.value = formattedAddress[2].split(" ")[1];
+  });
+}
+
   save(e){
 
     e.preventDefault();
     const event = this.state;
     const isFormReady = validateForm(event);
-    console.log(this.state.start_date);
+    const { lat, lng } = this.coords;
 
     if (isFormReady) {
       if (this.props.eventId) {
@@ -296,7 +356,13 @@ class EventForm extends React.Component{
                           />
                           <span className="event-form-error"
                             id="event-form-address-error"></span>
+
+                            <div className="map-container">
+                              <div id="thumb-map" ref="map"></div>
+                            </div>
+
                       </div>
+
                       <div className="details-g-attr">
                         <div className="start-end-date">
                             <div className="date-zone">

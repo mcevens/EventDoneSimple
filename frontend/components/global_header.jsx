@@ -20,7 +20,7 @@ import { withRouter } from 'react-router-dom';
               <Link to="/signup">Saved</Link>
             </li>
             <li>
-              <Link to="/signup">Manage Events</Link>
+              <Link to="/manage_event">Manage Events</Link>
             </li>
             <li>
               <Link to="/signup">Organizer Profile</Link>

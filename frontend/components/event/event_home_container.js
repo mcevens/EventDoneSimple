@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import EventHome from './event_home';
-import { requestAllEvent, deleteEvent }
+import { requestAllEvent, deleteEvent , fetchSearchEvents }
   from '../../actions/event_actions';
 import { selectallEvents }
   from '../../reducers/event_selectors';
@@ -10,14 +10,14 @@ import { destroyBookmark, createBookmark }
 
 
 const mapStateToProps = (state) => {
-return(  {
-  events: selectallEvents(state),
-  currentUser: state.session.currentUser
-});
+  return(  {
+    events: selectallEvents(state),
+    currentUser: state.session.currentUser
+  });
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  requestAllEvent: () => dispatch(requestAllEvent()),
+  requestAllEvent: (searchTerm) => dispatch(requestAllEvent(searchTerm)),
   destroyBookmark: id => dispatch(destroyBookmark(id)),
   createBookmark: bookmark => dispatch(createBookmark(bookmark))
 });

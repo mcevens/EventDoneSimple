@@ -23,6 +23,7 @@ import EventRegistrationContainer
             from './registration/event_registration_container';
 import ModalContainer from './modal/modal_container';
 import SelectIndexContainer from './event/select_ticket_container';
+import ManageEventContainer from './event/manage_event_container';
 
 
 const App = () => (
@@ -33,12 +34,15 @@ const App = () => (
         <Route exact path="/events" component={EventIndexContainer}/>
         <Route exact path="/events/:eventId" component={EventShowContainer}/>
         <Route exact path="/events/:eventId/ticket_orders" component={SelectIndexContainer}/>
+          <Route path="/manage_event"
+                      component={ManageEventContainer}/>
         <ProtectedRoute path="/register/:eventId"
                     component={EventRegistrationContainer}/>
                   <Route exact path="/topics/:topicId" component={CategoryEventsContainer} />
         <ProtectedRoute path="/create" component={EventFormContainer }/>
         <AuthRoute path="/login" component={SessionFormContainer}/>
         <AuthRoute path="/signup" component={SessionFormContainer}/>
+
       </Switch>
     </div>
 );

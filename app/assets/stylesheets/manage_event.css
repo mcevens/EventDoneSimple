@@ -1,0 +1,54 @@
+.manage-event-wrapper{
+  background-color: #F8F8F8;
+}
+
+.manage-event *{
+  display: block;
+  margin-bottom:5px;
+}
+
+.manage-event-item{
+  display:flex;
+  margin-bottom: 10px;
+  background-color: white;
+  padding:10px;
+}
+
+.manage-event-item{
+  margin-top:5px;
+}
+
+.manage-event{
+  margin-left:auto;
+  margin-right:auto;
+  width: 1080px;
+
+}
+
+.manage-event-item .info{
+  display:block;
+}
+
+.manage-event-item .event-title{
+
+}
+
+.manage-event-item .event-date{
+
+}
+
+.manage-event-item .action{
+  display:flex;
+}
+
+.manage-event-item .action *{
+  padding-right:10px;
+}
+
+.manage-event-item .action button{
+
+}
+
+.manage-event-item .tickets{
+
+}

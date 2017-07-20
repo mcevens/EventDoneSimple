@@ -15,10 +15,34 @@ class EventHome  extends React.Component {
 
   constructor(props){
     super(props);
+    this.state = { searchTerm: '' };
+    this.state = { searchLocation: '' };
+    this.state = { searchDate: '' };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount(){
-    this.props.requestAllEvent();
+    // this.props.requestAllEvent();
+    // let searchTerm = this.state.searchTerm.split(' ').join('+');
+    let searchTerm = this.state.searchTerm;
+    let values =[];
+    values.push(searchTerm);
+    this.props.requestAllEvent(values);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let searchTerm = this.state.searchTerm.split(' ').join('+');
+    let values =[];
+    values.push(searchTerm);
+    this.props.requestAllEvent(values);
+    // this.props.requestAllEvent(searchTerm);
+  }
+
+  handleChange(e) {
+    e.preventDefault();
+    this.setState({ searchTerm: e.currentTarget.value });
   }
 
   render(){
@@ -34,7 +58,47 @@ class EventHome  extends React.Component {
           </div>
 
           <div className="event-list">
-            <HomeSearchContainer />
+            <div className="event-list-search-holder">
+                <div className="search-div">
+                  <h1>Find your next experience</h1>
+                  <div className="filter-box">
+                    <input type="text"
+                      placeholder="Search events or categories"
+                      onChange={this.handleChange}
+                      value={this.state.searchTerm}
+                      ></input>
+                    <input type="text"
+                      placeholder="City or location"
+                      ></input>
+                    <select>
+                      <option value="All Dates">
+                        All Dates
+                      </option>assets
+                      <option value="Today">
+                        Today
+                      </option>
+                      <option value="Tomorrow">
+                        Tomorrow
+                      </option>
+                      <option value="This week">
+                        This week
+                      </option>
+                      <option value="This Weekend">
+                        This Weekend
+                      </option>
+                      <option value="Next Week">
+                        Next Week
+                      </option>
+                      <option value="Next Month">
+                        Next Month
+                      </option>
+                    </select>
+                    <button  type="submit" onClick={this.handleSubmit}>
+                       Search
+                    </button>
+                  </div>
+                </div>
+                  </div>
             <div className="event-list-item-container">
               <div className="event-for-you">
                  <h2>Events for you in</h2>

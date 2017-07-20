@@ -8,6 +8,7 @@ import singleEventReducer from './single_event_reducer';
 import ticketOrderReducer from './ticket_order_reducer';
 import modalReducer from './modal_reducer';
 
+
 export default combineReducers({
   session: sessionReducer,
   topics: topicReducer,

@@ -12,7 +12,17 @@ export const fetchSingleEvent = (id) =>{
   });
 };
 
-export const fetchSearchEvents = searchTerm => (
+export const fetchSearchEvents = searchTerm => {
+  return (
+    $.ajax({
+      method: 'GET',
+      url: `api/events`,
+      data: { searchTerm }
+    })
+  );
+} ;
+
+export const fetchUserEvents = searchTerm => (
   $.ajax({
     method: 'GET',
     url: `api/events/search?q=${searchTerm}`

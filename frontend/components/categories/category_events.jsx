@@ -10,7 +10,6 @@ class CategoryEvents extends React.Component {
   }
 
   componentWillMount() {
-
     this.props.fetchSingleTopic(this.props.match.params.topicId);
   }
 
@@ -23,19 +22,6 @@ class CategoryEvents extends React.Component {
   render() {
     const topic = this.props.topic;
     let events = topic.events;
-
-    // if (category.length > 0) {
-    //    events = this.props.topics.events;
-    // }
-    //
-    // const displayEvents = events ?
-    // (events.map(eventDetail => (
-    //   <EventIndexItem
-    //     key={`eventDetail-${eventDetail.id}`}
-    //     eventDetail={eventDetail} />
-    // )
-    // )) : undefined
-    // {displayEvents}
     return (
       <div className="category-show">
         <EventIndexContainer topic={topic} eventsCategory={events} />
