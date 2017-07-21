@@ -1,12 +1,17 @@
 class Api::EventsController < ApplicationController
 
   def index
+
     search_term = ''
+    city = ''
+    date = ''
     if params[:searchTerm].present?
-      search_term = params[:searchTerm].downcase
+      search_term = params[:searchTerm][0].downcase;
+      city = params[:searchTerm][1].downcase;
+      date = params[:searchTerm][2].downcase;
     end
 
-    @events = Event.find_all_bookmarked_by_current_user(current_user, search_term)
+    @events = Event.find_all_bookmarked_by_current_user(current_user, search_term, city, date)
    end
 
    def show
@@ -39,7 +44,6 @@ class Api::EventsController < ApplicationController
      ticketArray.each do |elem|
        ticket_params = {}
        ticket_received = elem.split(",")
-
        ticket_params[:name] = ticket_received[0]
        ticket_params[:ticket_type_id] = 1
        ticket_params[:price] = 0

@@ -20,24 +20,44 @@ class EventHome  extends React.Component {
     this.state = { searchDate: '' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleLocation = this.handleLocation.bind(this);
+    this.handleDate = this.handleDate.bind(this);
   }
 
   componentDidMount(){
     // this.props.requestAllEvent();
     // let searchTerm = this.state.searchTerm.split(' ').join('+');
     let searchTerm = this.state.searchTerm;
+    let searchLocation = this.state.searchLocation;
+    let searchDate = this.state.searchDate;
     let values =[];
     values.push(searchTerm);
+    values.push(searchLocation);
+    values.push(searchDate);
     this.props.requestAllEvent(values);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    let searchTerm = this.state.searchTerm.split(' ').join('+');
+    let searchTerm = this.state.searchTerm;
+    let searchLocation = this.state.searchLocation;
+    let searchDate = this.state.searchDate;
+
     let values =[];
     values.push(searchTerm);
+    values.push(searchLocation);
+    values.push(searchDate);
     this.props.requestAllEvent(values);
-    // this.props.requestAllEvent(searchTerm);
+  }
+
+  handleLocation(e) {
+    e.preventDefault();
+    this.setState({ searchLocation: e.currentTarget.value });
+  }
+
+  handleDate(e){
+    e.preventDefault();
+    this.setState({ searchDate: e.currentTarget.value });
   }
 
   handleChange(e) {
@@ -69,8 +89,10 @@ class EventHome  extends React.Component {
                       ></input>
                     <input type="text"
                       placeholder="City or location"
+                      onChange={this.handleLocation}
+                      value={this.state.searchLocation}
                       ></input>
-                    <select>
+                    <select onChange={this.handleDate}>
                       <option value="All Dates">
                         All Dates
                       </option>assets

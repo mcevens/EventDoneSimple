@@ -66,9 +66,7 @@ class Event < ActiveRecord::Base
     primary_key: :id
   )
 
-  def self.find_all_bookmarked_by_current_user(current_user, search_term)
-    all_events = Event.all
-
+  def self.find_all_bookmarked_by_current_user(current_user, title, city, date)
     if current_user
       values =  Event.find_by_sql(["
          SELECT
@@ -84,13 +82,15 @@ class Event < ActiveRecord::Base
              events
          LEFT JOIN
            event_bookmarks on event_bookmarks.event_id = events.id and event_bookmarks.user_id = :user_id
-         WHERE Lower(events.title) LIKE :search_term
-          ", {:user_id => current_user.id, :search_term => "%#{search_term}%" }]
+         WHERE Lower(events.title) LIKE :title and Lower(events.adresse_line1) LIKE :city
+          ", {:user_id => current_user.id, :title => "%#{title}%", :city => "%#{city}%", :date => "%#{date}%" }]
         )
       values
     else
+      all_events = Event.all
       return all_events
     end
+
   end
 
   def was_bookmarked

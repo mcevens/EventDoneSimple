@@ -170,7 +170,6 @@ class EventForm extends React.Component{
 
   componentWillreceiveProps(nextProps){
     if (this.props.singleEvent !== nextProps.singleEvent) {
-
      this.mergeEventState(nextProps.event);
     }
   }
