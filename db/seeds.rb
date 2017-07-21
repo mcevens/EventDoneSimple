@@ -85,8 +85,8 @@ if Event.all.count === 0
 event1 = Event.create(
 creater_id:test_user.id,
 title: "NYC PARKS PRESENTS ARTS, CULTURE & FUN:",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "El Castillo, San Nicolas",
 start_date:"2017-12-25",
@@ -135,8 +135,8 @@ book_mark_event1 = EventBookmark.create(
 event2 = Event.create(
 creater_id:test_user.id,
 title: "Long Island After Work Thursday Social Parties",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "New York, New York",
 start_date:"2017-7-13",
@@ -166,8 +166,8 @@ ticket_2_1  = Ticket.create(
 event3 = Event.create(
 creater_id:test_user.id,
 title: "Long Island Ladies Night Wedensdays at Le Caire Lounge",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "NYST Bronx, Bronx",
 start_date:"2017-07-12",
@@ -195,8 +195,8 @@ ticket_3_1  = Ticket.create(
 event4 = Event.create(
 creater_id:test_user.id,
 title: "Young Artists' Studio Sessions - Drawing & Sketching - Summer 1",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "The Bott Shoppe - Studio & Store
 172 East Boston Post Road
@@ -233,8 +233,8 @@ ticket_4_2  = Ticket.create(
 event5 = Event.create(
 creater_id:test_user.id,
 title: "FOR THE CULTURE",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "2244 Washington Avenue
 Bronx, NY 10457",
@@ -264,8 +264,8 @@ ticket_5_1  = Ticket.create(
 event6 = Event.create(
 creater_id:test_user.id,
 title: "Meet Lady gaga",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "587 MEACHAM AVE ELMONT",
 start_date:"2017-12-25",
@@ -306,8 +306,8 @@ ticket_6_3  = Ticket.create(
 event7 = Event.create(
 creater_id:test_user.id,
 title: "Meet Lady gaga",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "587 MEACHAM AVE ELMONT",
 start_date:"2017-12-25",
@@ -348,8 +348,8 @@ ticket_7_3  = Ticket.create(
 event8 = Event.create(
 creater_id:test_user.id,
 title: "Meet Lady gaga",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "587 MEACHAM AVE ELMONT",
 start_date:"2017-12-25",
@@ -390,8 +390,8 @@ ticket_8_3  = Ticket.create(
 event9 = Event.create(
 creater_id:test_user.id,
 title: "Meet Lady gaga",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "587 MEACHAM AVE ELMONT",
 start_date:"2017-12-25",
@@ -432,8 +432,8 @@ ticket_9_3  = Ticket.create(
 event10 = Event.create(
 creater_id:test_user.id,
 title: "Meet Lady gaga",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "587 MEACHAM AVE ELMONT",
 start_date:"2017-12-25",
@@ -474,8 +474,8 @@ ticket_10_3  = Ticket.create(
 event11 = Event.create(
 creater_id:test_user.id,
 title: "Meet Lady gaga",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "587 MEACHAM AVE ELMONT",
 start_date:"2017-12-25",
@@ -516,8 +516,8 @@ ticket_11_3  = Ticket.create(
 event12 = Event.create(
 creater_id:test_user.id,
 title: "Meet Lady gaga",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "587 MEACHAM AVE ELMONT",
 start_date:"2017-12-25",
@@ -558,8 +558,8 @@ ticket_12_3  = Ticket.create(
 event13 = Event.create(
 creater_id:test_user.id,
 title: "Meet Lady gaga",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "587 MEACHAM AVE ELMONT",
 start_date:"2017-12-25",
@@ -600,8 +600,8 @@ ticket_13_3  = Ticket.create(
 event14 = Event.create(
 creater_id:test_user.id,
 title: "Meet Lady gaga",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "587 MEACHAM AVE ELMONT",
 start_date:"2017-12-25",
@@ -642,8 +642,8 @@ ticket_14_3  = Ticket.create(
 event15 = Event.create(
 creater_id:test_user.id,
 title: "Meet Lady gaga",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "587 MEACHAM AVE ELMONT",
 start_date:"2017-12-25",
@@ -684,8 +684,8 @@ ticket_15_3  = Ticket.create(
 event16 = Event.create(
 creater_id:test_user.id,
 title: "Meet Lady gaga",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "587 MEACHAM AVE ELMONT",
 start_date:"2017-12-25",
@@ -726,8 +726,8 @@ ticket_16_3  = Ticket.create(
 event17 = Event.create(
 creater_id:test_user.id,
 title: "Meet Lady gaga",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "587 MEACHAM AVE ELMONT",
 start_date:"2017-12-25",
@@ -768,8 +768,8 @@ ticket_17_3  = Ticket.create(
 event18 = Event.create(
 creater_id:test_user.id,
 title: "Meet Lady gaga",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "587 MEACHAM AVE ELMONT",
 start_date:"2017-12-25",
@@ -810,8 +810,8 @@ ticket_18_3  = Ticket.create(
 event19 = Event.create(
 creater_id:test_user.id,
 title: "Meet Lady gaga",
-longitude: nil,
-latitude: nil,
+long: nil,
+lat: nil,
 online: nil,
 adresse_line1: "587 MEACHAM AVE ELMONT",
 start_date:"2017-12-25",
