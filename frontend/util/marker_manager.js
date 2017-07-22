@@ -20,7 +20,7 @@ class MarkerManager {
   }
 
   createMarkerFromEvent(event) {
-    const position = new google.maps.LatLng(event.latitude, event.longitude);
+    const position = new google.maps.LatLng(parseFloat(event.lat), parseFloat(event.long));
     const marker = new google.maps.Marker({
       position,
       map: this.map,
