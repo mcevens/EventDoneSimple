@@ -9,7 +9,7 @@ import EventHomeItemContainer from './event_home_item_container';
 import DemoCarousel from './carrousel';
 import HomeSearch from '../search/home_search';
 import HomeSearchContainer from '../search/home_search_container';
-
+import LocationPicker from '../search/location_picker';
 
 class EventHome  extends React.Component {
 
@@ -20,7 +20,7 @@ class EventHome  extends React.Component {
     this.state = { searchDate: 'All Dates' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleLocation = this.handleLocation.bind(this);
+    this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleDate = this.handleDate.bind(this);
   }
 
@@ -48,9 +48,10 @@ class EventHome  extends React.Component {
     this.props.requestAllEvent(values);
   }
 
-  handleLocation(e) {
-    e.preventDefault();
-    this.setState({ searchLocation: e.currentTarget.value });
+  handleLocationChange(loc) {
+    this.setState({
+        searchLocation: loc.location
+      });
   }
 
   handleDate(e){
@@ -86,11 +87,12 @@ class EventHome  extends React.Component {
                       onChange={this.handleChange}
                       value={this.state.searchTerm}
                       ></input>
-                    <input type="text"
-                      placeholder="City or location"
-                      onChange={this.handleLocation}
-                      value={this.state.searchLocation}
-                      ></input>
+                      <LocationPicker
+                        placeholder="City or location"
+                        errors={this.props.errors}
+                          location={this.state.searchLocation}
+                          handler={this.handleLocationChange}
+                         />
                     <select onChange={this.handleDate}>
                       <option value="All Dates">
                         All Dates
