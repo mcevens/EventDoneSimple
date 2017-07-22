@@ -7,6 +7,8 @@ from '../topic_filter/topic_header_list_container';
 import EventIndexItem from './event_index_item';
 import EventIndexItemContainer from './event_index_item_container';
 import { Link } from 'react-router-dom';
+import EventMap from './event_map';
+
 
 class EventIndex  extends React.Component {
 
@@ -34,7 +36,7 @@ class EventIndex  extends React.Component {
           <div className="event-index-wrapper">
             <section className="event-index-search">
               <div className="map-placeholder">
-
+                <EventMap events={eventsData}/>
               </div>
               <div className="filter-placeholder">
                  <div className="filter-location-search">

@@ -19,6 +19,13 @@
   outline:0;
 }
 
+.map {
+  width: 250px;
+  height: 250px;
+  float: left;
+  position: relative;
+}
+
 body{
     font-family: Helvetica, Tahoma, Arial, sans-serif;
     font-weight: 200;

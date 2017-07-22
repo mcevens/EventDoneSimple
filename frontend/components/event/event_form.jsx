@@ -8,6 +8,7 @@ import TicketTableContainer from './ticket_table_container';
 import TicketTable from './ticket_table';
 import { validateField, validateForm } from './validate';
 import ReactDOM from 'react-dom';
+import LocationPicker from '../search/location_picker';
 
 class EventForm extends React.Component{
   constructor(props){
@@ -43,66 +44,10 @@ class EventForm extends React.Component{
     this.updateFile = this.updateFile.bind(this);
     this.addTicketClick = this.addTicketClick.bind(this);
     this.topicSelectedIndexChanged = this.topicSelectedIndexChanged.bind(this);
+    this.handleLocationChange = this.handleLocationChange.bind(this);
   }
 
-  initMap() {
-  const map = ReactDOM.findDOMNode(this.refs.map);
-  this.map = new google.maps.Map(map, {
-    center: {lat: 40.7250239, lng: -73.99679200000003},
-    zoom: 15,
-    disableDefaultUI: true,
-  });
-  const input = document.getElementById('address-input');
 
-  const autocomplete = new google.maps.places.Autocomplete(input);
-  autocomplete.bindTo('bounds', this.map);
-
-  const marker = new google.maps.Marker({
-    map: this.map
-  });
-
-  autocomplete.addListener('place_changed', () => {
-
-    marker.setVisible(false);
-
-    const place = autocomplete.getPlace();
-    if (!place.geometry) {
-      window.alert("Autocomplete's returned place contains no geometry");
-      return "";
-    }
-
-    this.map.setCenter(place.geometry.location);
-    this.map.setZoom(15);
-
-    marker.setPosition(place.geometry.location);
-    marker.setVisible(true);
-
-    document.querySelectorAll('.address input').forEach(el => {
-      el.setAttribute('type', 'text');
-    });
-    const venueName = document.getElementById('venue-name');
-    const addressDetail = document.getElementById('address-detail');
-    const addressCity = document.getElementById('address-city');
-    const addressState = document.getElementById('address-state');
-    const addressZip = document.getElementById('address-zip');
-
-    validateField("place_id", place.place_id);
-    this.setState({ place_id: place.place_id, address_detail: "" });
-    if (place.types.includes("point_of_interest")) {
-      this.setState({ venue_name: place.name });
-      venueName.value = place.name;
-    } else {
-      this.setState({ venue_name: "" });
-      venueName.value = "";
-    }
-    const formattedAddress = place.formatted_address.split(", ");
-    input.value = formattedAddress[0];
-    addressDetail.value = "";
-    addressCity.value = formattedAddress[1];
-    addressState.value = formattedAddress[2].split(" ")[0];
-    addressZip.value = formattedAddress[2].split(" ")[1];
-  });
-}
 
   save(e){
 
@@ -277,6 +222,12 @@ class EventForm extends React.Component{
    };
   }
 
+  handleLocationChange(loc) {
+    this.setState(loc);
+    let a= "test";
+    let b = "test";
+  }
+
   topicSelectedIndexChanged(e){
     this.setState({
       topic_id: e.target.value
@@ -345,21 +296,15 @@ class EventForm extends React.Component{
                           />
                           <span className="event-form-error"></span>
                       </div>
+
                       <div className="details-attr">
                         <label>Location</label>
-                        <input id="address-input"
-                          type="text"
-                          value={this.state.adresse_line1}
-                          placeholder="Specify where it held."
-                          onChange={this.update('adresse_line1')}
-                          />
-                          <span className="event-form-error"
-                            id="event-form-address-error"></span>
-
-                            <div className="map-container">
-                              <div id="thumb-map" ref="map"></div>
-                            </div>
-
+                          <LocationPicker
+                            placeholder="Specify where it held"
+                            errors={this.props.errors}
+                              location={this.state.location}
+                              handler={this.handleLocationChange}
+                             />
                       </div>
 
                       <div className="details-g-attr">
@@ -502,5 +447,21 @@ class EventForm extends React.Component{
     );
   }
 }
-
+// <div className="details-attr">
+//   <label>Location</label>
+//   <input id="address-input2"
+//     type="text"
+//     value={this.state.adresse_line1}
+//     placeholder="Specify where it held."
+//     onChange={this.update('adresse_line1')}
+//     />
+//
+//     <span className="event-form-error"
+//       id="event-form-address-error"></span>
+//
+//       <div className="map-container">
+//         <div id="thumb-map" ref="map"></div>
+//       </div>
+//
+// </div>
 export default (EventForm);
