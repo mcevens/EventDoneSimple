@@ -23,6 +23,7 @@
 require 'date'
 
 class Event < ActiveRecord::Base
+  # attr_reader :was_bookmarked
 
   validates :title, presence: true
   validates :creater_id, :topic_id, :subtopic_id, presence: true
@@ -128,10 +129,6 @@ class Event < ActiveRecord::Base
       all_events = Event.all
       return all_events
     end
-
-  end
-
-  def was_bookmarked
 
   end
 
