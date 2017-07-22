@@ -67,15 +67,42 @@ class Event < ActiveRecord::Base
   )
 
   def self.find_all_bookmarked_by_current_user(current_user, title, city, date)
+    s_date = '1900-01-01'
+    e_date = Date.today + 2.year
 
-    # s_date = '1900-01-01'
-    # e_date = now
-# , :s_date => "%#{date}%" }, :e_date => "%#{e_date}"
-# class ChangeStartDateFormantInEvent < ActiveRecord::Migration[5.0]
-#   def change
-#     change_column :events, :start_date, :datetime
-#   end
-# end
+    case date
+    when "Today"
+      s_date = Date.today - 1.day
+      s_date = s_date.strftime("%D")
+      e_date = Date.today + 1.day
+      e_date = e_date.strftime("%D")
+    when "Tomorrow"
+      s_date = Date.today
+      s_date = s_date.strftime("%D")
+      e_date = Date.today + 1.day
+      e_date = e_date.strftime("%D")
+    when "This Week"
+      s_date = Date.today.beginning_of_week - 1.day
+      s_date = s_date.strftime("%D")
+      e_date = Date.today.beginning_of_week + 8.day
+      e_date = e_date.strftime("%D")
+    when "This Weekend"
+      s_date = Date.today.beginning_of_week + 5.day
+      s_date = s_date.strftime("%D")
+      e_date = Date.today.beginning_of_week + 8.day
+      e_date = e_date.strftime("%D")
+    when "Next Week"
+      s_date = Date.today.beginning_of_week + 7.day
+      s_date = s_date.strftime("%D")
+      e_date = Date.today + 15.day
+      e_date = e_date.strftime("%D")
+    when "Next Month"
+      s_date = Date.today.beginning_of_month - 1.day
+      s_date = s_date.strftime("%D")
+      e_date = Date.today.end_of_month + 1.day
+      e_date = e_date.strftime("%D")
+    else
+    end
 
     if current_user
       values =  Event.find_by_sql(["
@@ -94,7 +121,7 @@ class Event < ActiveRecord::Base
          LEFT JOIN
            event_bookmarks on event_bookmarks.event_id = events.id and event_bookmarks.user_id = :user_id
          WHERE Lower(events.title) LIKE :title and Lower(events.adresse_line1) LIKE :city
-          ", {:user_id => current_user.id, :title => "%#{title}%", :city => "%#{city}%", :date => "%#{date}%" }]
+          and start_date > :s_date and start_date < :e_date", {:user_id => current_user.id, :title => "%#{title}%", :city => "%#{city}%", :s_date => "#{s_date}%", :e_date => "#{e_date}" } ]
         )
       values
     else

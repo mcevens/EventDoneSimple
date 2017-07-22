@@ -453,21 +453,5 @@ class EventForm extends React.Component{
     );
   }
 }
-// <div className="details-attr">
-//   <label>Location</label>
-//   <input id="address-input2"
-//     type="text"
-//     value={this.state.adresse_line1}
-//     placeholder="Specify where it held."
-//     onChange={this.update('adresse_line1')}
-//     />
-//
-//     <span className="event-form-error"
-//       id="event-form-address-error"></span>
-//
-//       <div className="map-container">
-//         <div id="thumb-map" ref="map"></div>
-//       </div>
-//
-// </div>
+
 export default (EventForm);

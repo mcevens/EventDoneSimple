@@ -8,7 +8,7 @@ class Api::EventsController < ApplicationController
     if params[:searchTerm].present?
       search_term = params[:searchTerm][0].downcase;
       city = params[:searchTerm][1].downcase;
-      date = params[:searchTerm][2].downcase;
+      date = params[:searchTerm][2];
     end
 
     @events = Event.find_all_bookmarked_by_current_user(current_user, search_term, city, date)

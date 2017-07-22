@@ -17,7 +17,7 @@ class EventHome  extends React.Component {
     super(props);
     this.state = { searchTerm: '' };
     this.state = { searchLocation: '' };
-    this.state = { searchDate: '' };
+    this.state = { searchDate: 'All Dates' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLocation = this.handleLocation.bind(this);
@@ -25,8 +25,6 @@ class EventHome  extends React.Component {
   }
 
   componentDidMount(){
-    // this.props.requestAllEvent();
-    // let searchTerm = this.state.searchTerm.split(' ').join('+');
     let searchTerm = this.state.searchTerm;
     let searchLocation = this.state.searchLocation;
     let searchDate = this.state.searchDate;
@@ -42,8 +40,8 @@ class EventHome  extends React.Component {
     let searchTerm = this.state.searchTerm;
     let searchLocation = this.state.searchLocation;
     let searchDate = this.state.searchDate;
-
     let values =[];
+
     values.push(searchTerm);
     values.push(searchLocation);
     values.push(searchDate);
@@ -56,6 +54,7 @@ class EventHome  extends React.Component {
   }
 
   handleDate(e){
+
     e.preventDefault();
     this.setState({ searchDate: e.currentTarget.value });
   }
@@ -102,7 +101,7 @@ class EventHome  extends React.Component {
                       <option value="Tomorrow">
                         Tomorrow
                       </option>
-                      <option value="This week">
+                      <option value="This Week">
                         This week
                       </option>
                       <option value="This Weekend">
