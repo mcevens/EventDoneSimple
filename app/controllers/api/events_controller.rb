@@ -71,6 +71,8 @@ class Api::EventsController < ApplicationController
      event_params[:image_url] = received_params[:image_url]
      event_params[:topic_id] = received_params[:topic_id]
      event_params[:subtopic_id] = received_params[:subtopic_id]
+     event_params[:long] = received_params[:long]
+     event_params[:lat] = received_params[:lat]
      event_params[:image] = received_params[:image]
      event = Event.new(event_params)
    end
@@ -115,6 +117,6 @@ class Api::EventsController < ApplicationController
    private
 
    def received_params
-     params.require(:event).permit(:id,:title, :image, :online, :start_date, :start_time, :end_date, :end_time,:description, :adresse_line1, :image_url, :topic_id, :subtopic_id, tickets_list: [], tickets:[])
+     params.require(:event).permit(:id,:title, :image, :online, :start_date, :start_time, :end_date, :end_time,:description, :adresse_line1, :image_url, :topic_id, :subtopic_id, :long, :lat, tickets_list: [], tickets:[])
    end
 end

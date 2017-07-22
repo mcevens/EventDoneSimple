@@ -36,7 +36,9 @@ class EventForm extends React.Component{
       tickets_list:{},
       hasTickets: 'block',
       noTickets: 'none',
-      pageTitle: 'Create An Event'
+      pageTitle: 'Create An Event',
+      long: 0,
+      lat: 0
     };
 
     this.update = this.update.bind(this);
@@ -77,6 +79,8 @@ class EventForm extends React.Component{
         formData.append("event[description]", this.state.description);
         formData.append("event[topic_id]", this.state.topic_id);
         formData.append("event[subtopic_id]", this.state.subtopic_id);
+        formData.append("event[long]", this.state.long);
+        formData.append("event[lat]", this.state.lat);
         formData.append("event[tickets]", stringTickets);
         formData.append("event[image]", this.state.imageFile);
         this.props.createEvent(formData).then((data) => {
@@ -223,9 +227,11 @@ class EventForm extends React.Component{
   }
 
   handleLocationChange(loc) {
-    this.setState(loc);
-    let a= "test";
-    let b = "test";
+    this.setState({
+        adresse_line1: loc.location,
+        long: loc.lng,
+        lat:loc.lat
+      });
   }
 
   topicSelectedIndexChanged(e){
