@@ -1,6 +1,6 @@
 # EventDoneSimple
 
-[Eventbryte LIVE](http://www.eventbryte.site)
+
 
 ![Mainpage](docs/img/home.jpg)
 

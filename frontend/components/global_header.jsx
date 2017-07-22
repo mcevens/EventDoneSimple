@@ -103,12 +103,6 @@ import { withRouter } from 'react-router-dom';
             <li>
               <Link to="/events">BROWSE EVENTS</Link>
             </li>
-            <li>
-              <a href="#">LEARN MORE</a>
-            </li>
-            <li>
-              <a href="#">HELP</a>
-            </li>
 
 
             { login() }
