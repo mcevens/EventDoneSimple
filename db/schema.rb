@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170721184238) do
+ActiveRecord::Schema.define(version: 20170722123137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,10 +29,6 @@ ActiveRecord::Schema.define(version: 20170721184238) do
     t.string   "lat"
     t.boolean  "online"
     t.string   "adresse_line1"
-    t.string   "start_date"
-    t.string   "start_time"
-    t.string   "end_date"
-    t.string   "end_time"
     t.string   "description"
     t.string   "image_url"
     t.integer  "topic_id"
@@ -43,6 +39,10 @@ ActiveRecord::Schema.define(version: 20170721184238) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.datetime "start_date"
+    t.datetime "start_time"
+    t.datetime "end_date"
+    t.datetime "end_time"
   end
 
   create_table "ticket_orders", force: :cascade do |t|

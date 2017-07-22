@@ -67,10 +67,21 @@ class Event < ActiveRecord::Base
   )
 
   def self.find_all_bookmarked_by_current_user(current_user, title, city, date)
+
+    # s_date = '1900-01-01'
+    # e_date = now
+# , :s_date => "%#{date}%" }, :e_date => "%#{e_date}"
+# class ChangeStartDateFormantInEvent < ActiveRecord::Migration[5.0]
+#   def change
+#     change_column :events, :start_date, :datetime
+#   end
+# end
+
     if current_user
       values =  Event.find_by_sql(["
          SELECT
              events.*
+
             ,case when event_bookmarks.id is null then
               false
             else
@@ -127,15 +138,15 @@ class Event < ActiveRecord::Base
   end
 
   def start_date_month
-    Date.parse(start_date).strftime("%b").upcase
+    start_date.strftime("%b")
   end
 
   def start_date_day
-    Date.parse(start_date).strftime("%u")
+    start_date.strftime("%u")
   end
 
   def start_date_full_date
-    Date.parse(start_date).strftime("%A, %b %d") + " " +  start_time[0..-4] + " " + Time.parse(start_time).strftime("%P")
+    start_date.strftime("%A, %b %d") + " " + start_time.strftime("%r")
   end
 
 end
