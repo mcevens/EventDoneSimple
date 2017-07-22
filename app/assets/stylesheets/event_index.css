@@ -245,13 +245,13 @@
 
   margin-left:auto;
   margin-right: auto;
-  width:800px;
+  width:900px;
 
 }
 
 .filter-box input {
   border: 1px solid #D2D6DF solid;
-
+  width:280px;
 }
 
 .event .search-div
