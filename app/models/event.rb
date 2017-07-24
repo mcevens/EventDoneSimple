@@ -23,7 +23,7 @@
 require 'date'
 
 class Event < ActiveRecord::Base
-  # attr_reader :was_bookmarked
+
 
   validates :title, presence: true
   validates :creater_id, :topic_id, :subtopic_id, presence: true
@@ -125,6 +125,7 @@ class Event < ActiveRecord::Base
           and start_date > :s_date and start_date < :e_date", {:user_id => current_user.id, :title => "%#{title}%", :city => "%#{city}%", :s_date => "#{s_date}%", :e_date => "#{e_date}" } ]
         )
       values
+      p values
     else
       all_events = Event.all
       return all_events
@@ -155,6 +156,10 @@ class Event < ActiveRecord::Base
      else
        return Event.find_by_id(id)
      end
+  end
+
+  def was_bookmarked
+    attributes['was_bookmarked']
   end
 
   def picture_from_url(url)
