@@ -23,7 +23,7 @@ class Api::EventsController < ApplicationController
      @tickets = newExtractTicket(params)
      @event.creater_id = current_user.id
      @event.subtopic_id = @event.topic_id
-     debugger
+
      if @event.save
        @tickets.each do |ticket|
          ticket.event_id = @event.id
