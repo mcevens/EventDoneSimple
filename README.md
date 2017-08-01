@@ -2,8 +2,6 @@
 
 [EventDoneSimple LIVE](http://www.eventdonesimple.site)
 
-![Mainpage](docs/img/home.jpg)
-
 EventDoneSimple is a full-stack web application inspired by [Eventbrite](http://www.eventbrite.com). This application was implemented using an MVC architecture whith Rails on the backend, and Redux React.js on the front end. PostgreSQL is the DBMS used for data persistance.
 
 ## Features & Implementation
@@ -25,12 +23,3 @@ EventDoneSimple is a full-stack web application inspired by [Eventbrite](http://
    * Edition of event
    * View information about an event
    * List all events
-
-### Categories
-
-  Events are grouped in categories ( Music ,  ). EventDoneSimple provide a module to
-  users
-
-
-
-### C

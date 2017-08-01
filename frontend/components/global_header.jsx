@@ -82,7 +82,7 @@ import { withRouter } from 'react-router-dom';
 
     if (headerOrigin !== 'home_index') {
       return (
-        <div className="search_bar" >
+        <div style={{display:"none"}} className="search_bar" >
            <img></img>
            <input placeholder="Search for events" type="text"></input>
 
