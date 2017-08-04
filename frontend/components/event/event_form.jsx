@@ -15,8 +15,17 @@ class EventForm extends React.Component{
     super(props);
     this.coords = {lat: props.lat, lng: props.lng};
     let today = new Date();
-    const now = moment().hour(0).minute(0);
+    let dd = today.getDate();
+    let mm = today.getMonth()+1;
+    let yyyy = today.getFullYear();
+    if (dd  < 10) {
+        dd='0'+dd;
+    }
+    if (mm < 10) {
+      mm ='0'+mm;
+    }
 
+    today  = yyyy + '-' + mm + '-' + dd;
     this.state = {
       title: '',
       adresse_line1: '',
@@ -299,6 +308,7 @@ class EventForm extends React.Component{
                           value={this.state.title}
                           placeholder="Give it a Short distinct name"
                           onChange={this.update('title')}
+                          required="required"
                           />
                           <span className="event-form-error"></span>
                       </div>
@@ -310,6 +320,7 @@ class EventForm extends React.Component{
                             errors={this.props.errors}
                               location={this.state.location}
                               handler={this.handleLocationChange}
+
                              />
                       </div>
 
@@ -323,7 +334,9 @@ class EventForm extends React.Component{
                                          id="event-form-start-date"
                                          className="date-picker"
                                          value={this.state.start_date}
-                                         onChange={this.update("start_date")}/>
+                                         onChange={this.update("start_date")}
+                                         required="required"
+                                         />
                                   <span className="event-form-error"></span>
                                 </div>
                                 <div>
@@ -332,7 +345,9 @@ class EventForm extends React.Component{
                                          className="time-picker"
                                          step="60"
                                          value={this.state.start_time}
-                                         onChange={this.update("start_time")}/>
+                                         onChange={this.update("start_time")}
+                                         required="required"
+                                         />
                                   <span className="event-form-error"></span>
                                 </div>
                               </div>
@@ -345,7 +360,9 @@ class EventForm extends React.Component{
                                          id="event-form-end-date"
                                          className="date-picker"
                                          value={this.state.end_date}
-                                         onChange={this.update("end_date")}/>
+                                         onChange={this.update("end_date")}
+                                         required="required"
+                                         />
                                   <span className="event-form-error"></span>
                                 </div>
                                 <div>
@@ -353,7 +370,9 @@ class EventForm extends React.Component{
                                          id="event-form-end-time"
                                          className="time-picker"
                                          value={this.state.end_time}
-                                         onChange={this.update("end_time")}/>
+                                         onChange={this.update("end_time")}
+                                         required="required"
+                                         />
                                   <span className="event-form-error"></span>
                                 </div>
                               </div>
@@ -438,10 +457,10 @@ class EventForm extends React.Component{
 
               <div>
                   <h1>Nice job! You're almost done.</h1>
-                  <button >
+                  <button id="btnSave" onClick={this.save}>
                     Save
                   </button>
-                   <button onClick={this.save} className="live-event">
+                   <button id="btnMakeEventLive" onClick={this.save} className="live-event">
                      Make Your Event Live
                    </button>
               </div>
