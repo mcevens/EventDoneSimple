@@ -3,14 +3,6 @@ import React from 'react';
 export default class LocationPicker extends React.Component {
   constructor(props) {
     super(props);
-
-    // optional props:
-    // errors
-    // location
-
-    // required props:
-    // handler({lat, lng, location})
-
     this.handler = this.props.handler;
   }
 
@@ -32,7 +24,6 @@ export default class LocationPicker extends React.Component {
     });
   }
 
-  // <i className="fa fa-search" aria-hidden="true"></i>
   render() {
     return (
       <label>

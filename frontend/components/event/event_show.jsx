@@ -78,8 +78,9 @@ class EventShow extends React.Component{
       <div>
         <GlobalHeader />
         <section className="app">
-          <img className="event-show-background-image" src="" />
+            <div className="event-show-background">
 
+            </div>
         <div className="event-show">
 
             <div className="event-show-header">
@@ -133,16 +134,16 @@ class EventShow extends React.Component{
                    <div>
                      <h3>DATE AND TIME</h3>
                        <div>
-                         <p>{event.start_date}</p>
+                         <p>{event.start_date_full_date}</p>
                        </div>
                        <div>
-                         <p>{event.start_time}</p>
+                         <p>{event.start_time_short }</p>
                        </div>
                    </div>
                    <div>
                         <h3>Location</h3>
                           <div>
-                            <p>{event.addresse_line1}</p>
+                            <p>{event.adresse_line1}</p>
                           </div>
                           <div>
                             <p>{event.start_time}</p>

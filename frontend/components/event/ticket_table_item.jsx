@@ -80,6 +80,7 @@ class TicketTableItem extends React.Component{
                 placeholder="Early Bird, RSVP..."
                 value={this.state.name}
                 onChange={this.update('name')}
+                required="required"
                  />
             </li>
             <li>
@@ -98,6 +99,7 @@ class TicketTableItem extends React.Component{
                     placeholder="15.00"
                     value={this.state.price}
                     onChange={this.update('price')}
+
                     />
               </div>
             </li>

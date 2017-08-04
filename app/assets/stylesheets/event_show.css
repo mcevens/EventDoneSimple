@@ -10,12 +10,29 @@
     height: 800px;
 
 }
+
+.event-show h3{
+
+  margin-bottom:10px;
+
+}
+
 .event-show-header{
   display: flex;
 }
 
 .event-show-header-image{
   width: 700px;
+}
+
+.event-show-background{
+  background: #516880;
+  background: -webkit-linear-gradient(-90deg, #482920, #516880);
+  background: -o-linear-gradient(-90deg, #482920, #516880);
+  background: -moz-linear-gradient(-90deg, #482920, #516880);
+  background: linear-gradient(-90deg, #482920, #516880);
+  width: 100%;
+  height: 550px;
 }
 
 .event-show-header img{

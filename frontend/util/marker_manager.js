@@ -31,6 +31,16 @@ class MarkerManager {
     this.markers[marker.eventId] = marker;
   }
 
+  createCurrentPositionMarker(pos){
+    var im = 'http://www.robotwoods.com/dev/misc/bluecircle.png';
+    const position = new google.maps.LatLng(parseFloat(pos.lat), parseFloat(pos.lng));
+    const marker = new google.maps.Marker({
+      position,
+      map: this.map,
+      icon: im
+    });
+  }
+
   removeMarker(marker) {
     this.markers[marker.eventId].setMap(null);
     delete this.markers[marker.eventId];

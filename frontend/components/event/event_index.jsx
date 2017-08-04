@@ -8,18 +8,42 @@ import EventIndexItem from './event_index_item';
 import EventIndexItemContainer from './event_index_item_container';
 import { Link } from 'react-router-dom';
 import EventMap from './event_map';
-
+import LocationPicker from '../search/location_picker';
 
 class EventIndex  extends React.Component {
 
   constructor(props){
     super(props);
+    this.state = { searchTerm: '' };
+    this.state = { searchLocation: '' };
+    this.state = { searchDate: 'All Dates' };
+    this.handleLocationChange = this.handleLocationChange.bind(this);
   }
 
   componentDidMount(){
-    this.props.requestAllEvent();
+    let searchTerm = this.state.searchTerm;
+    let searchLocation = this.state.searchLocation;
+    let searchDate = this.state.searchDate;
+    let values =[];
+    values.push(searchTerm);
+    values.push(searchLocation);
+    values.push(searchDate);
+    this.props.requestAllEvent(values);
   }
 
+  handleLocationChange(loc) {
+    this.setState({
+        searchLocation: loc.location
+      });
+      let searchTerm = this.state.searchTerm;
+      let searchLocation = this.state.searchLocation;
+      let searchDate = this.state.searchDate;
+      let values =[];
+      values.push(searchTerm);
+      values.push(searchLocation);
+      values.push(searchDate);
+      this.props.requestAllEvent(values);
+  }
   render(){
 
     let eventsData = this.props.events;
@@ -40,7 +64,12 @@ class EventIndex  extends React.Component {
               </div>
               <div className="filter-placeholder">
                  <div className="filter-location-search">
-                    <input type="text" placeholder="Enter location" />
+                   <LocationPicker
+                     placeholder="City or location"
+                     errors={this.props.errors}
+                       location={this.state.searchLocation}
+                       handler={this.handleLocationChange}
+                      />
                  </div>
                  <div className="filter-list">
                    <ul>

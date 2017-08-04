@@ -175,7 +175,15 @@ class Event < ActiveRecord::Base
   end
 
   def start_date_full_date
-    start_date.strftime("%A, %b %d") + " " + start_time.strftime("%r")
+    start_date.strftime("%A, %b %d")
+  end
+
+  def start_time_short
+    return start_time.strftime("%I:%M %p")  if start_time
+  end
+
+  def end_time_short
+    return end_time.strftime("%I:%M %p") if end_time
   end
 
 end

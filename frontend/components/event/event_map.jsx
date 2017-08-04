@@ -8,19 +8,34 @@ const getCoordsObj = latLng => ({
   lng: latLng.lng()
 });
 
-const mapOptions = {
+let mapOptions = {
   center: {
-    lat: 37.773972,
-    lng: -122.431297
-  }, // San Francisco coords
+    lat: 40.745239,
+    lng: -73.993972
+  },
   zoom: 13
 };
 
+
 class EventMap extends React.Component {
   componentDidMount() {
+    if (navigator.geolocation) {
+      let ctxt = this;
+      navigator.geolocation.getCurrentPosition(function(position){
+        let crds = position.coords;
+        mapOptions.center.lat = crds.latitude;
+        mapOptions.center.lng = crds.longitude;
+        ctxt.setupMap();
+      });
+    }
+   this.setupMap();
+  }
+
+  setupMap(){
     const map = this.refs.map;
     this.map = new google.maps.Map(map, mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
+    this.MarkerManager.createCurrentPositionMarker(mapOptions.center);
     if (this.props.singleEvent) {
       this.props.fetchEvent(this.props.eventId);
     } else {
@@ -28,12 +43,12 @@ class EventMap extends React.Component {
       this.MarkerManager.updateMarkers(this.props.events);
     }
   }
-  //
+
   componentDidUpdate() {
     if (this.props.singleEvent) {
       const targetEventKey = Object.keys(this.props.events)[0];
       const targetEvent = this.props.events[targetEventKey];
-      this.MarkerManager.updateMarkers([targetEvent]); //grabs only that one bench
+      this.MarkerManager.updateMarkers([targetEvent]);
     } else {
       this.MarkerManager.updateMarkers(this.props.events);
     }
