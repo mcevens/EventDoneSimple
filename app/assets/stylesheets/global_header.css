@@ -99,6 +99,8 @@ nav li > ul {
  nav li:hover ul {
 
   display: block;
+  position:absolute;
+  z-index:1000;
 
 }
 
