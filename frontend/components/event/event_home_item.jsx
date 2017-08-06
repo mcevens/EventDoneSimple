@@ -53,7 +53,7 @@ class EventHomeItem extends React.Component{
                  <div className="event-home-item-header-image">
                    <img src={event.image_url} height="165" width="330"></img>
                      <div className="event-home-item-footer-image">
-                         <label>FREE</label>
+                         <label>{event.price_range}</label>
                      </div>
                    </div>
                  <div className="event-home-item-header-text">

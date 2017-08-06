@@ -85,8 +85,8 @@ if Event.all.count === 0
 event1 = Event.create(
 creater_id:test_user.id,
 title: "NYC PARKS PRESENTS ARTS, CULTURE & FUN:",
-long: nil,
-lat: nil,
+long: -73.127751,
+lat: 40.836209,
 online: nil,
 adresse_line1: "El Castillo, San Nicolas",
 start_date:"2017-12-25 00:00:00",

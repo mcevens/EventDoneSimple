@@ -75,7 +75,7 @@ class EventIndexItem extends React.Component{
          </div>
          <div className="event-index-item-footer">
            <div className="event-index-item-footer-image">
-               <label>FREE</label>
+               <label>{event.price_range}</label>
            </div>
            <div className="event-index-item-footer-text">
              <div className="event-index-item-footer-text-label">

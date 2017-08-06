@@ -67,6 +67,30 @@ class Event < ActiveRecord::Base
     primary_key: :id
   )
 
+  def price_range
+    min = 0.0
+    max = 0.0
+    tickets.each_with_index do |ticket,idx|
+      if idx == 0
+        min = ticket.price
+      end
+      if ticket.price > max
+        max = ticket.price
+      end
+      if ticket.price < min
+        min = ticket.price
+      end
+    end
+    if min == max
+      if min == 0.0
+        return "FREE"
+      else
+        return "$#{min}"
+      end
+    end
+     "$#{min.to_s} - $#{max.to_s}"
+  end
+
   def self.find_all_bookmarked_by_current_user(current_user, title, city, date)
     s_date = '1900-01-01'
     e_date = Date.today + 2.year
