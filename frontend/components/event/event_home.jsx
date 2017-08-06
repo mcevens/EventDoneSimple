@@ -10,7 +10,6 @@ import DemoCarousel from './carrousel';
 import HomeSearch from '../search/home_search';
 import HomeSearchContainer from '../search/home_search_container';
 import LocationPicker from '../search/location_picker';
-import HomeCategoryPictures from './home_category_pictures';
 
 class EventHome  extends React.Component {
 
