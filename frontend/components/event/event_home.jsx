@@ -138,7 +138,7 @@ class EventHome  extends React.Component {
 
             </div>
             <div className="event-category-list">
-              <HomeCategoryPictures />
+
             </div>
           </div>
         </section>
