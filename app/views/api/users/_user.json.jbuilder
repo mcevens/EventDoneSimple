@@ -1,4 +1,4 @@
-json.extract! user, :id, :email
+json.extract! user, :id, :email, :saved_bookmark_events_count, :ticket_orders_count
 # json.ticket_orders do
 #   json.array! @user.ticket_orders, partial: 'api/ticket_orders/ticket_order', as: :ticket_order
 # # end

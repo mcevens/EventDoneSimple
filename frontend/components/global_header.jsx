@@ -13,25 +13,23 @@ import { withRouter } from 'react-router-dom';
     if (currentUser) {
       return (
           <ul className="user-menu-dropdown">
-            <li>
-              <Link to="/signup">Tickets</Link>
+            <li style={{display:"none"}}>
+              <Link to="/signup">{`Tickets (${currentUser.ticket_orders_count})`} </Link>
             </li>
-            <li>
-              <Link to="/signup">Saved</Link>
+            <li style={{display:"none"}}>
+              <Link to="/signup">{`Saved (${currentUser.saved_bookmark_events_count})`}</Link>
             </li>
-            <li>
+            <li >
               <Link to="/manage_event">Manage Events</Link>
             </li>
-            <li>
+            <li style={{display:"none"}}>
               <Link to="/signup">Organizer Profile</Link>
             </li>
-            <li>
+            <li style={{display:"none"}}>
             <Link to="/signup">Contacts</Link>
-
             </li>
-            <li>
+            <li style={{display:"none"}}>
               <Link to="/signup">Account Settings</Link>
-
             </li>
             <li>
               <button id="logout-button" onClick={logout}>

@@ -105,7 +105,7 @@ class EventShow extends React.Component{
 
             </div>
              <div className="event-show-action">
-               <div className="event-show-action-bookmark">
+               <div className="event-show-action`-bookmark">
                    <form onSubmit={this.handleSubmit}>
                      <button title={tooltip}>
                        <span style={{display:displaybookmark}}

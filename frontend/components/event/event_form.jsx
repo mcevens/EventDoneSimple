@@ -263,10 +263,10 @@ class EventForm extends React.Component{
                   <h1>{this.state.pageTitle}</h1>
                 </header>
                 <div>
-                  <button onClick={this.save}>
+                  <button style={{display:"none"}} onClick={this.save}>
                     SAVE
                   </button>
-                  <button>
+                  <button style={{display:"none"}}>
                     PREVIEW
                   </button>
                   <button className="live-event" onClick={this.save}>
@@ -457,7 +457,7 @@ class EventForm extends React.Component{
 
               <div>
                   <h1>Nice job! You're almost done.</h1>
-                  <button id="btnSave" onClick={this.save}>
+                  <button id="btnSave" style={{display:"none"}} onClick={this.save}>
                     Save
                   </button>
                    <button id="btnMakeEventLive" onClick={this.save} className="live-event">
