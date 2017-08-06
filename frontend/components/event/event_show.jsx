@@ -99,7 +99,7 @@ class EventShow extends React.Component{
                     <p> {`by ${ event.title }`} </p>
                 </div>
                 <div className="event-show-header-type-ticket" >
-                   <label>FREE</label>
+                   <label>{event.price_range}</label>
                 </div>
               </div>
 
